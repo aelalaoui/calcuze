@@ -290,32 +290,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="grid grid-cols-4 gap-3">
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="clearAll()" >AC</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="toggleSign()">+/-</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="percentage()" >%</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('/')">÷</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(7)">7</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(8)">8</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(9)">9</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('*')">×</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(4)">4</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(5)">5</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(6)">6</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('-')">-</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(1)">1</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(2)">2</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(3)">3</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('+')">+</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumber(0)">0</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendDecimal()">.</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="calculate()" >=</button>
-            </div>
         </div>
 
         <!-- History panel -->
@@ -421,6 +395,10 @@
     </div>
 </div>
 
-<script src="scripts/calc.js"></script>
+<script src="scripts/common.js"></script>
+<script src="scripts/normal.js"></script>
+<script src="scripts/scientific.js"></script>
+<script src="scripts/economic.js"></script>
+<script src="scripts/conversion.js"></script>
 </body>
 </html>
