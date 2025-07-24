@@ -4,234 +4,234 @@
 
     <!-- Default/Main Pages -->
     <url>
-        <loc>https://calcpro.com/</loc>
+        <loc>https://Calcuze.com/</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://calcpro.com/?lang=en&amp;country=US" />
-        <xhtml:link rel="alternate" hreflang="en-GB" href="https://calcpro.com/?lang=en&amp;country=GB" />
-        <xhtml:link rel="alternate" hreflang="en-CA" href="https://calcpro.com/?lang=en&amp;country=CA" />
-        <xhtml:link rel="alternate" hreflang="en-AU" href="https://calcpro.com/?lang=en&amp;country=AU" />
-        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://calcpro.com/?lang=fr&amp;country=FR" />
-        <xhtml:link rel="alternate" hreflang="fr-CA" href="https://calcpro.com/?lang=fr&amp;country=CA" />
-        <xhtml:link rel="alternate" hreflang="fr-BE" href="https://calcpro.com/?lang=fr&amp;country=BE" />
-        <xhtml:link rel="alternate" hreflang="es-ES" href="https://calcpro.com/?lang=es&amp;country=ES" />
-        <xhtml:link rel="alternate" hreflang="es-MX" href="https://calcpro.com/?lang=es&amp;country=MX" />
-        <xhtml:link rel="alternate" hreflang="es-AR" href="https://calcpro.com/?lang=es&amp;country=AR" />
-        <xhtml:link rel="alternate" hreflang="es-CO" href="https://calcpro.com/?lang=es&amp;country=CO" />
-        <xhtml:link rel="alternate" hreflang="it-IT" href="https://calcpro.com/?lang=it&amp;country=IT" />
-        <xhtml:link rel="alternate" hreflang="ar-SA" href="https://calcpro.com/?lang=ar&amp;country=SA" />
-        <xhtml:link rel="alternate" hreflang="ar-AE" href="https://calcpro.com/?lang=ar&amp;country=AE" />
-        <xhtml:link rel="alternate" hreflang="ar-EG" href="https://calcpro.com/?lang=ar&amp;country=EG" />
-        <xhtml:link rel="alternate" hreflang="de-DE" href="https://calcpro.com/?lang=de&amp;country=DE" />
-        <xhtml:link rel="alternate" hreflang="de-AT" href="https://calcpro.com/?lang=de&amp;country=AT" />
-        <xhtml:link rel="alternate" hreflang="de-CH" href="https://calcpro.com/?lang=de&amp;country=CH" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://calcpro.com/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://Calcuze.com/?lang=en&amp;country=US" />
+        <xhtml:link rel="alternate" hreflang="en-GB" href="https://Calcuze.com/?lang=en&amp;country=GB" />
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://Calcuze.com/?lang=en&amp;country=CA" />
+        <xhtml:link rel="alternate" hreflang="en-AU" href="https://Calcuze.com/?lang=en&amp;country=AU" />
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://Calcuze.com/?lang=fr&amp;country=FR" />
+        <xhtml:link rel="alternate" hreflang="fr-CA" href="https://Calcuze.com/?lang=fr&amp;country=CA" />
+        <xhtml:link rel="alternate" hreflang="fr-BE" href="https://Calcuze.com/?lang=fr&amp;country=BE" />
+        <xhtml:link rel="alternate" hreflang="es-ES" href="https://Calcuze.com/?lang=es&amp;country=ES" />
+        <xhtml:link rel="alternate" hreflang="es-MX" href="https://Calcuze.com/?lang=es&amp;country=MX" />
+        <xhtml:link rel="alternate" hreflang="es-AR" href="https://Calcuze.com/?lang=es&amp;country=AR" />
+        <xhtml:link rel="alternate" hreflang="es-CO" href="https://Calcuze.com/?lang=es&amp;country=CO" />
+        <xhtml:link rel="alternate" hreflang="it-IT" href="https://Calcuze.com/?lang=it&amp;country=IT" />
+        <xhtml:link rel="alternate" hreflang="ar-SA" href="https://Calcuze.com/?lang=ar&amp;country=SA" />
+        <xhtml:link rel="alternate" hreflang="ar-AE" href="https://Calcuze.com/?lang=ar&amp;country=AE" />
+        <xhtml:link rel="alternate" hreflang="ar-EG" href="https://Calcuze.com/?lang=ar&amp;country=EG" />
+        <xhtml:link rel="alternate" hreflang="de-DE" href="https://Calcuze.com/?lang=de&amp;country=DE" />
+        <xhtml:link rel="alternate" hreflang="de-AT" href="https://Calcuze.com/?lang=de&amp;country=AT" />
+        <xhtml:link rel="alternate" hreflang="de-CH" href="https://Calcuze.com/?lang=de&amp;country=CH" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://Calcuze.com/" />
     </url>
 
     <!-- English Variants -->
     <url>
-        <loc>https://calcpro.com/?lang=en&amp;country=US</loc>
+        <loc>https://Calcuze.com/?lang=en&amp;country=US</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en-US" href="https://calcpro.com/?lang=en&amp;country=US" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://calcpro.com/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://Calcuze.com/?lang=en&amp;country=US" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://Calcuze.com/" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=en&amp;country=GB</loc>
+        <loc>https://Calcuze.com/?lang=en&amp;country=GB</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="en-GB" href="https://calcpro.com/?lang=en&amp;country=GB" />
+        <xhtml:link rel="alternate" hreflang="en-GB" href="https://Calcuze.com/?lang=en&amp;country=GB" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=en&amp;country=CA</loc>
+        <loc>https://Calcuze.com/?lang=en&amp;country=CA</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="en-CA" href="https://calcpro.com/?lang=en&amp;country=CA" />
+        <xhtml:link rel="alternate" hreflang="en-CA" href="https://Calcuze.com/?lang=en&amp;country=CA" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=en&amp;country=AU</loc>
+        <loc>https://Calcuze.com/?lang=en&amp;country=AU</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="en-AU" href="https://calcpro.com/?lang=en&amp;country=AU" />
+        <xhtml:link rel="alternate" hreflang="en-AU" href="https://Calcuze.com/?lang=en&amp;country=AU" />
     </url>
 
     <!-- French Variants -->
     <url>
-        <loc>https://calcpro.com/?lang=fr&amp;country=FR</loc>
+        <loc>https://Calcuze.com/?lang=fr&amp;country=FR</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://calcpro.com/?lang=fr&amp;country=FR" />
+        <xhtml:link rel="alternate" hreflang="fr-FR" href="https://Calcuze.com/?lang=fr&amp;country=FR" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=fr&amp;country=CA</loc>
+        <loc>https://Calcuze.com/?lang=fr&amp;country=CA</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="fr-CA" href="https://calcpro.com/?lang=fr&amp;country=CA" />
+        <xhtml:link rel="alternate" hreflang="fr-CA" href="https://Calcuze.com/?lang=fr&amp;country=CA" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=fr&amp;country=BE</loc>
+        <loc>https://Calcuze.com/?lang=fr&amp;country=BE</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="fr-BE" href="https://calcpro.com/?lang=fr&amp;country=BE" />
+        <xhtml:link rel="alternate" hreflang="fr-BE" href="https://Calcuze.com/?lang=fr&amp;country=BE" />
     </url>
 
     <!-- Spanish Variants -->
     <url>
-        <loc>https://calcpro.com/?lang=es&amp;country=ES</loc>
+        <loc>https://Calcuze.com/?lang=es&amp;country=ES</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="es-ES" href="https://calcpro.com/?lang=es&amp;country=ES" />
+        <xhtml:link rel="alternate" hreflang="es-ES" href="https://Calcuze.com/?lang=es&amp;country=ES" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=es&amp;country=MX</loc>
+        <loc>https://Calcuze.com/?lang=es&amp;country=MX</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="es-MX" href="https://calcpro.com/?lang=es&amp;country=MX" />
+        <xhtml:link rel="alternate" hreflang="es-MX" href="https://Calcuze.com/?lang=es&amp;country=MX" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=es&amp;country=AR</loc>
+        <loc>https://Calcuze.com/?lang=es&amp;country=AR</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="es-AR" href="https://calcpro.com/?lang=es&amp;country=AR" />
+        <xhtml:link rel="alternate" hreflang="es-AR" href="https://Calcuze.com/?lang=es&amp;country=AR" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=es&amp;country=CO</loc>
+        <loc>https://Calcuze.com/?lang=es&amp;country=CO</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="es-CO" href="https://calcpro.com/?lang=es&amp;country=CO" />
+        <xhtml:link rel="alternate" hreflang="es-CO" href="https://Calcuze.com/?lang=es&amp;country=CO" />
     </url>
 
     <!-- Italian Variant -->
     <url>
-        <loc>https://calcpro.com/?lang=it&amp;country=IT</loc>
+        <loc>https://Calcuze.com/?lang=it&amp;country=IT</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="it-IT" href="https://calcpro.com/?lang=it&amp;country=IT" />
+        <xhtml:link rel="alternate" hreflang="it-IT" href="https://Calcuze.com/?lang=it&amp;country=IT" />
     </url>
 
     <!-- Arabic Variants -->
     <url>
-        <loc>https://calcpro.com/?lang=ar&amp;country=SA</loc>
+        <loc>https://Calcuze.com/?lang=ar&amp;country=SA</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="ar-SA" href="https://calcpro.com/?lang=ar&amp;country=SA" />
+        <xhtml:link rel="alternate" hreflang="ar-SA" href="https://Calcuze.com/?lang=ar&amp;country=SA" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=ar&amp;country=AE</loc>
+        <loc>https://Calcuze.com/?lang=ar&amp;country=AE</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="ar-AE" href="https://calcpro.com/?lang=ar&amp;country=AE" />
+        <xhtml:link rel="alternate" hreflang="ar-AE" href="https://Calcuze.com/?lang=ar&amp;country=AE" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=ar&amp;country=EG</loc>
+        <loc>https://Calcuze.com/?lang=ar&amp;country=EG</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="ar-EG" href="https://calcpro.com/?lang=ar&amp;country=EG" />
+        <xhtml:link rel="alternate" hreflang="ar-EG" href="https://Calcuze.com/?lang=ar&amp;country=EG" />
     </url>
 
     <!-- German Variants -->
     <url>
-        <loc>https://calcpro.com/?lang=de&amp;country=DE</loc>
+        <loc>https://Calcuze.com/?lang=de&amp;country=DE</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="de-DE" href="https://calcpro.com/?lang=de&amp;country=DE" />
+        <xhtml:link rel="alternate" hreflang="de-DE" href="https://Calcuze.com/?lang=de&amp;country=DE" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=de&amp;country=AT</loc>
+        <loc>https://Calcuze.com/?lang=de&amp;country=AT</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="de-AT" href="https://calcpro.com/?lang=de&amp;country=AT" />
+        <xhtml:link rel="alternate" hreflang="de-AT" href="https://Calcuze.com/?lang=de&amp;country=AT" />
     </url>
 
     <url>
-        <loc>https://calcpro.com/?lang=de&amp;country=CH</loc>
+        <loc>https://Calcuze.com/?lang=de&amp;country=CH</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="de-CH" href="https://calcpro.com/?lang=de&amp;country=CH" />
+        <xhtml:link rel="alternate" hreflang="de-CH" href="https://Calcuze.com/?lang=de&amp;country=CH" />
     </url>
 
     <!-- Contact Pages for each language/country -->
     <url>
-        <loc>https://calcpro.com/contact.html</loc>
+        <loc>https://Calcuze.com/contact.html</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://calcpro.com/contact.html?lang=en&amp;country=US</loc>
+        <loc>https://Calcuze.com/contact.html?lang=en&amp;country=US</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://calcpro.com/contact.html?lang=fr&amp;country=FR</loc>
+        <loc>https://Calcuze.com/contact.html?lang=fr&amp;country=FR</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://calcpro.com/contact.html?lang=es&amp;country=ES</loc>
+        <loc>https://Calcuze.com/contact.html?lang=es&amp;country=ES</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://calcpro.com/contact.html?lang=es&amp;country=MX</loc>
+        <loc>https://Calcuze.com/contact.html?lang=es&amp;country=MX</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://calcpro.com/contact.html?lang=it&amp;country=IT</loc>
+        <loc>https://Calcuze.com/contact.html?lang=it&amp;country=IT</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://calcpro.com/contact.html?lang=ar&amp;country=SA</loc>
+        <loc>https://Calcuze.com/contact.html?lang=ar&amp;country=SA</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://calcpro.com/contact.html?lang=de&amp;country=DE</loc>
+        <loc>https://Calcuze.com/contact.html?lang=de&amp;country=DE</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
