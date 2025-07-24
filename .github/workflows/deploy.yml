@@ -1,0 +1,26 @@
+name: 🚀 Déploiement automatique sur Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Déployer via FTP chez Hostinger
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Récupérer le code du dépôt
+        uses: actions/checkout@v3
+
+      - name: 📤 Envoyer les fichiers sur Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
+          protocol: ftp
+          port: 21
+          local-dir: ./  # ou ./dist si tu compiles avant
