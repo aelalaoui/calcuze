@@ -1,0 +1,60 @@
+/* Calculator Button Styles */
+.calculator-btn {
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.calculator-btn:active {
+    transform: scale(0.95);
+}
+
+/* Mode Button Styles */
+.mode-btn.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* Display Area */
+.display {
+    min-height: 80px;
+}
+
+/* History Item Hover Effect */
+.history-item:hover {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}
+
+/* Conversion Select Dropdown */
+.conversion-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
+}
+
+/* Advertisement Banner */
+.ad-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid #f8fafc;
+}
+
+/* History Sidebar */
+.history-sidebar {
+    background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 100%);
+    border: 2px solid #3b82f6;
+}
+
+/* Logo Section */
+.logo-section {
+    background: linear-gradient(45deg, #3b82f6 0%, #1d4ed8 100%);
+    border: 2px solid #f8fafc;
+}
+
+/* SEO Footer */
+.seo-footer {
+    background: linear-gradient(to right, #f1f5f9 0%, #e2e8f0 100%);
+    border: 2px solid #3b82f6;
+}
+

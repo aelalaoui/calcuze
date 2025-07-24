@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CalcPro Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Main Container -->
+    <div class="min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-[300px_1fr_300px] gap-4 p-4">
+
+        <!-- Top Header with Logo and Navigation -->
+        <div class="col-span-3 grid grid-cols-[300px_1fr] gap-4">
+            <!-- Logo Section -->
+            <div class="logo-section rounded-xl p-4 flex items-center justify-center">
+                <div class="text-white text-center">
+                    <i class="fas fa-calculator text-4xl mb-2"></i>
+                    <h1 class="text-xl font-bold">CalcPro</h1>
+                    <p class="text-sm opacity-80">Professional Calculator</p>
+                </div>
+            </div>
+
+            <!-- Navigation Header -->
+            <div class="bg-white rounded-xl p-6 flex items-center justify-between shadow-lg">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center text-blue-600 hover:text-blue-800 transition">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Back to Calculator
+                    </a>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-2xl font-bold text-gray-800">Contact Us</h1>
+                    <p class="text-gray-600">Get in touch with our team</p>
+                </div>
+                <div class="w-32"></div> <!-- Spacer for centering -->
+            </div>
+        </div>
+
+        <!-- Left Sidebar - Contact Info -->
+        <div class="ad-banner rounded-xl p-4 flex flex-col justify-center">
+            <div class="text-white text-center">
+                <i class="fas fa-envelope text-4xl mb-4"></i>
+                <h3 class="text-lg font-bold mb-4">Get In Touch</h3>
+                <div class="space-y-3 text-sm opacity-90">
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <span>adil.ksjo@gmail.com</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-reply mr-2"></i>
+                        <span>Quick Response</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form Section (Main Content) -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-blue-600 p-4 text-white">
+                <h2 class="text-xl font-bold text-center">Contact Form</h2>
+                <p class="text-center text-sm opacity-90 mt-1">Send us a message and we'll get back to you</p>
+            </div>
+
+            <div class="p-6">
+                <form id="contact-form" class="space-y-6">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-user mr-2 text-blue-600"></i>
+                            Full Name *
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                            placeholder="Enter your full name"
+                        >
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-envelope mr-2 text-blue-600"></i>
+                            Email Address *
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                            placeholder="Enter your email address"
+                        >
+                    </div>
+
+                    <!-- Subject Field -->
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-tag mr-2 text-blue-600"></i>
+                            Subject *
+                        </label>
+                        <select
+                            id="subject"
+                            name="subject"
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                        >
+                            <option value="">Select a subject</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Business Partnership">Business Partnership</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-comment mr-2 text-blue-600"></i>
+                            Message *
+                        </label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            required
+                            rows="6"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+                            placeholder="Enter your message here..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button
+                            type="submit"
+                            id="submit-btn"
+                            class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center"
+                        >
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                        <button
+                            type="reset"
+                            class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center"
+                        >
+                            <i class="fas fa-redo mr-2"></i>
+                            Reset Form
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Status Messages -->
+                <div id="status-message" class="mt-4 hidden"></div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - FAQ -->
+        <div class="history-sidebar rounded-xl p-4">
+            <div class="flex items-center mb-4">
+                <h3 class="text-lg font-bold text-gray-800 flex items-center">
+                    <i class="fas fa-question-circle mr-2 text-blue-600"></i>
+                    FAQ
+                </h3>
+            </div>
+
+            <div class="space-y-4 text-sm">
+                <div class="bg-white p-3 rounded-lg border">
+                    <h4 class="font-semibold text-gray-800 mb-2">How fast do you respond?</h4>
+                    <p class="text-gray-600">We typically respond within 24 hours during business days.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-lg border">
+                    <h4 class="font-semibold text-gray-800 mb-2">Is the calculator free?</h4>
+                    <p class="text-gray-600">Yes, our calculator is completely free to use with no limitations.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-lg border">
+                    <h4 class="font-semibold text-gray-800 mb-2">Can I suggest features?</h4>
+                    <p class="text-gray-600">Absolutely! We welcome feature requests and feedback.</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-lg border">
+                    <h4 class="font-semibold text-gray-800 mb-2">Found a bug?</h4>
+                    <p class="text-gray-600">Please report any bugs using the contact form above.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="col-span-3 seo-footer rounded-xl p-6">
+            <div class="text-center">
+                <h2 class="text-xl font-bold text-gray-800 mb-2">Contact Information</h2>
+                <p class="text-gray-600 mb-4">Feel free to reach out to us anytime</p>
+
+                <div class="flex justify-center items-center space-x-8 text-sm text-gray-600">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-blue-600"></i>
+                        <span>adil.ksjo@gmail.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-globe mr-2 text-blue-600"></i>
+                        <span>calcpro-calculator.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock mr-2 text-blue-600"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-300 text-center text-xs text-gray-500">
+                    <p>&copy; 2025 CalcPro - Universal Calculator. All rights reserved. |
+                       <a href="index.html" class="hover:text-gray-700">Calculator</a> |
+                       <a href="#" class="hover:text-gray-700">Privacy Policy</a> |
+                       <a href="#" class="hover:text-gray-700">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+# Robots.txt pour CalcPro - Calculatrice Universelle
+# Optimisé pour le SEO multilingue et international
+
+# Règles générales pour tous les robots
+User-agent: *
+Allow: /
+
+# Pages principales autorisées
+Allow: /index.html
+Allow: /contact.html
+Allow: /$
+
+# Fichiers CSS et JavaScript autorisés pour le rendu
+Allow: /css/
+Allow: /scripts/calc.js
+Allow: /scripts/contact.js
+
+# Fichiers de configuration et traductions interdits
+Disallow: /config/
+Disallow: /scripts/i18n-seo.js
+Disallow: /scripts/generate-seo-pages.js
+Disallow: *.json$
+
+# Paramètres de langue autorisés (pour les crawlers)
+Allow: /*?lang=*
+Allow: /*?country=*
+Allow: /*?lang=*&country=*
+
+# Pages d'erreur et techniques interdites
+Disallow: /404.html
+Disallow: /error/
+Disallow: /tmp/
+Disallow: /temp/
+
+# Fichiers système interdits
+Disallow: /.htaccess
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /node_modules/
+
+# Règles spécifiques pour Google
+User-agent: Googlebot
+Allow: /
+Allow: /css/
+Allow: /scripts/calc.js
+Allow: /scripts/contact.js
+Crawl-delay: 1
+
+# Règles spécifiques pour Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Règles spécifiques pour Yandex (pour les pays russophones)
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 3
+
+# Règles spécifiques pour Baidu (pour la Chine)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+# Sitemap principal
+Sitemap: https://calcpro.com/sitemap.xml
+
+# Sitemaps spécifiques par région (si nécessaire)
+# Sitemap: https://calcpro.com/sitemap-en.xml
+# Sitemap: https://calcpro.com/sitemap-fr.xml
+# Sitemap: https://calcpro.com/sitemap-es.xml
+# Sitemap: https://calcpro.com/sitemap-ar.xml
+
+# Informations de contact pour les webmasters
+# Host: calcpro.com
+# Contact: admin@calcpro.com
