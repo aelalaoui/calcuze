@@ -144,51 +144,51 @@
 
         <!-- Scientific Calculator (hidden by default) -->
         <div id="scientific-calculator" class="calculator-section hidden p-4 grid grid-cols-5 gap-2">
+            <!-- Row 1 -->
+            <button class="calculator-btn bg-red-500 hover:bg-red-600 text-white rounded-lg p-3 text-sm font-medium" onclick="clearAllScientific()">AC</button>
+            <button class="calculator-btn bg-gray-700 hover:bg-gray-600 text-white rounded-lg p-3 text-sm font-medium" onclick="scientificBackspace()"><i class="fas fa-backspace"></i></button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('(')">(</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation(')')">)</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('/')">÷</button>
+
+            <!-- Row 2 -->
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('sin')">sin</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('cos')">cos</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('tan')">tan</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('pi')">π</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('*')">×</button>
+
+            <!-- Row 3 -->
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('log')">log</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('ln')">ln</button>
-
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('asin')">sin⁻¹</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('acos')">cos⁻¹</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('atan')">tan⁻¹</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('sqrt')">√</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('pow')">x^y</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('sqrt')">√</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('-')">−</button>
 
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('pi')">π</button>
+            <!-- Row 4 -->
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('e')">e</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(7)">7</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(8)">8</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(9)">9</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('+')">+</button>
+
+            <!-- Row 5 -->
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('fact')">x!</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('exp')">EXP</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('mod')">mod</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(4)">4</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(5)">5</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(6)">6</button>
+            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium row-span-2" onclick="calculateScientificMode()">=</button>
 
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="clearAll()" >AC</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="toggleSign()">+/-</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="percentage()" >%</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('/')">÷</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('*')">×</button>
+            <!-- Row 6 -->
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="appendDecimalScientific()">.</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(1)">1</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(2)">2</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(3)">3</button>
 
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(7)">7</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(8)">8</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(9)">9</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('-')">-</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('+')">+</button>
-
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(4)">4</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(5)">5</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(6)">6</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('(')">(</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation(')')">)</button>
-
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(1)">1</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(2)">2</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(3)">3</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('deg')" >DEG</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('rad')" >RAD</button>
-
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumber(0)">0</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendDecimal()">.</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium col-span-2" onclick="calculate()" >=</button>
+            <!-- Row 7 -->
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('deg')">DEG</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumberScientific(0)">0</button>
+            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('rad')">RAD</button>
         </div>
 
         <!-- Economic Calculator (hidden by default) -->

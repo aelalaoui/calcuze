@@ -47,13 +47,20 @@ function setupModeSwitching() {
             const selectedCalculator = document.getElementById(calculatorId);
             selectedCalculator.classList.remove('hidden');
 
-            // Special handling for conversion calculator
-            if (calculatorId === 'conversion-calculator') {
-                // Hide display area and normal calculator buttons for conversion mode
-                displayArea.classList.add('hidden');
-            } else {
-                // Show display area for other modes
+            // Handle scientific mode initialization
+            if (calculatorId === 'scientific-calculator') {
+                initScientificMode();
                 displayArea.classList.remove('hidden');
+            } else {
+                exitScientificMode();
+                // Special handling for conversion calculator
+                if (calculatorId === 'conversion-calculator') {
+                    // Hide display area and normal calculator buttons for conversion mode
+                    displayArea.classList.add('hidden');
+                } else {
+                    // Show display area for other modes
+                    displayArea.classList.remove('hidden');
+                }
             }
         });
     });
@@ -312,4 +319,11 @@ function handleKeyboardInput(e) {
     } else if (e.key === '%') {
         percentage();
     }
+}
+
+// Add calculation to history
+function addToHistory(calculation) {
+    calculationHistory.unshift(calculation);
+    if (calculationHistory.length > 50) calculationHistory.pop(); // Keep max 50 items
+    updateSidebarHistory();
 }
