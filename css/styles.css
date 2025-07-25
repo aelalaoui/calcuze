@@ -5,7 +5,8 @@
 }
 
 .calculator-btn:active {
-    transform: scale(0.95);
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Mode Button Styles */
@@ -56,5 +57,45 @@
 .seo-footer {
     background: linear-gradient(to right, #f1f5f9 0%, #e2e8f0 100%);
     border: 2px solid #3b82f6;
+}
+
+/* Scientific Calculator Styles */
+.scientific-expression {
+    font-family: 'Courier New', monospace;
+    min-height: 1.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.scientific-expression::-webkit-scrollbar {
+    display: none;
+}
+
+.scientific-expression {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Parentheses highlighting */
+.parenthesis-open {
+    color: #4ade80;
+    font-weight: bold;
+}
+
+.parenthesis-close {
+    color: #f87171;
+    font-weight: bold;
+}
+
+/* Scientific button active states */
+.scientific-mode-active {
+    background-color: #3b82f6 !important;
+    color: white !important;
+}
+
+/* Calculator key animation */
+.calculator-btn:active {
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
