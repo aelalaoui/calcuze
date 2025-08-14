@@ -136,7 +136,7 @@ function calculate() {
     // Add to history
     const historyEntry = `${previousInput} ${currentOperation} ${currentInput} = ${result}`;
     calculationHistory.unshift(historyEntry);
-    if (calculationHistory.length > 50) calculationHistory.pop(); // Keep max 50 items
+    if (calculationHistory.length > 50) calculationHistory.pop();
 
     currentInput = result.toString();
     currentOperation = null;
@@ -144,7 +144,7 @@ function calculate() {
     resetInput = true;
 
     updateDisplay();
-    updateSidebarHistory(); // Update sidebar
+    updateSidebarHistory();
     historyElement.textContent = historyEntry;
 }
 
@@ -152,10 +152,11 @@ function calculate() {
 function clearAll() {
     currentInput = '0';
     previousInput = '';
-    currentOperation = null;
-    resetInput = false;
-    updateDisplay();
-    historyElement.textContent = '';
+    operator = '';
+    
+    justCalculated = false;
+    document.getElementById('display').textContent = '0';
+    document.getElementById('history').textContent = '';
 }
 
 // Toggle sign
@@ -304,20 +305,69 @@ function importHistory() {
     input.click();
 }
 
+// Backspace function to delete last character
+function backspace() {
+    // If resetInput is true, it means the last action was an operation
+    // So we should cancel the operation and restore the previous state
+    if (resetInput && currentOperation !== null) {
+        // Cancel the operation
+        currentInput = previousInput;
+        previousInput = '';
+        currentOperation = null;
+        resetInput = false;
+        historyElement.textContent = '';
+        updateDisplay();
+    } else {
+        // Normal backspace: remove last character from current input
+        if (currentInput.length > 1) {
+            currentInput = currentInput.slice(0, -1);
+        } else {
+            currentInput = '0';
+        }
+        updateDisplay();
+    }
+}
+
 // Handle keyboard input
 function handleKeyboardInput(e) {
     if (e.key >= '0' && e.key <= '9') {
-        appendNumber(parseInt(e.key));
+        if (isScientificMode) {
+            appendNumberScientific(parseInt(e.key));
+        } else {
+            appendNumber(parseInt(e.key));
+        }
     } else if (e.key === '.') {
-        appendDecimal();
+        if (isScientificMode) {
+            appendDecimalScientific();
+        } else {
+            appendDecimal();
+        }
     } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
-        operation(e.key);
+        if (isScientificMode) {
+            operationScientific(e.key);
+        } else {
+            operation(e.key);
+        }
     } else if (e.key === 'Enter' || e.key === '=') {
-        calculate();
+        if (isScientificMode) {
+            calculateScientific();
+        } else {
+            calculate();
+        }
     } else if (e.key === 'Escape') {
-        clearAll();
+        if (isScientificMode) {
+            clearScientific();
+        } else {
+            clearAll();
+        }
     } else if (e.key === '%') {
         percentage();
+    } else if (e.key === 'Backspace') {
+        if (isScientificMode) {
+            scientificBackspace();
+        } else {
+            backspace();
+        }
     }
 }
 

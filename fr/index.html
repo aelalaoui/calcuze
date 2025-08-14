@@ -382,7 +382,7 @@
     <!-- Section SEO du bas -->
     <div class="col-span-full seo-footer rounded-xl p-6">
         <div class="text-center mb-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">POUR LE SEO</h2>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Calcuze.com</h2>
             <p class="text-gray-600">Outils de Calculatrice Professionnelle & Solutions Mathématiques</p>
         </div>
 
@@ -422,7 +422,7 @@
         </div>
 
         <div class="mt-6 pt-4 border-t border-gray-300 text-center text-xs text-gray-500">
-            <p>&copy; 2025 Calcuze - Calculatrice Universelle. Tous droits réservés.</p>
+            <p>&copy; <span id="current-year"></span> Calcuze - Calculatrice Universelle. Tous droits réservés.</p>
             <p>
                 <a href="#" class="hover:text-gray-700">Politique de Confidentialité</a> |
                 <a href="#" class="hover:text-gray-700">Conditions d'Utilisation</a> |
@@ -432,6 +432,9 @@
     </div>
 </div>
 
+<script>
+document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
 <script src="../scripts/common.js"></script>
 <script src="../scripts/normal.js"></script>
 <script src="../scripts/scientific.js"></script>
