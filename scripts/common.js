@@ -304,6 +304,29 @@ function importHistory() {
     input.click();
 }
 
+// Backspace function to delete last character
+function backspace() {
+    // If resetInput is true, it means the last action was an operation
+    // So we should cancel the operation and restore the previous state
+    if (resetInput && currentOperation !== null) {
+        // Cancel the operation
+        currentInput = previousInput;
+        previousInput = '';
+        currentOperation = null;
+        resetInput = false;
+        historyElement.textContent = '';
+        updateDisplay();
+    } else {
+        // Normal backspace: remove last character from current input
+        if (currentInput.length > 1) {
+            currentInput = currentInput.slice(0, -1);
+        } else {
+            currentInput = '0';
+        }
+        updateDisplay();
+    }
+}
+
 // Handle keyboard input
 function handleKeyboardInput(e) {
     if (e.key >= '0' && e.key <= '9') {
@@ -318,6 +341,8 @@ function handleKeyboardInput(e) {
         clearAll();
     } else if (e.key === '%') {
         percentage();
+    } else if (e.key === 'Backspace') {
+        backspace();
     }
 }
 
