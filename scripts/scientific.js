@@ -205,6 +205,8 @@ function scientificOperation(func) {
         default:
             break;
     }
+
+    updateDisplay();
 }
 
 // Legacy scientific operations for backward compatibility
@@ -316,11 +318,15 @@ function operationScientific(op) {
             case '-':
                 symbol = '−';
                 break;
+            case '+':
+                symbol = '+';
+                break;
         }
         appendScientificChar(symbol);
     } else {
         operation(op);
     }
+    updateDisplay();
 }
 
 // Override clear for scientific mode
