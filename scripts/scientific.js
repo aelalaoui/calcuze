@@ -4,6 +4,7 @@
 let isDegreeMode = true;
 let scientificExpression = '';
 let isScientificMode = false;
+let justCalculated = false;
 
 // Initialize scientific mode
 function initScientificMode() {
@@ -19,40 +20,21 @@ function exitScientificMode() {
 }
 
 // Update scientific display with visual parentheses handling
-function updateScientificDisplay() {
-    if (!isScientificMode) return;
-    
-    const historyElement = document.getElementById('history');
+function updateScientificDisplay() {    
+    // Don't update if we just calculated to avoid overriding the result
+    if (justCalculated) {
+        return;
+    }
+
     const display = document.getElementById('display');
+    const history = document.getElementById('history');
     
-    let displayExpression = '';
-    let openCount = 0;
-    
-    for (let i = 0; i < scientificExpression.length; i++) {
-        const char = scientificExpression[i];
-        if (char === '(') {
-            displayExpression += `<span style="color: #4ade80; font-weight: bold;">(</span>`;
-            openCount++;
-        } else if (char === ')') {
-            displayExpression += `<span style="color: #f87171; font-weight: bold;">)</span>`;
-            openCount = Math.max(0, openCount - 1);
-        } else {
-            displayExpression += char;
-        }
-    }
-    
-    // Add visual indicators for unmatched parentheses
-    if (openCount > 0) {
-        displayExpression += `<span style="color: #fbbf24;"> [${openCount} unmatched]</span>`;
-    }
-    
-    historyElement.innerHTML = displayExpression;
-    
-    // Show current expression or 0 if empty
     if (scientificExpression === '') {
-        display.textContent = '0';
+        display.textContent = currentInput || '0';
+        history.textContent = '';
     } else {
-        display.textContent = scientificExpression;
+        display.textContent = currentInput || '0';
+        history.textContent = scientificExpression;
     }
 }
 
@@ -74,16 +56,25 @@ function scientificBackspace() {
 
 // Clear scientific calculator
 function clearScientific() {
-    if (!isScientificMode) return;
-    
     scientificExpression = '';
-    updateScientificDisplay();
+    currentInput = '0';
+    
+    // Force reset du display et du flag
+    justCalculated = false;
+    document.getElementById('display').textContent = '0';
+    document.getElementById('history').textContent = '';
 }
 
 // Calculate scientific expression
 function calculateScientific() {
-    if (!isScientificMode || scientificExpression === '') return;
-    
+    if (!isScientificMode) {
+        return;
+    }
+
+    if (scientificExpression === '') {
+        return;
+    }
+
     try {
         // Replace display symbols with calculation symbols
         let calcExpression = scientificExpression
@@ -102,34 +93,49 @@ function calculateScientific() {
             .replace(/×/g, '*')
             .replace(/÷/g, '/')
             .replace(/−/g, '-');
-        
+
         // Handle factorial
         calcExpression = calcExpression.replace(/(\d+)!/g, function(match, num) {
             return factorial(parseInt(num));
         });
-        
+
         // Convert degrees to radians for trigonometric functions if in degree mode
         if (isDegreeMode) {
             calcExpression = calcExpression.replace(/Math\.(sin|cos|tan)\(/g, function(match, func) {
                 return `Math.${func}((Math.PI/180)*`;
             });
         }
-        
+
         // Evaluate the expression
         const result = eval(calcExpression);
-        
+
         // Format result
         if (isNaN(result) || !isFinite(result)) {
             document.getElementById('display').textContent = 'Error';
+            document.getElementById('history').textContent = 'Error';
         } else {
             const formattedResult = parseFloat(result.toFixed(10)).toString();
-            document.getElementById('display').textContent = formattedResult;
-            
+
             // Add to history
             addToHistory(`${scientificExpression} = ${formattedResult}`);
+
+            // Clear the expression and set the result as the new input
+            //scientificExpression = '';
+            document.getElementById('display').textContent = formattedResult;
+            //document.getElementById('history').textContent = '';
+
+            // Set flag to prevent updateScientificDisplay from overriding
+            justCalculated = true;
+            setTimeout(() => {
+                justCalculated = false;
+            }, 200); // Reset after 200ms
+
+            // Update current input for potential further operations
+            currentInput = formattedResult;
         }
     } catch (error) {
         document.getElementById('display').textContent = 'Error';
+        document.getElementById('history').textContent = 'Error';
     }
 }
 
@@ -205,8 +211,6 @@ function scientificOperation(func) {
         default:
             break;
     }
-
-    updateDisplay();
 }
 
 // Legacy scientific operations for backward compatibility
@@ -326,7 +330,6 @@ function operationScientific(op) {
     } else {
         operation(op);
     }
-    updateDisplay();
 }
 
 // Override clear for scientific mode
