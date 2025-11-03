@@ -97,6 +97,44 @@
         </div>
     </div>
 
+    <!-- Language and Country Selector -->
+    <div class="col-span-full rounded-xl p-4 bg-white shadow-md">
+        <form id="language-country-form" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+            <div>
+                <label for="language-select" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-globe mr-2"></i>Langue / Language
+                </label>
+                <select id="language-select" name="language" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="en">English (EN)</option>
+                    <option value="fr" selected>Français (FR)</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="country-select" class="block text-sm font-semibold text-gray-700 mb-2">
+                    <i class="fas fa-map-marker-alt mr-2"></i>Pays / Country
+                </label>
+                <select id="country-select" name="country" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <!-- Les options seront générées dynamiquement par JavaScript -->
+                    <option value="FR" data-lang="fr">France (FR)</option>
+                    <option value="BE" data-lang="fr">Belgique (BE)</option>
+                    <option value="CA" data-lang="fr">Canada (CA)</option>
+                    <option value="CH" data-lang="fr">Suisse (CH)</option>
+                    <option value="LU" data-lang="fr">Luxembourg (LU)</option>
+                    <option value="MC" data-lang="fr">Monaco (MC)</option>
+
+                    <option value="CA" data-lang="en" style="display:none;">Canada (CA)</option>
+                </select>
+            </div>
+
+            <div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 flex items-center justify-center">
+                    <i class="fas fa-arrow-right mr-2"></i>Accéder / Go
+                </button>
+            </div>
+        </form>
+    </div>
+
     <!-- Left Sidebar Ad -->
     <div class="ad-banner rounded-xl p-4 flex-col items-center justify-center hidden md:flex">
         <div class="text-white text-center">
@@ -415,6 +453,75 @@
 
 <script>
 document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// Définition des pays par langue
+const countriesByLanguage = {
+    'fr': [
+        { value: 'FR', label: 'France (FR)' },
+        { value: 'BE', label: 'Belgique (BE)' },
+        { value: 'CA', label: 'Canada (CA)' },
+        { value: 'CH', label: 'Suisse (CH)' },
+        { value: 'LU', label: 'Luxembourg (LU)' },
+        { value: 'MC', label: 'Monaco (MC)' }
+    ],
+    'en': [
+        { value: 'CA', label: 'Canada (CA)' }
+    ]
+};
+
+// Fonction pour mettre à jour les pays disponibles
+function updateCountries() {
+    const languageSelect = document.getElementById('language-select');
+    const countrySelect = document.getElementById('country-select');
+    const selectedLanguage = languageSelect.value;
+
+    // Récupérer les pays correspondant à la langue
+    const countries = countriesByLanguage[selectedLanguage] || [];
+
+    // Vider le select
+    countrySelect.innerHTML = '';
+
+    // Ajouter les pays correspondants
+    countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country.value;
+        option.textContent = country.label;
+        countrySelect.appendChild(option);
+    });
+
+    // Sélectionner le premier pays par défaut
+    if (countries.length > 0) {
+        countrySelect.value = countries[0].value;
+    }
+}
+
+// Écouter le changement de langue
+document.getElementById('language-select').addEventListener('change', updateCountries);
+
+// Gestion du formulaire de langue et pays
+document.getElementById('language-country-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const language = document.getElementById('language-select').value;
+    const country = document.getElementById('country-select').value;
+
+    // Construire l'URL avec des chemins relatifs
+    let url = '';
+
+    if (language === 'en') {
+        // Pour l'anglais, rester sur la page d'accueil
+        url = './index.html';
+    } else if (language === 'fr') {
+        // Pour le français, aller dans le dossier fr/PAYS/index.html
+        url = `./fr/${country}/index.html`;
+    }
+
+    // Rediriger vers la page
+    window.location.href = url;
+});
+
+// Initialiser les pays au chargement
+updateCountries();
 </script>
 <script src="scripts/common.js"></script>
 <script src="scripts/normal.js"></script>
