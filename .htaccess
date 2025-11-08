@@ -15,13 +15,15 @@
     RewriteRule ^en/(US|GB|AU|CA|NZ|IE)/index\.php?$ /en/index.php?lang=en&country=$1 [QSA,L]
     RewriteRule ^en/?$ /en/index.php?lang=en&country=US [QSA,L]
 
+    # Redirect root to English US by default
+    RewriteRule ^/?$ /en/index.php?lang=en&country=US [QSA,L]
+
     # Rediriger index.html vers index.php for root
     RewriteCond %{THE_REQUEST} ^GET\ /index\.html
-    RewriteRule ^index\.html$ /en/index.php?lang=en&country=US [R=301,L]
+    RewriteRule ^index\.html$ /index.php [R=301,L]
 
     # Rendre index.php accessible sans extension
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^([^\.]+)$ $1.php [NC,L]
 </IfModule>
-
