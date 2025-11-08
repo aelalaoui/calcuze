@@ -160,7 +160,8 @@ $inLanguage = str_replace('-', '_', $langAttribute);
                 "priceCurrency": "<?php echo $currency; ?>"
             },
             "featureList": [
-            <?php echo '"' . implode('", "', $content['featureList']) . '"'; ?>
+            <?php echo '"' . implode('",
+            "', $content['featureList']) . '"'; ?>
             ],
             "browserRequirements": "<?php echo $content['browserRequirements']; ?>"
         }
