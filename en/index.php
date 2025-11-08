@@ -6,7 +6,7 @@ $country = isset($_GET['country']) ? strtoupper($_GET['country']) : 'FR';
 // Validate language
 $validLanguages = ['fr', 'en'];
 if (!in_array($lang, $validLanguages)) {
-    $lang = 'fr';
+    $lang = 'en';
 }
 
 // Validate country based on language
@@ -54,6 +54,61 @@ $geoRegion = $metadata['region'];
 $geoRegionCode = $metadata['region_code'];
 $geoCountry = $metadata['name'];
 $geoPlacename = $metadata['name'];
+
+// JSON-LD content based on language
+$jsonldContent = [
+        'fr' => [
+                'name' => 'Calcuze Calculatrice Universelle',
+                'description' => 'Calculatrice professionnelle en ligne avec fonctions scientifiques, économiques et de conversion d\'unités',
+                'operatingSystem' => 'Navigateur Web',
+                'browserRequirements' => 'Nécessite JavaScript',
+                'featureList' => [
+                        'Opérations arithmétiques de base',
+                        'Calculs scientifiques',
+                        'Formules économiques',
+                        'Conversions d\'unités',
+                        'Suivi de l\'historique'
+                ],
+                'priceCurrency' => 'EUR'
+        ],
+        'en' => [
+                'name' => 'Calcuze Universal Calculator',
+                'description' => 'Professional online calculator with scientific, economic, and unit conversion functions',
+                'operatingSystem' => 'Web Browser',
+                'browserRequirements' => 'Requires JavaScript',
+                'featureList' => [
+                        'Basic arithmetic operations',
+                        'Scientific calculations',
+                        'Economic formulas',
+                        'Unit conversions',
+                        'History tracking'
+                ],
+                'priceCurrency' => 'USD'
+        ]
+];
+
+// Currency codes by country
+$currencyByCountry = [
+        'fr' => [
+                'FR' => 'EUR', 'BE' => 'EUR', 'CH' => 'CHF',
+                'CA' => 'CAD', 'LU' => 'EUR', 'MC' => 'EUR'
+        ],
+        'en' => [
+                'US' => 'USD', 'GB' => 'GBP', 'AU' => 'AUD',
+                'CA' => 'CAD', 'NZ' => 'NZD', 'IE' => 'EUR'
+        ]
+];
+
+// Get content for current language
+$content = $jsonldContent[$lang];
+$currency = $currencyByCountry[$lang][$country] ?? 'USD';
+
+// Build the URL
+$baseUrl = 'https://calcuze.com';
+$url = $baseUrl . '/' . $lang . '/' . $country;
+
+// Convert language code for inLanguage field (fr-FR format)
+$inLanguage = str_replace('-', '_', $langAttribute);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $langAttribute; ?>" id="html-root">
@@ -92,24 +147,22 @@ $geoPlacename = $metadata['name'];
         {
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Calcuze Universal Calculator",
-            "description": "Professional online calculator with scientific, economic, and unit conversion functions",
-            "url": "",
+            "name": "<?php echo $content['name']; ?>",
+            "description": "<?php echo $content['description']; ?>",
+            "url": "<?php echo $url; ?>",
             "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "Web Browser",
+            "operatingSystem": "<?php echo $content['operatingSystem']; ?>",
+            "inLanguage": "<?php echo $inLanguage; ?>",
+            "availableLanguage": ["<?php echo implode('", "', array_keys($jsonldContent)); ?>"],
             "offers": {
                 "@type": "Offer",
                 "price": "0",
-                "priceCurrency": "USD"
+                "priceCurrency": "<?php echo $currency; ?>"
             },
             "featureList": [
-                "Basic arithmetic operations",
-                "Scientific calculations",
-                "Economic formulas",
-                "Unit conversions",
-                "History tracking"
+            <?php echo '"' . implode('", "', $content['featureList']) . '"'; ?>
             ],
-            "browserRequirements": "Requires JavaScript"
+            "browserRequirements": "<?php echo $content['browserRequirements']; ?>"
         }
     </script>
 
