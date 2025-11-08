@@ -30,8 +30,6 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="">
-    <link rel="alternate" hreflang="en" href="../../index.html">
-    <link rel="alternate" hreflang="fr-FR" href="index.html">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -64,6 +62,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
+    <?php include 'includes/country-selector-styles.php'; ?>
 </head>
 <body class="bg-gray-100 min-h-screen">
 <!-- Conteneur principal avec mise en page en grille -->
@@ -77,6 +76,7 @@
                 <i class="fas fa-calculator text-4xl mb-2"></i>
                 <h1 class="text-xl font-bold">Calcuze</h1>
                 <p class="text-sm opacity-80">Calculatrice Professionnelle</p>
+                <?php include 'includes/country-selector.php'; ?>
             </div>
         </div>
 
@@ -440,5 +440,6 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 <script src="../../scripts/scientific.js"></script>
 <script src="../../scripts/economic.js"></script>
 <script src="../../scripts/conversion.js"></script>
+<?php include 'includes/country-selector-script.php'; ?>
 </body>
 </html>
