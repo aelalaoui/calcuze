@@ -125,7 +125,7 @@ $_SESSION['country'] = $country;
     <div class="ad-banner rounded-xl p-4 flex-col items-center justify-center hidden md:flex">
         <div class="text-white text-center">
             <i class="fas fa-bullhorn text-3xl mb-3"></i>
-            <h3 class="text-lg font-bold mb-2">COUCOUS</h3>
+            <h3 class="text-lg font-bold mb-2">PUBS</h3>
             <p class="text-sm mb-4 opacity-90">Espace Publicitaire Vertical</p>
             <div class="space-y-2 text-xs opacity-75">
                 <p>• Placement à fort CTR</p>
