@@ -1,5 +1,29 @@
 <script>
+    // ============================================
+    // Language Detector - Update lang attribute
+    // ============================================
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const country = urlParams.get('country');
+        const htmlElement = document.getElementById('html-root');
+
+        if (htmlElement && country) {
+            const validCountries = ['FR', 'BE', 'CH', 'CA', 'LU', 'MC'];
+            if (validCountries.includes(country.toUpperCase())) {
+                htmlElement.lang = `fr-${country.toUpperCase()}`;
+                sessionStorage.setItem('selectedCountry', country.toUpperCase());
+            }
+        } else if (htmlElement) {
+            const storedCountry = sessionStorage.getItem('selectedCountry');
+            if (storedCountry) {
+                htmlElement.lang = `fr-${storedCountry}`;
+            }
+        }
+    })();
+
+    // ============================================
     // Country Selector Dropdown Script
+    // ============================================
     const dropdownBtn = document.getElementById('dropdownBtn');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const arrow = dropdownBtn.querySelector('.dropdown-arrow');
@@ -25,4 +49,3 @@
         }
     });
 </script>
-
