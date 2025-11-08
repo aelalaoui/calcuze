@@ -28,6 +28,32 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 $_SESSION['lang'] = $lang;
 $_SESSION['country'] = $country;
+
+// Country metadata configuration
+$countryMetadata = [
+        'fr' => [
+                'FR' => ['name' => 'France', 'region' => 'FR', 'region_code' => 'FR'],
+                'BE' => ['name' => 'Belgique', 'region' => 'BE', 'region_code' => 'BE'],
+                'CH' => ['name' => 'Suisse', 'region' => 'CH', 'region_code' => 'CH'],
+                'CA' => ['name' => 'Canada', 'region' => 'CA', 'region_code' => 'QC'],
+                'LU' => ['name' => 'Luxembourg', 'region' => 'LU', 'region_code' => 'LU'],
+                'MC' => ['name' => 'Monaco', 'region' => 'MC', 'region_code' => 'MC']
+        ],
+        'en' => [
+                'US' => ['name' => 'United States', 'region' => 'US', 'region_code' => 'US'],
+                'GB' => ['name' => 'United Kingdom', 'region' => 'GB', 'region_code' => 'GB'],
+                'AU' => ['name' => 'Australia', 'region' => 'AU', 'region_code' => 'AU'],
+                'CA' => ['name' => 'Canada', 'region' => 'CA', 'region_code' => 'ON'],
+                'NZ' => ['name' => 'New Zealand', 'region' => 'NZ', 'region_code' => 'NZ'],
+                'IE' => ['name' => 'Ireland', 'region' => 'IE', 'region_code' => 'IE']
+        ]
+];
+// Get metadata for current language/country
+$metadata = $countryMetadata[$lang][$country];
+$geoRegion = $metadata['region'];
+$geoRegionCode = $metadata['region_code'];
+$geoCountry = $metadata['name'];
+$geoPlacename = $metadata['name'];
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $langAttribute; ?>" id="html-root">
@@ -46,18 +72,18 @@ $_SESSION['country'] = $country;
     <meta property="og:title" content="Calcuze - Calculatrice Universelle">
     <meta property="og:description" content="Calculatrice professionnelle avec fonctions avancées incluant calculs scientifiques, calculs économiques et conversions d'unités.">
     <meta property="og:site_name" content="Calcuze">
-    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale" content="<?php echo $langAttribute; ?>">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Calcuze - Calculatrice Universelle">
     <meta property="twitter:description" content="Calculatrice professionnelle avec fonctions avancées incluant calculs scientifiques, calculs économiques et conversions d'unités.">
 
-    <!-- Géolocalisation pour la France -->
-    <meta name="geo.region" content="FR">
-    <meta name="geo.country" content="France">
-    <meta name="geo.placename" content="France">
-    <meta name="language" content="fr-FR">
+    <!-- Géolocalisation -->
+    <meta name="geo.region" content="<?php echo $geoRegion; ?>">
+    <meta name="geo.country" content="<?php echo $geoCountry; ?>">
+    <meta name="geo.placename" content="<?php echo $geoPlacename; ?>">
+    <meta name="language" content="<?php echo $langAttribute; ?>">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="">

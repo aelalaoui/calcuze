@@ -28,6 +28,32 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 $_SESSION['lang'] = $lang;
 $_SESSION['country'] = $country;
+
+// Country metadata configuration
+$countryMetadata = [
+        'fr' => [
+                'FR' => ['name' => 'France', 'region' => 'FR', 'region_code' => 'FR'],
+                'BE' => ['name' => 'Belgique', 'region' => 'BE', 'region_code' => 'BE'],
+                'CH' => ['name' => 'Suisse', 'region' => 'CH', 'region_code' => 'CH'],
+                'CA' => ['name' => 'Canada', 'region' => 'CA', 'region_code' => 'QC'],
+                'LU' => ['name' => 'Luxembourg', 'region' => 'LU', 'region_code' => 'LU'],
+                'MC' => ['name' => 'Monaco', 'region' => 'MC', 'region_code' => 'MC']
+        ],
+        'en' => [
+                'US' => ['name' => 'United States', 'region' => 'US', 'region_code' => 'US'],
+                'GB' => ['name' => 'United Kingdom', 'region' => 'GB', 'region_code' => 'GB'],
+                'AU' => ['name' => 'Australia', 'region' => 'AU', 'region_code' => 'AU'],
+                'CA' => ['name' => 'Canada', 'region' => 'CA', 'region_code' => 'ON'],
+                'NZ' => ['name' => 'New Zealand', 'region' => 'NZ', 'region_code' => 'NZ'],
+                'IE' => ['name' => 'Ireland', 'region' => 'IE', 'region_code' => 'IE']
+        ]
+];
+// Get metadata for current language/country
+$metadata = $countryMetadata[$lang][$country];
+$geoRegion = $metadata['region'];
+$geoRegionCode = $metadata['region_code'];
+$geoCountry = $metadata['name'];
+$geoPlacename = $metadata['name'];
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $langAttribute; ?>" id="html-root">
@@ -51,6 +77,12 @@ $_SESSION['country'] = $country;
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title"  content="Calcuze - Universal Calculator">
     <meta property="twitter:description"  content="Professional calculator with advanced features including scientific functions, economic calculations, and unit conversions.">
+
+    <!-- Géolocalisation -->
+    <meta name="geo.region" content="<?php echo $geoRegion; ?>">
+    <meta name="geo.country" content="<?php echo $geoCountry; ?>">
+    <meta name="geo.placename" content="<?php echo $geoPlacename; ?>">
+    <meta name="language" content="<?php echo $langAttribute; ?>">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="">
@@ -101,7 +133,7 @@ $_SESSION['country'] = $country;
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
     <?php include '../includes/country-selector-styles.php'; ?>
 </head>
 <body class="bg-gray-100 min-h-screen">
@@ -444,7 +476,7 @@ $_SESSION['country'] = $country;
             <p>
                 <a href="#" class="hover:text-gray-700" >Privacy Policy</a> |
                 <a href="#" class="hover:text-gray-700" >Terms of Service</a> |
-                <a href="contact.html" class="hover:text-gray-700" >Contact</a>
+                <a href="../../contact.html" class="hover:text-gray-700" >Contact</a>
             </p>
         </div>
     </div>
@@ -453,11 +485,11 @@ $_SESSION['country'] = $country;
 <script>
 document.getElementById('current-year').textContent = new Date().getFullYear();
 </script>
-<script src="scripts/common.js"></script>
-<script src="scripts/normal.js"></script>
-<script src="scripts/scientific.js"></script>
-<script src="scripts/economic.js"></script>
-<script src="scripts/conversion.js"></script>
+<script src="../scripts/common.js"></script>
+<script src="../scripts/normal.js"></script>
+<script src="../scripts/scientific.js"></script>
+<script src="../scripts/economic.js"></script>
+<script src="../scripts/conversion.js"></script>
 <?php include '../includes/country-selector-script.php'; ?>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8S3ZX8V"
