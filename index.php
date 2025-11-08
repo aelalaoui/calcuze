@@ -1,78 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" id="html-root">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title >Universal Calculator - Calcuze</title>
-    <meta name="description"  content="Professional online calculator with scientific, economic, and unit conversion functions. Free calculator tool for students, professionals, and businesses.">
-    <meta name="keywords"  content="calculator, scientific calculator, economic calculator, unit converter, math tool, online calculator, free calculator">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Calcuze">
+<?php
+// Configuration des chemins pour le header
+$cssPath = 'css/styles.css';
+$includesPath = 'includes/';
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:title"  content="Calcuze - Universal Calculator">
-    <meta property="og:description"  content="Professional calculator with advanced features including scientific functions, economic calculations, and unit conversions.">
-    <meta property="og:site_name" content="Calcuze">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title"  content="Calcuze - Universal Calculator">
-    <meta property="twitter:description"  content="Professional calculator with advanced features including scientific functions, economic calculations, and unit conversions.">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Calcuze Universal Calculator",
-            "description": "Professional online calculator with scientific, economic, and unit conversion functions",
-            "url": "",
-            "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "Web Browser",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            },
-            "featureList": [
-                "Basic arithmetic operations",
-                "Scientific calculations",
-                "Economic formulas",
-                "Unit conversions",
-                "History tracking"
-            ],
-            "browserRequirements": "Requires JavaScript"
-        }
-    </script>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N8S3ZX8V');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FNDY41NJH"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-0FNDY41NJH');
-    </script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <?php include 'includes/country-selector-styles.php'; ?>
-</head>
+// Inclusion du header commun
+include 'includes/header.php';
+?>
 <body class="bg-gray-100 min-h-screen">
 <!-- Main Container with Grid Layout -->
 <div class="min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 md:grid-cols-[250px_1fr_250px] lg:grid-cols-[300px_1fr_300px] gap-4 p-4">
