@@ -17,7 +17,7 @@
 
     # Rediriger index.html vers index.php for root
     RewriteCond %{THE_REQUEST} ^GET\ /index\.html
-    RewriteRule ^index\.html$ /index.php [R=301,L]
+    RewriteRule ^index\.html$ /en/index.php?lang=en&country=US [R=301,L]
 
     # Rendre index.php accessible sans extension
     RewriteCond %{REQUEST_FILENAME} !-f
