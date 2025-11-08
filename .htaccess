@@ -1,10 +1,19 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Redirect country-specific French versions to the main French PHP version
-    # Capture the country code and pass it as a query parameter
-    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/?$ /fr/index.php?country=$1 [QSA,L]
-    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/index\.php?$ /fr/index.php?country=$1 [QSA,L]
+    # ============================================
+    # French language - all countries redirect to fr/index.php
+    # ============================================
+    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/?$ /fr/index.php?lang=fr&country=$1 [QSA,L]
+    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/index\.php?$ /fr/index.php?lang=fr&country=$1 [QSA,L]
+    RewriteRule ^fr/?$ /fr/index.php?lang=fr&country=FR [QSA,L]
+
+    # ============================================
+    # English language - all countries redirect to en/index.php
+    # ============================================
+    RewriteRule ^en/(US|GB|AU|CA|NZ|IE)/?$ /en/index.php?lang=en&country=$1 [QSA,L]
+    RewriteRule ^en/(US|GB|AU|CA|NZ|IE)/index\.php?$ /en/index.php?lang=en&country=$1 [QSA,L]
+    RewriteRule ^en/?$ /en/index.php?lang=en&country=US [QSA,L]
 
     # Rediriger index.html vers index.php for root
     RewriteCond %{THE_REQUEST} ^GET\ /index\.html

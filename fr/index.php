@@ -1,5 +1,36 @@
+<?php
+// Detect language and country from URL parameters
+$lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : 'fr';
+$country = isset($_GET['country']) ? strtoupper($_GET['country']) : 'FR';
+
+// Validate language
+$validLanguages = ['fr', 'en'];
+if (!in_array($lang, $validLanguages)) {
+    $lang = 'fr';
+}
+
+// Validate country based on language
+$validCountriesByLang = [
+        'fr' => ['FR', 'BE', 'CH', 'CA', 'LU', 'MC'],
+        'en' => ['US', 'GB', 'AU', 'CA', 'NZ', 'IE']
+];
+
+if (!isset($validCountriesByLang[$lang]) || !in_array($country, $validCountriesByLang[$lang])) {
+    $country = $lang === 'en' ? 'US' : 'FR';
+}
+
+// Set the lang attribute
+$langAttribute = $lang . '-' . $country;
+
+// Store in session
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$_SESSION['lang'] = $lang;
+$_SESSION['country'] = $country;
+?>
 <!DOCTYPE html>
-<html lang="fr-FR" id="html-root">
+<html lang="<?php echo $langAttribute; ?>" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
