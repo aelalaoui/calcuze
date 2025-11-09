@@ -10,10 +10,66 @@ A professional and multifunctional web calculator with multilingual and multi-cu
 
 - 🔢 **Multiple Modes** : Normal, Scientific, Unit Conversion, Economic Calculations
 - 🌍 **Multilingual** : Support for French and English with automatic detection
+- 🌐 **i18n System** : JSON-based internationalization with centralized translations
 - 📱 **Responsive Design** : Interface optimized for mobile, tablet, and desktop
 - 💾 **History** : Calculation history storage
 - ⌨️ **Keyboard Support** : Full keyboard navigation
 - 🎨 **Modern Design** : Elegant and intuitive interface
+
+---
+
+## 🌐 Internationalization (i18n)
+
+Calcuze uses a modern JSON-based internationalization system for managing translations.
+
+### Structure
+
+```
+calcuze/
+├── langs/
+│   ├── fr.json          # French translations
+│   └── en.json          # English translations
+├── includes/
+│   └── i18n.php         # i18n helper functions
+├── templates/
+│   ├── index-template.php         # Template for /fr/ and /en/
+│   └── index-template-root.php    # Template for root
+├── fr/index.php         # French entry point (5 lines)
+└── en/index.php         # English entry point (5 lines)
+```
+
+### Usage
+
+```php
+// Get a translation
+$title = __('logo.title');
+
+// Display a translation (HTML escaped)
+_e('calculator.title');
+
+// Loop through an array of translations
+foreach(__('ads.sidebar_features') as $feature) {
+    echo htmlspecialchars($feature);
+}
+```
+
+### Adding a New Language
+
+1. Create `langs/xx.json` (copy and translate from fr.json)
+2. Create folder `xx/`
+3. Create `xx/index.php`:
+   ```php
+   <?php
+   $lang = 'xx';
+   include __DIR__ . '/../templates/index-template.php';
+   ```
+4. Add 'xx' to `$validLanguages` in `includes/header.php`
+
+### Documentation
+
+- 📖 [Complete i18n Guide](docs/i18n-README.md)
+- 🎯 [Demo Page](demo-i18n.php)
+- 🧪 [Test File](test-i18n.php)
 
 ---
 
