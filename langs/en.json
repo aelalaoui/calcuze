@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "title": "Calcuze - Free Professional Online Calculator",
+    "description": "Professional online calculator with scientific, economic, and unit conversion functions. Free and easy to use.",
+    "keywords": "calculator, scientific calculator, online calculator, unit conversion"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Professional Calculator"
+  },
+  "ads": {
+    "premium_title": "🎯 PREMIUM ADS SPACE",
+    "premium_subtitle": "Your advertisement could be here!",
+    "premium_contact": "Contact us for premium visibility",
+    "sidebar_title": "ADS",
+    "sidebar_subtitle": "Vertical Advertisement Space",
+    "sidebar_features": [
+      "High CTR placement",
+      "Professional audience",
+      "Premium positioning"
+    ],
+    "learn_more": "Learn More"
+  },
+  "calculator": {
+    "title": "Universal Calculator",
+    "modes": {
+      "normal": "Normal",
+      "scientific": "Scientific",
+      "economic": "Economic",
+      "conversion": "Conversion"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "FV",
+      "pv": "PV",
+      "pmt": "PMT",
+      "npv": "NPV",
+      "irr": "IRR",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Principal (P)",
+      "rate": "Rate (r)",
+      "time": "Time (t)",
+      "periods": "Periods (n)",
+      "payment": "Payment (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Length",
+      "weight": "Weight",
+      "temperature": "Temperature",
+      "area": "Area",
+      "volume": "Volume",
+      "speed": "Speed",
+      "time": "Time",
+      "currency": "Currency"
+    },
+    "comment": "Options will be populated by JavaScript"
+  },
+  "history": {
+    "title": "Calculation History",
+    "sidebar_title": "HISTORY",
+    "no_calculations": "No calculations yet",
+    "start_calculating": "Start calculating to see history",
+    "quick_actions": "Quick Actions",
+    "export": "Export History",
+    "import": "Import History",
+    "history_comment": "History items will be added here"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Professional Calculator Tools & Mathematical Solutions",
+    "features": {
+      "title": "Calculator Features",
+      "items": [
+        "Basic arithmetic operations",
+        "Scientific calculations",
+        "Economic formulas",
+        "Unit conversions",
+        "History tracking"
+      ]
+    },
+    "operations": {
+      "title": "Supported Operations",
+      "items": [
+        "Trigonometric functions",
+        "Logarithms and exponentials",
+        "Financial calculations",
+        "Temperature conversion",
+        "Length and weight units"
+      ]
+    },
+    "benefits": {
+      "title": "Benefits",
+      "items": [
+        "Free online calculator",
+        "No installation required",
+        "Mobile responsive design",
+        "Keyboard support",
+        "Professional accuracy"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Universal Calculator. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact"
+    }
+  },
+  "decimal_separator": "."
+}
+

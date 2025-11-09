@@ -1,369 +1,44 @@
 <?php
-// Configuration des chemins pour le header
-$cssPath = 'css/styles.css';
-$includesPath = 'includes/';
+// Root index.php with i18n support - handles all languages
 
-// Inclusion du header commun
-include 'includes/header.php';
-?>
-<body class="bg-gray-100 min-h-screen">
-<!-- Main Container with Grid Layout -->
-<div class="min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 md:grid-cols-[250px_1fr_250px] lg:grid-cols-[300px_1fr_300px] gap-4 p-4">
+// Detect base URL dynamically
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+$scriptName = $_SERVER['SCRIPT_NAME'];
+$baseUrl = $protocol . '://' . $host . dirname($scriptName);
+if (substr($baseUrl, -1) !== '/') {
+    $baseUrl .= '/';
+}
 
-    <!-- Top Header with Logo and Top Ad -->
-    <div class="col-span-full grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[300px_1fr] gap-4">
-        <!-- Logo Section -->
-        <div class="logo-section rounded-xl p-4 flex items-center justify-center">
+// Configuration with absolute paths from base URL
+$cssPath = $baseUrl . 'css/styles.css';
+$includesPath = __DIR__ . '/includes/';
+$scriptsPath = $baseUrl . 'scripts/';
 
-            <div class="text-white text-center">
-                <i class="fas fa-calculator text-4xl mb-2"></i>
-                <h1 class="text-xl font-bold">Calcuze</h1>
-                <p class="text-sm opacity-80" >Professional Calculator</p>
-                <!-- Country Selector (Top Middle) -->
-                <?php include 'includes/country-selector.php'; ?>
-            </div>
-        </div>
+// Include i18n helper
+require_once __DIR__ . '/includes/i18n.php';
 
-        <!-- Top Ad Banner -->
-        <div class="ad-banner rounded-xl p-6 flex items-center justify-center">
-            <div class="text-white text-center">
-                <h2 class="text-2xl font-bold mb-2" >🎯 PREMIUM ADS SPACE</h2>
-                <p class="text-lg opacity-90" >Your advertisement could be here!</p>
-                <p class="text-sm opacity-75" >Contact us for premium visibility</p>
-            </div>
-        </div>
-    </div>
+// Detect language from URL parameters or browser
+if (!isset($lang)) {
+    $lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : null;
 
+    // If no lang parameter, try to detect from browser
+    if (!$lang && isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        $lang = in_array($browserLang, ['fr', 'en']) ? $browserLang : 'en';
+    } else {
+        $lang = $lang ?? 'en';
+    }
+}
 
+// Validate language
+$validLanguages = ['fr', 'en'];
+if (!in_array($lang, $validLanguages)) {
+    $lang = 'en';
+}
 
-    <!-- Left Sidebar Ad -->
-    <div class="ad-banner rounded-xl p-4 flex-col items-center justify-center hidden md:flex">
-        <div class="text-white text-center">
-            <i class="fas fa-bullhorn text-3xl mb-3"></i>
-            <h3 class="text-lg font-bold mb-2">ADS</h3>
-            <p class="text-sm mb-4 opacity-90" >Vertical Advertisement Space</p>
-            <div class="space-y-2 text-xs opacity-75">
-                <p >• High CTR placement</p>
-                <p >• Professional audience</p>
-                <p >• Premium positioning</p>
-            </div>
-            <button class="mt-4 bg-white text-purple-600 px-3 py-1 rounded text-xs font-semibold hover:bg-gray-100 transition" >
-                Learn More
-            </button>
-        </div>
-    </div>
+// Initialize i18n
+i18n::init($lang, __DIR__ . '/langs/');
 
-    <!-- Calculator Section (Main Content) -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden col-span-1">
-        <!-- Header with mode selection -->
-        <div class="bg-blue-600 p-4 text-white">
-            <h1 class="text-xl font-bold text-center" >Universal Calculator</h1>
-            <div class="flex justify-between mt-3 space-x-1">
-                <button id="normal-mode" class="mode-btn active flex-1 py-2 rounded-lg text-sm font-medium" >Normal</button>
-                <button id="scientific-mode" class="mode-btn flex-1 py-2 rounded-lg text-sm font-medium" >Scientific</button>
-                <button id="economic-mode" class="mode-btn flex-1 py-2 rounded-lg text-sm font-medium" >Economic</button>
-                <button id="conversion-mode" class="mode-btn flex-1 py-2 rounded-lg text-sm font-medium" >Conversion</button>
-            </div>
-        </div>
-
-        <!-- Display area -->
-        <div class="p-4 bg-gray-50">
-            <div id="history" class="text-gray-500 text-right text-sm h-6 overflow-hidden whitespace-nowrap"></div>
-            <div id="display" class="display text-3xl font-semibold text-right py-2 overflow-x-auto">0</div>
-        </div>
-
-        <!-- Normal Calculator -->
-        <div id="normal-calculator" class="calculator-section p-4 grid grid-cols-4 gap-3">
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-4 text-lg font-medium" onclick="clearAll()" >AC</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-4 text-lg font-medium" onclick="toggleSign()">+/-</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-4 text-lg font-medium" onclick="percentage()" >%</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-4 text-lg font-medium" onclick="operation('/')">÷</button>
-
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(7)">7</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(8)">8</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(9)">9</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-4 text-lg font-medium" onclick="operation('*')">×</button>
-
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(4)">4</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(5)">5</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(6)">6</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-4 text-lg font-medium" onclick="operation('-')">-</button>
-
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(1)">1</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(2)">2</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendNumber(3)">3</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-4 text-lg font-medium" onclick="operation('+')">+</button>
-
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium col-span-2" onclick="appendNumber(0)">0</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-lg font-medium" onclick="appendDecimal()">.</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-4 text-lg font-medium" onclick="calculate()" >=</button>
-        </div>
-
-        <!-- Scientific Calculator (hidden by default) -->
-        <div id="scientific-calculator" class="calculator-section hidden p-4 grid grid-cols-5 gap-2">
-            <!-- Row 1 -->
-            <button class="calculator-btn bg-red-500 hover:bg-red-600 text-white rounded-lg p-3 text-sm font-medium" onclick="clearAllScientific()">AC</button>
-            <button class="calculator-btn bg-gray-700 hover:bg-gray-600 text-white rounded-lg p-3 text-sm font-medium" onclick="scientificBackspace()"><i class="fas fa-backspace"></i></button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('(')">(</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation(')')">)</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('/')">÷</button>
-
-            <!-- Row 2 -->
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('sin')">sin</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('cos')">cos</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('tan')">tan</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('pi')">π</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('*')">×</button>
-
-            <!-- Row 3 -->
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('log')">log</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('ln')">ln</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('pow')">x^y</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('sqrt')">√</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('-')">−</button>
-
-            <!-- Row 4 -->
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('e')">e</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(7)">7</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(8)">8</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(9)">9</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="operationScientific('+')">+</button>
-
-            <!-- Row 5 -->
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('fact')">x!</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(4)">4</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(5)">5</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(6)">6</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium row-span-2" onclick="calculateScientificMode()">=</button>
-
-            <!-- Row 6 -->
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="appendDecimalScientific()">.</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(1)">1</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(2)">2</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(3)">3</button>
-
-            <!-- Row 7 -->
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('deg')">DEG</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumberScientific(0)">0</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('rad')">RAD</button>
-        </div>
-
-        <!-- Economic Calculator (hidden by default) -->
-        <div id="economic-calculator" class="calculator-section hidden p-4">
-            <div class="grid grid-cols-3 gap-3 mb-3">
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="economicOperation('fv')" >FV</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="economicOperation('pv')" >PV</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="economicOperation('pmt')" >PMT</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="economicOperation('npv')" >NPV</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="economicOperation('irr')" >IRR</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="economicOperation('roi')" >ROI</button>
-            </div>
-
-            <div class="bg-gray-100 p-3 rounded-lg mb-3">
-                <div class="grid grid-cols-2 gap-2 mb-2">
-                    <div>
-                        <label class="block text-xs text-gray-600 mb-1" >Principal (P)</label>
-                        <input type="number" id="principal" class="w-full p-2 border rounded">
-                    </div>
-                    <div>
-                        <label class="block text-xs text-gray-600 mb-1" >Rate (r)</label>
-                        <input type="number" id="rate" class="w-full p-2 border rounded">
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-2 mb-2">
-                    <div>
-                        <label class="block text-xs text-gray-600 mb-1" >Time (t)</label>
-                        <input type="number" id="time" class="w-full p-2 border rounded">
-                    </div>
-                    <div>
-                        <label class="block text-xs text-gray-600 mb-1" >Periods (n)</label>
-                        <input type="number" id="periods" class="w-full p-2 border rounded">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-600 mb-1" >Payment (PMT)</label>
-                    <input type="number" id="payment" class="w-full p-2 border rounded">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-4 gap-3">
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="clearAll()" >AC</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="toggleSign()">+/-</button>
-                <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="percentage()" >%</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('/')">÷</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(7)">7</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(8)">8</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(9)">9</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('*')">×</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(4)">4</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(5)">5</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(6)">6</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('-')">-</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(1)">1</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(2)">2</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(3)">3</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('+')">+</button>
-
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumber(0)">0</button>
-                <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendDecimal()">.</button>
-                <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="calculate()" >=</button>
-            </div>
-        </div>
-
-        <!-- Conversion Calculator (hidden by default) -->
-        <div id="conversion-calculator" class="calculator-section hidden p-4">
-            <div class="mb-4">
-                <div class="flex items-center mb-2">
-                    <select id="conversion-type" class="conversion-select flex-1 p-2 border rounded-lg mr-2">
-                        <option value="length" >Length</option>
-                        <option value="weight" >Weight</option>
-                        <option value="temperature" >Temperature</option>
-                        <option value="area" >Area</option>
-                        <option value="volume" >Volume</option>
-                        <option value="speed" >Speed</option>
-                        <option value="time" >Time</option>
-                        <option value="currency" >Currency</option>
-                    </select>
-                    <button id="swap-units" class="p-2 bg-gray-200 hover:bg-gray-300 rounded-lg">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <select id="from-unit" class="conversion-select w-full p-2 border rounded-lg mb-2">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                        <input type="number" id="from-value" class="w-full p-3 border rounded-lg text-lg" value="1" oninput="convertUnits()">
-                    </div>
-                    <div>
-                        <select id="to-unit" class="conversion-select w-full p-2 border rounded-lg mb-2">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                        <input type="number" id="to-value" class="w-full p-3 border rounded-lg text-lg" readonly>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- History panel -->
-        <div id="history-panel" class="hidden absolute top-0 left-0 w-full h-full bg-white bg-opacity-95 z-10 p-4 overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-bold" >Calculation History</h2>
-                <button onclick="toggleHistory()" class="p-2 rounded-full hover:bg-gray-200">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div id="history-list" class="space-y-2">
-                <!-- History items will be added here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Right Sidebar - History -->
-    <div class="history-sidebar rounded-xl p-4 hidden md:block">
-        <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-bold text-gray-800 flex items-center">
-                <i class="fas fa-history mr-2 text-blue-600"></i>
-                <span >HISTORY</span>
-            </h3>
-            <button onclick="clearHistory()" class="text-red-500 hover:text-red-700 text-sm">
-                <i class="fas fa-trash"></i>
-            </button>
-        </div>
-
-        <div id="sidebar-history" class="space-y-2 max-h-96 overflow-y-auto">
-            <div class="text-gray-500 text-sm text-center py-8">
-                <i class="fas fa-calculator text-2xl mb-2 opacity-50"></i>
-                <p >No calculations yet</p>
-                <p class="text-xs" >Start calculating to see history</p>
-            </div>
-        </div>
-
-        <!-- Quick Actions -->
-        <div class="mt-6 pt-4 border-t border-gray-300">
-            <h4 class="text-sm font-semibold text-gray-700 mb-3">Quick Actions</h4>
-            <div class="space-y-2">
-                <button onclick="exportHistory()" class="w-full text-left text-sm text-blue-600 hover:text-blue-800 flex items-center">
-                    <i class="fas fa-download mr-2"></i>
-                    <span >Export History</span>
-                </button>
-                <button onclick="importHistory()" class="w-full text-left text-sm text-green-600 hover:text-green-800 flex items-center">
-                    <i class="fas fa-upload mr-2"></i>
-                    <span >Import History</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bottom SEO Section -->
-    <div class="col-span-full seo-footer rounded-xl p-6">
-        <div class="text-center mb-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2" >Calcuze.com</h2>
-            <p class="text-gray-600" >Professional Calculator Tools & Mathematical Solutions</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-            <div>
-                <h3 class="font-semibold text-gray-800 mb-3" >Calculator Features</h3>
-                <ul class="space-y-1 text-gray-600">
-                    <li >• Basic arithmetic operations</li>
-                    <li >• Scientific calculations</li>
-                    <li >• Economic formulas</li>
-                    <li >• Unit conversions</li>
-                    <li >• History tracking</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-semibold text-gray-800 mb-3" >Supported Operations</h3>
-                <ul class="space-y-1 text-gray-600">
-                    <li >• Trigonometric functions</li>
-                    <li >• Logarithms and exponentials</li>
-                    <li >• Financial calculations</li>
-                    <li >• Temperature conversion</li>
-                    <li >• Length and weight units</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-semibold text-gray-800 mb-3" >Benefits</h3>
-                <ul class="space-y-1 text-gray-600">
-                    <li >• Free online calculator</li>
-                    <li >• No installation required</li>
-                    <li >• Mobile responsive design</li>
-                    <li >• Keyboard support</li>
-                    <li >• Professional accuracy</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="mt-6 pt-4 border-t border-gray-300 text-center text-xs text-gray-500">
-            <p >&copy; <span id="current-year"></span> Calcuze - Universal Calculator. All rights reserved.</p>
-            <p>
-                <a href="#" class="hover:text-gray-700" >Privacy Policy</a> |
-                <a href="#" class="hover:text-gray-700" >Terms of Service</a> |
-                <a href="contact.html" class="hover:text-gray-700" >Contact</a>
-            </p>
-        </div>
-    </div>
-</div>
-
-<script>
-document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
-<script src="scripts/common.js"></script>
-<script src="scripts/normal.js"></script>
-<script src="scripts/scientific.js"></script>
-<script src="scripts/economic.js"></script>
-<script src="scripts/conversion.js"></script>
-<?php include 'includes/country-selector-script.php'; ?>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8S3ZX8V"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-</body>
-</html>
+// Include the template
+include __DIR__ . '/templates/index-template.php';
