@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "title": "Calcuze - Calculatrice Professionnelle Gratuite en Ligne",
+    "description": "Calculatrice professionnelle en ligne avec fonctions scientifiques, économiques et de conversion d'unités. Gratuite et facile à utiliser.",
+    "keywords": "calculatrice, calculatrice scientifique, calculatrice en ligne, conversion unités"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Calculatrice Professionnelle"
+  },
+  "ads": {
+    "premium_title": "🎯 ESPACE PUBLICITAIRE PREMIUM",
+    "premium_subtitle": "Votre publicité pourrait être ici !",
+    "premium_contact": "Contactez-nous pour une visibilité premium",
+    "sidebar_title": "PUBS",
+    "sidebar_subtitle": "Espace Publicitaire Vertical",
+    "sidebar_features": [
+      "Placement à fort CTR",
+      "Audience professionnelle",
+      "Positionnement premium"
+    ],
+    "learn_more": "En savoir plus"
+  },
+  "calculator": {
+    "title": "Calculatrice Universelle",
+    "modes": {
+      "normal": "Normale",
+      "scientific": "Scientifique",
+      "economic": "Économique",
+      "conversion": "Conversion"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "VF",
+      "pv": "VA",
+      "pmt": "PMT",
+      "npv": "VAN",
+      "irr": "TRI",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Capital (P)",
+      "rate": "Taux (r)",
+      "time": "Durée (t)",
+      "periods": "Périodes (n)",
+      "payment": "Paiement (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Longueur",
+      "weight": "Poids",
+      "temperature": "Température",
+      "area": "Surface",
+      "volume": "Volume",
+      "speed": "Vitesse",
+      "time": "Temps",
+      "currency": "Devise"
+    },
+    "comment": "Les options seront remplies par JavaScript"
+  },
+  "history": {
+    "title": "Historique des Calculs",
+    "sidebar_title": "HISTORIQUE",
+    "no_calculations": "Aucun calcul pour le moment",
+    "start_calculating": "Commencez à calculer pour voir l'historique",
+    "quick_actions": "Actions Rapides",
+    "export": "Exporter l'Historique",
+    "import": "Importer l'Historique",
+    "history_comment": "Les éléments d'historique seront ajoutés ici"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Outils de Calculatrice Professionnelle & Solutions Mathématiques",
+    "features": {
+      "title": "Fonctionnalités de la Calculatrice",
+      "items": [
+        "Opérations arithmétiques de base",
+        "Calculs scientifiques",
+        "Formules économiques",
+        "Conversions d'unités",
+        "Suivi de l'historique"
+      ]
+    },
+    "operations": {
+      "title": "Opérations Supportées",
+      "items": [
+        "Fonctions trigonométriques",
+        "Logarithmes et exponentielles",
+        "Calculs financiers",
+        "Conversion de température",
+        "Unités de longueur et poids"
+      ]
+    },
+    "benefits": {
+      "title": "Avantages",
+      "items": [
+        "Calculatrice en ligne gratuite",
+        "Aucune installation requise",
+        "Design adaptatif mobile",
+        "Support clavier",
+        "Précision professionnelle"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Calculatrice Universelle. Tous droits réservés.",
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "contact": "Contact"
+    }
+  },
+  "decimal_separator": ","
+}
+

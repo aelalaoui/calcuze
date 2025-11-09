@@ -1,4 +1,9 @@
 <?php
+// Include i18n helper if not already loaded
+if (!class_exists('i18n')) {
+    require_once __DIR__ . '/i18n.php';
+}
+
 // Detect language and country from URL parameters or browser
 if (!isset($lang)) {
     $lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : null;
@@ -20,6 +25,11 @@ if (!isset($country)) {
 $validLanguages = ['fr', 'en'];
 if (!in_array($lang, $validLanguages)) {
     $lang = 'en';
+}
+
+// Initialize i18n system only if not already initialized
+if (i18n::getCurrentLang() === null || i18n::getCurrentLang() !== $lang) {
+    i18n::init($lang, __DIR__ . '/../langs/');
 }
 
 // Validate country based on language

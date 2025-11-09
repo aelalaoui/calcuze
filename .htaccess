@@ -1,29 +1,39 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # ============================================
-    # French language - all countries redirect to fr/index.php
-    # ============================================
-    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/?$ /fr/index.php?lang=fr&country=$1 [QSA,L]
-    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/index\.php?$ /fr/index.php?lang=fr&country=$1 [QSA,L]
-    RewriteRule ^fr/?$ /fr/index.php?lang=fr&country=FR [QSA,L]
+    # Auto-detect base path (works both in /calcuze/ and at root)
+    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+    RewriteRule ^(.*) - [E=BASE:%1]
+
+    # If no base detected, use root
+    RewriteCond %{ENV:BASE} ^$
+    RewriteRule ^ - [E=BASE:/]
 
     # ============================================
-    # English language - all countries redirect to en/index.php
+    # French language - all countries redirect to index.php
     # ============================================
-    RewriteRule ^en/(US|GB|AU|CA|NZ|IE)/?$ /en/index.php?lang=en&country=$1 [QSA,L]
-    RewriteRule ^en/(US|GB|AU|CA|NZ|IE)/index\.php?$ /en/index.php?lang=en&country=$1 [QSA,L]
-    RewriteRule ^en/?$ /en/index.php?lang=en&country=US [QSA,L]
+    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/?$ index.php?lang=fr&country=$1 [QSA,L]
+    RewriteRule ^fr/?$ index.php?lang=fr&country=FR [QSA,L]
 
-    # Redirect root to English US by default
-    RewriteRule ^/?$ /en/index.php?lang=en&country=US [QSA,L]
+    # ============================================
+    # English language - all countries redirect to index.php
+    # ============================================
+    RewriteRule ^en/(US|GB|AU|CA|NZ|IE)/?$ index.php?lang=en&country=$1 [QSA,L]
+    RewriteRule ^en/?$ index.php?lang=en&country=US [QSA,L]
 
-    # Rediriger index.html vers index.php for root
-    RewriteCond %{THE_REQUEST} ^GET\ /index\.html
-    RewriteRule ^index\.html$ /index.php [R=301,L]
+    # ============================================
+    # Root - detect language from browser or default to English
+    # ============================================
+    RewriteCond %{REQUEST_URI} ^/?$
+    RewriteRule ^/?$ index.php [QSA,L]
 
-    # Rendre index.php accessible sans extension
+    # Redirect index.html to index.php
+    RewriteCond %{THE_REQUEST} index\.html
+    RewriteRule ^index\.html$ index.php [R=301,L]
+
+    # Make index.php accessible without extension (optional)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !\.php$
     RewriteRule ^([^\.]+)$ $1.php [NC,L]
 </IfModule>
