@@ -54,14 +54,4 @@ i18n::init($lang, __DIR__ . '/langs/');
 
 // Include the template
 $templatePath = __DIR__ . '/templates/index-template.php';
-if (!file_exists($templatePath)) {
-    die("ERREUR CRITIQUE: Le fichier template est manquant!<br>" .
-        "Chemin attendu: $templatePath<br>" .
-        "Vérifiez que le dossier 'templates/' et le fichier 'index-template-root.php' sont bien uploadés sur le serveur.<br><br>" .
-        "Structure nécessaire:<br>" .
-        "public_html/<br>" .
-        "&nbsp;&nbsp;└── templates/<br>" .
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── index-template-root.php<br><br>" .
-        "<a href='diagnostic-hostinger.php'>→ Lancer le diagnostic complet</a>");
-}
 include $templatePath;
