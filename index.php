@@ -1,11 +1,18 @@
 <?php
 // Root index.php with i18n support - handles all languages
 
-// Detect base URL dynamically
+// Detect base URL dynamically (works both in local /calcuze/ and production root)
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'];
 $scriptName = $_SERVER['SCRIPT_NAME'];
-$baseUrl = $protocol . '://' . $host . dirname($scriptName);
+
+// Get directory of the script (empty string if at root, or /calcuze if in subdirectory)
+$scriptDir = dirname($scriptName);
+if ($scriptDir === '/' || $scriptDir === '\\') {
+    $scriptDir = '';
+}
+
+$baseUrl = $protocol . '://' . $host . $scriptDir;
 if (substr($baseUrl, -1) !== '/') {
     $baseUrl .= '/';
 }
@@ -41,4 +48,4 @@ if (!in_array($lang, $validLanguages)) {
 i18n::init($lang, __DIR__ . '/langs/');
 
 // Include the template
-include __DIR__ . '/templates/index-template.php';
+include __DIR__ . '/templates/index-template-root.php';

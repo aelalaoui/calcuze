@@ -1,8 +1,13 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Définir la base pour éviter les problèmes de chemin
-    RewriteBase /calcuze/
+    # Auto-detect base path (works both in /calcuze/ and at root)
+    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+    RewriteRule ^(.*) - [E=BASE:%1]
+
+    # If no base detected, use root
+    RewriteCond %{ENV:BASE} ^$
+    RewriteRule ^ - [E=BASE:/]
 
     # ============================================
     # French language - all countries redirect to index.php
@@ -23,7 +28,7 @@
     RewriteRule ^/?$ index.php [QSA,L]
 
     # Redirect index.html to index.php
-    RewriteCond %{THE_REQUEST} ^GET\ /calcuze/index\.html
+    RewriteCond %{THE_REQUEST} index\.html
     RewriteRule ^index\.html$ index.php [R=301,L]
 
     # Make index.php accessible without extension (optional)
