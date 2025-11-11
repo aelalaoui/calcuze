@@ -4,7 +4,7 @@
     "description": "Calculatrice professionnelle en ligne avec fonctions scientifiques, économiques et de conversion d'unités. Gratuite et facile à utiliser.",
     "keywords": "calculatrice, calculatrice scientifique, calculatrice en ligne, conversion unités"
   },
-  "validCountries": ["FR", "BE", "CH", "CA", "LU", "MC"],
+  "validCountries": ["FR", "BE", "CH", "CA", "LU", "MC", "HT", "MA", "DZ", "TN", "MR", "SN", "ML", "CI", "BF", "NE", "TG", "BJ", "GN", "TD", "CF", "CD", "CG", "GA", "CM", "RW", "BI", "KM", "SC", "MG", "DJ", "VU"],
   "countryMetadata": {
     "FR": {
       "name": "France",
@@ -35,6 +35,136 @@
       "name": "Monaco",
       "region": "MC",
       "region_code": "MC"
+    },
+    "HT": {
+      "name": "Haïti",
+      "region": "HT",
+      "region_code": "HT-OU"
+    },
+    "MA": {
+      "name": "Maroc",
+      "region": "MA",
+      "region_code": "MA-CP"
+    },
+    "DZ": {
+      "name": "Algérie",
+      "region": "DZ",
+      "region_code": "DZ-16"
+    },
+    "TN": {
+      "name": "Tunisie",
+      "region": "TN",
+      "region_code": "TN-11"
+    },
+    "MR": {
+      "name": "Mauritanie",
+      "region": "MR",
+      "region_code": "MR-NKC"
+    },
+    "SN": {
+      "name": "Sénégal",
+      "region": "SN",
+      "region_code": "SN-DK"
+    },
+    "ML": {
+      "name": "Mali",
+      "region": "ML",
+      "region_code": "ML-BKO"
+    },
+    "CI": {
+      "name": "Côte d'Ivoire",
+      "region": "CI",
+      "region_code": "CI-AB"
+    },
+    "BF": {
+      "name": "Burkina Faso",
+      "region": "BF",
+      "region_code": "BF-OU"
+    },
+    "NE": {
+      "name": "Niger",
+      "region": "NE",
+      "region_code": "NE-NI"
+    },
+    "TG": {
+      "name": "Togo",
+      "region": "TG",
+      "region_code": "TG-L"
+    },
+    "BJ": {
+      "name": "Bénin",
+      "region": "BJ",
+      "region_code": "BJ-LI"
+    },
+    "GN": {
+      "name": "Guinée",
+      "region": "GN",
+      "region_code": "GN-KA"
+    },
+    "TD": {
+      "name": "Tchad",
+      "region": "TD",
+      "region_code": "TD-ND"
+    },
+    "CF": {
+      "name": "République centrafricaine",
+      "region": "CF",
+      "region_code": "CF-BGF"
+    },
+    "CD": {
+      "name": "République démocratique du Congo",
+      "region": "CD",
+      "region_code": "CD-KN"
+    },
+    "CG": {
+      "name": "Congo (Brazzaville)",
+      "region": "CG",
+      "region_code": "CG-BZV"
+    },
+    "GA": {
+      "name": "Gabon",
+      "region": "GA",
+      "region_code": "GA-LB"
+    },
+    "CM": {
+      "name": "Cameroun",
+      "region": "CM",
+      "region_code": "CM-CE"
+    },
+    "RW": {
+      "name": "Rwanda",
+      "region": "RW",
+      "region_code": "RW-KV"
+    },
+    "BI": {
+      "name": "Burundi",
+      "region": "BI",
+      "region_code": "BI-BB"
+    },
+    "KM": {
+      "name": "Comores",
+      "region": "KM",
+      "region_code": "KM-GM"
+    },
+    "SC": {
+      "name": "Seychelles",
+      "region": "SC",
+      "region_code": "SC-IE"
+    },
+    "MG": {
+      "name": "Madagascar",
+      "region": "MG",
+      "region_code": "MG-T"
+    },
+    "DJ": {
+      "name": "Djibouti",
+      "region": "DJ",
+      "region_code": "DJ-DJ"
+    },
+    "VU": {
+      "name": "Vanuatu",
+      "region": "VU",
+      "region_code": "VU-PM"
     }
   },
   "currencyByCountry": {
@@ -43,7 +173,33 @@
     "CH": "CHF",
     "CA": "CAD",
     "LU": "EUR",
-    "MC": "EUR"
+    "MC": "EUR",
+    "HT": "HTG",
+    "MA": "MAD",
+    "DZ": "DZD",
+    "TN": "TND",
+    "MR": "MRU",
+    "SN": "XOF",
+    "ML": "XOF",
+    "CI": "XOF",
+    "BF": "XOF",
+    "NE": "XOF",
+    "TG": "XOF",
+    "BJ": "XOF",
+    "GN": "GNF",
+    "TD": "XAF",
+    "CF": "XAF",
+    "CD": "CDF",
+    "CG": "XAF",
+    "GA": "XAF",
+    "CM": "XAF",
+    "RW": "RWF",
+    "BI": "BIF",
+    "KM": "KMF",
+    "SC": "SCR",
+    "MG": "MGA",
+    "DJ": "DJF",
+    "VU": "VUV"
   },
   "logo": {
     "title": "Calcuze",

@@ -12,7 +12,7 @@
     # ============================================
     # French language - all countries redirect to index.php
     # ============================================
-    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC)/?$ index.php?lang=fr&country=$1 [QSA,L]
+    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC|HT|MA|DZ|TN|MR|SN|ML|CI|BF|NE|TG|BJ|GN|TD|CF|CD|CG|GA|CM|RW|BI|KM|SC|MG|DJ|VU)/?$ index.php?lang=fr&country=$1 [QSA,L]
     RewriteRule ^fr/?$ index.php?lang=fr&country=FR [QSA,L]
 
     # ============================================
