@@ -18,7 +18,7 @@
     # ============================================
     # English language - all countries redirect to index.php
     # ============================================
-    RewriteRule ^en/(US|GB|AU|CA|NZ|IE)/?$ index.php?lang=en&country=$1 [QSA,L]
+    RewriteRule ^en/(US|GB|AU|CA|NZ|IE|ZA|KE|NG|GH|UG|ZM|ZW|BW|NA|SL|LR|GM|MW|IN|PK|BD|LK|SG|PH|JM|BS|BB|TT|BZ|GY)/?$ index.php?lang=en&country=$1 [QSA,L]
     RewriteRule ^en/?$ index.php?lang=en&country=US [QSA,L]
 
     # ============================================

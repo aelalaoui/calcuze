@@ -12,6 +12,33 @@
         <!--<xhtml:link rel="alternate" hreflang="en-GB" href="https://calcuze.com/en/GB" />-->
         <!--<xhtml:link rel="alternate" hreflang="en-CA" href="https://calcuze.com/en/CA" />-->
         <!--<xhtml:link rel="alternate" hreflang="en-AU" href="https://calcuze.com/en/AU" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-NZ" href="https://calcuze.com/en/NZ" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-IE" href="https://calcuze.com/en/IE" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-ZA" href="https://calcuze.com/en/ZA" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-KE" href="https://calcuze.com/en/KE" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-NG" href="https://calcuze.com/en/NG" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-GH" href="https://calcuze.com/en/GH" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-UG" href="https://calcuze.com/en/UG" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-ZM" href="https://calcuze.com/en/ZM" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-ZW" href="https://calcuze.com/en/ZW" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-BW" href="https://calcuze.com/en/BW" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-NA" href="https://calcuze.com/en/NA" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-SL" href="https://calcuze.com/en/SL" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-LR" href="https://calcuze.com/en/LR" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-GM" href="https://calcuze.com/en/GM" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-MW" href="https://calcuze.com/en/MW" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-IN" href="https://calcuze.com/en/IN" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-PK" href="https://calcuze.com/en/PK" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-BD" href="https://calcuze.com/en/BD" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-LK" href="https://calcuze.com/en/LK" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-SG" href="https://calcuze.com/en/SG" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-PH" href="https://calcuze.com/en/PH" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-JM" href="https://calcuze.com/en/JM" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-BS" href="https://calcuze.com/en/BS" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-BB" href="https://calcuze.com/en/BB" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-TT" href="https://calcuze.com/en/TT" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-BZ" href="https://calcuze.com/en/BZ" />-->
+        <!--<xhtml:link rel="alternate" hreflang="en-GY" href="https://calcuze.com/en/GY" />-->
         <xhtml:link rel="alternate" hreflang="fr-FR" href="https://calcuze.com/fr/FR" />
         <xhtml:link rel="alternate" hreflang="fr-BE" href="https://calcuze.com/fr/BE" />
         <xhtml:link rel="alternate" hreflang="fr-CH" href="https://calcuze.com/fr/CH" />
@@ -77,6 +104,14 @@
     </url>
 
     <url>
+        <loc>https://calcuze.com/en/IE</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en-IE" href="https://calcuze.com/en/IE" />
+    </url>
+
+    <url>
         <loc>https://calcuze.com/en/CA</loc>
         <lastmod>2025-01-20</lastmod>
         <changefreq>weekly</changefreq>
@@ -90,6 +125,214 @@
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="en-AU" href="https://calcuze.com/en/AU" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/NZ</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en-NZ" href="https://calcuze.com/en/NZ" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/ZA</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-ZA" href="https://calcuze.com/en/ZA" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/KE</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-KE" href="https://calcuze.com/en/KE" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/NG</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-NG" href="https://calcuze.com/en/NG" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/GH</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-GH" href="https://calcuze.com/en/GH" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/UG</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-UG" href="https://calcuze.com/en/UG" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/ZM</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-ZM" href="https://calcuze.com/en/ZM" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/ZW</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-ZW" href="https://calcuze.com/en/ZW" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/BW</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-BW" href="https://calcuze.com/en/BW" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/NA</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-NA" href="https://calcuze.com/en/NA" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/SL</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-SL" href="https://calcuze.com/en/SL" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/LR</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-LR" href="https://calcuze.com/en/LR" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/GM</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-GM" href="https://calcuze.com/en/GM" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/MW</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-MW" href="https://calcuze.com/en/MW" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/IN</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcuze.com/en/IN" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/PK</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-PK" href="https://calcuze.com/en/PK" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/BD</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-BD" href="https://calcuze.com/en/BD" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/LK</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-LK" href="https://calcuze.com/en/LK" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/SG</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-SG" href="https://calcuze.com/en/SG" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/PH</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-PH" href="https://calcuze.com/en/PH" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/JM</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-JM" href="https://calcuze.com/en/JM" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/BS</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-BS" href="https://calcuze.com/en/BS" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/BB</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-BB" href="https://calcuze.com/en/BB" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/TT</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-TT" href="https://calcuze.com/en/TT" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/BZ</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-BZ" href="https://calcuze.com/en/BZ" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/en/GY</loc>
+        <lastmod>2025-01-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en-GY" href="https://calcuze.com/en/GY" />
     </url>
     -->
 

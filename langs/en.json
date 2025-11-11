@@ -4,37 +4,162 @@
     "description": "Professional online calculator with scientific, economic, and unit conversion functions. Free and easy to use.",
     "keywords": "calculator, scientific calculator, online calculator, unit conversion"
   },
-  "validCountries": ["US", "GB", "AU", "CA", "NZ", "IE"],
+  "validCountries": ["US", "GB", "AU", "CA", "NZ", "IE", "ZA", "KE", "NG", "GH", "UG", "ZM", "ZW", "BW", "NA", "SL", "LR", "GM", "MW", "IN", "PK", "BD", "LK", "SG", "PH", "JM", "BS", "BB", "TT", "BZ", "GY"],
   "countryMetadata": {
     "US": {
       "name": "United States",
       "region": "US",
-      "region_code": "US"
+      "region_code": "US-CA"
     },
     "GB": {
       "name": "United Kingdom",
       "region": "GB",
-      "region_code": "GB"
-    },
-    "AU": {
-      "name": "Australia",
-      "region": "AU",
-      "region_code": "AU"
-    },
-    "CA": {
-      "name": "Canada",
-      "region": "CA",
-      "region_code": "ON"
-    },
-    "NZ": {
-      "name": "New Zealand",
-      "region": "NZ",
-      "region_code": "NZ"
+      "region_code": "GB-ENG"
     },
     "IE": {
       "name": "Ireland",
       "region": "IE",
-      "region_code": "IE"
+      "region_code": "IE-L"
+    },
+    "CA": {
+      "name": "Canada",
+      "region": "CA",
+      "region_code": "CA-ON"
+    },
+    "AU": {
+      "name": "Australia",
+      "region": "AU",
+      "region_code": "AU-NSW"
+    },
+    "NZ": {
+      "name": "New Zealand",
+      "region": "NZ",
+      "region_code": "NZ-AUK"
+    },
+    "ZA": {
+      "name": "South Africa",
+      "region": "ZA",
+      "region_code": "ZA-GP"
+    },
+    "KE": {
+      "name": "Kenya",
+      "region": "KE",
+      "region_code": "KE-30"
+    },
+    "NG": {
+      "name": "Nigeria",
+      "region": "NG",
+      "region_code": "NG-LA"
+    },
+    "GH": {
+      "name": "Ghana",
+      "region": "GH",
+      "region_code": "GH-AA"
+    },
+    "UG": {
+      "name": "Uganda",
+      "region": "UG",
+      "region_code": "UG-C"
+    },
+    "ZM": {
+      "name": "Zambia",
+      "region": "ZM",
+      "region_code": "ZM-08"
+    },
+    "ZW": {
+      "name": "Zimbabwe",
+      "region": "ZW",
+      "region_code": "ZW-HA"
+    },
+    "BW": {
+      "name": "Botswana",
+      "region": "BW",
+      "region_code": "BW-GA"
+    },
+    "NA": {
+      "name": "Namibia",
+      "region": "NA",
+      "region_code": "NA-KH"
+    },
+    "SL": {
+      "name": "Sierra Leone",
+      "region": "SL",
+      "region_code": "SL-W"
+    },
+    "LR": {
+      "name": "Liberia",
+      "region": "LR",
+      "region_code": "LR-MO"
+    },
+    "GM": {
+      "name": "Gambia",
+      "region": "GM",
+      "region_code": "GM-B"
+    },
+    "MW": {
+      "name": "Malawi",
+      "region": "MW",
+      "region_code": "MW-C"
+    },
+    "IN": {
+      "name": "India",
+      "region": "IN",
+      "region_code": "IN-DL"
+    },
+    "PK": {
+      "name": "Pakistan",
+      "region": "PK",
+      "region_code": "PK-SD"
+    },
+    "BD": {
+      "name": "Bangladesh",
+      "region": "BD",
+      "region_code": "BD-D"
+    },
+    "LK": {
+      "name": "Sri Lanka",
+      "region": "LK",
+      "region_code": "LK-WP"
+    },
+    "SG": {
+      "name": "Singapore",
+      "region": "SG",
+      "region_code": "SG-01"
+    },
+    "PH": {
+      "name": "Philippines",
+      "region": "PH",
+      "region_code": "PH-00"
+    },
+    "JM": {
+      "name": "Jamaica",
+      "region": "JM",
+      "region_code": "JM-02"
+    },
+    "BS": {
+      "name": "Bahamas",
+      "region": "BS",
+      "region_code": "BS-NP"
+    },
+    "BB": {
+      "name": "Barbados",
+      "region": "BB",
+      "region_code": "BB-11"
+    },
+    "TT": {
+      "name": "Trinidad and Tobago",
+      "region": "TT",
+      "region_code": "TT-POS"
+    },
+    "BZ": {
+      "name": "Belize",
+      "region": "BZ",
+      "region_code": "BZ-BZ"
+    },
+    "GY": {
+      "name": "Guyana",
+      "region": "GY",
+      "region_code": "GY-BA"
     }
   },
   "currencyByCountry": {
@@ -43,7 +168,32 @@
     "AU": "AUD",
     "CA": "CAD",
     "NZ": "NZD",
-    "IE": "EUR"
+    "IE": "EUR",
+    "ZA": "ZAR",
+    "KE": "KES",
+    "NG": "NGN",
+    "GH": "GHS",
+    "UG": "UGX",
+    "ZM": "ZMW",
+    "ZW": "ZWL",
+    "BW": "BWP",
+    "NA": "NAD",
+    "SL": "SLL",
+    "LR": "LRD",
+    "GM": "GMD",
+    "MW": "MWK",
+    "IN": "INR",
+    "PK": "PKR",
+    "BD": "BDT",
+    "LK": "LKR",
+    "SG": "SGD",
+    "PH": "PHP",
+    "JM": "JMD",
+    "BS": "BSD",
+    "BB": "BBD",
+    "TT": "TTD",
+    "BZ": "BZD",
+    "GY": "GYD"
   },
   "logo": {
     "title": "Calcuze",
