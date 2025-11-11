@@ -32,13 +32,24 @@ if (i18n::getCurrentLang() === null || i18n::getCurrentLang() !== $lang) {
     i18n::init($lang, __DIR__ . '/../langs/');
 }
 
-// Validate country based on language
-$validCountriesByLang = [
-    'fr' => ['FR', 'BE', 'CH', 'CA', 'LU', 'MC'],
-    'en' => ['US', 'GB', 'AU', 'CA', 'NZ', 'IE']
-];
+// Load translations for all languages to extract metadata
+$langsPath = __DIR__ . '/../langs/';
+$translations = [];
+foreach (['fr', 'en'] as $langCode) {
+    $langFile = $langsPath . $langCode . '.json';
+    if (file_exists($langFile)) {
+        $translations[$langCode] = json_decode(file_get_contents($langFile), true);
+    }
+}
 
-if (!$country || !isset($validCountriesByLang[$lang]) || !in_array($country, $validCountriesByLang[$lang])) {
+// Get metadata from current language JSON
+$currentTranslations = $translations[$lang] ?? $translations['en'];
+
+// Load valid countries for current language from JSON
+$validCountries = $currentTranslations['validCountries'] ?? [];
+
+// Validate country based on language
+if (!$country || !in_array($country, $validCountries)) {
     $country = $lang === 'en' ? 'US' : 'FR';
 }
 
@@ -52,80 +63,32 @@ if (session_status() === PHP_SESSION_NONE) {
 $_SESSION['lang'] = $lang;
 $_SESSION['country'] = $country;
 
-// Country metadata configuration
-$countryMetadata = [
-    'fr' => [
-        'FR' => ['name' => 'France', 'region' => 'FR', 'region_code' => 'FR'],
-        'BE' => ['name' => 'Belgique', 'region' => 'BE', 'region_code' => 'BE'],
-        'CH' => ['name' => 'Suisse', 'region' => 'CH', 'region_code' => 'CH'],
-        'CA' => ['name' => 'Canada', 'region' => 'CA', 'region_code' => 'QC'],
-        'LU' => ['name' => 'Luxembourg', 'region' => 'LU', 'region_code' => 'LU'],
-        'MC' => ['name' => 'Monaco', 'region' => 'MC', 'region_code' => 'MC']
-    ],
-    'en' => [
-        'US' => ['name' => 'United States', 'region' => 'US', 'region_code' => 'US'],
-        'GB' => ['name' => 'United Kingdom', 'region' => 'GB', 'region_code' => 'GB'],
-        'AU' => ['name' => 'Australia', 'region' => 'AU', 'region_code' => 'AU'],
-        'CA' => ['name' => 'Canada', 'region' => 'CA', 'region_code' => 'ON'],
-        'NZ' => ['name' => 'New Zealand', 'region' => 'NZ', 'region_code' => 'NZ'],
-        'IE' => ['name' => 'Ireland', 'region' => 'IE', 'region_code' => 'IE']
-    ]
-];
+// Load country metadata and currency from JSON for current language
+$countryMetadata = $currentTranslations['countryMetadata'] ?? [];
+$currencyByCountry = $currentTranslations['currencyByCountry'] ?? [];
 
 // Get metadata for current language/country
-$metadata = $countryMetadata[$lang][$country];
-$geoRegion = $metadata['region'];
-$geoRegionCode = $metadata['region_code'];
-$geoCountry = $metadata['name'];
-$geoPlacename = $metadata['name'];
+$metadata = $countryMetadata[$country] ?? [];
+$geoRegion = $metadata['region'] ?? $country;
+$geoRegionCode = $metadata['region_code'] ?? $country;
+$geoCountry = $metadata['name'] ?? $country;
+$geoPlacename = $metadata['name'] ?? $country;
+$metaData = $currentTranslations['meta'] ?? [];
+$seoData = $currentTranslations['seo'] ?? [];
+$features = $seoData['features']['items'] ?? [];
 
-// JSON-LD content based on language
-$jsonldContent = [
-    'fr' => [
-        'name' => 'Calcuze Calculatrice Universelle',
-        'description' => 'Calculatrice professionnelle en ligne avec fonctions scientifiques, économiques et de conversion d\'unités',
-        'operatingSystem' => 'Navigateur Web',
-        'browserRequirements' => 'Nécessite JavaScript',
-        'featureList' => [
-            'Opérations arithmétiques de base',
-            'Calculs scientifiques',
-            'Formules économiques',
-            'Conversions d\'unités',
-            'Suivi de l\'historique'
-        ],
-        'priceCurrency' => 'EUR'
-    ],
-    'en' => [
-        'name' => 'Calcuze Universal Calculator',
-        'description' => 'Professional online calculator with scientific, economic, and unit conversion functions',
-        'operatingSystem' => 'Web Browser',
-        'browserRequirements' => 'Requires JavaScript',
-        'featureList' => [
-            'Basic arithmetic operations',
-            'Scientific calculations',
-            'Economic formulas',
-            'Unit conversions',
-            'History tracking'
-        ],
-        'priceCurrency' => 'USD'
-    ]
-];
+// Extract page title from meta
+$pageTitle = $metaData['title'] ?? 'Calcuze';
 
-// Currency codes by country
-$currencyByCountry = [
-    'fr' => [
-        'FR' => 'EUR', 'BE' => 'EUR', 'CH' => 'CHF',
-        'CA' => 'CAD', 'LU' => 'EUR', 'MC' => 'EUR'
-    ],
-    'en' => [
-        'US' => 'USD', 'GB' => 'GBP', 'AU' => 'AUD',
-        'CA' => 'CAD', 'NZ' => 'NZD', 'IE' => 'EUR'
-    ]
-];
+// Extract page description from meta
+$pageDescription = $metaData['description'] ?? '';
 
-// Get content for current language
-$content = $jsonldContent[$lang];
-$currency = $currencyByCountry[$lang][$country] ?? 'USD';
+// Extract keywords from meta
+$pageKeywords = $metaData['keywords'] ?? '';
+
+// OG Title and Description from SEO data
+$ogTitle = $seoData['main_title'] ?? 'Calcuze';
+$ogDescription = $seoData['main_subtitle'] ?? '';
 
 // Build the URL
 $baseUrl = 'https://calcuze.com';
@@ -134,55 +97,35 @@ $url = $baseUrl . '/' . $lang . '/' . $country;
 // Convert language code for inLanguage field (fr-FR format)
 $inLanguage = str_replace('-', '_', $langAttribute);
 
-// Page titles and meta descriptions based on language
-$pageTitles = [
-    'fr' => 'Calculatrice Universelle - Calcuze',
-    'en' => 'Universal Calculator - Calcuze'
-];
+// Get currency for current country
+$currency = $currencyByCountry[$country] ?? 'USD';
 
-$pageDescriptions = [
-    'fr' => 'Calculatrice professionnelle en ligne avec fonctions scientifiques, économiques et de conversion d\'unités. Outil de calcul gratuit pour étudiants, professionnels et entreprises.',
-    'en' => 'Professional online calculator with scientific, economic, and unit conversion functions. Free calculator tool for students, professionals, and businesses.'
-];
-
-$pageKeywords = [
-    'fr' => 'calculatrice, calculatrice scientifique, calculatrice économique, convertisseur d\'unités, outil mathématique, calculatrice en ligne, calculatrice gratuite',
-    'en' => 'calculator, scientific calculator, economic calculator, unit converter, math tool, online calculator, free calculator'
-];
-
-$ogTitles = [
-    'fr' => 'Calcuze - Calculatrice Universelle',
-    'en' => 'Calcuze - Universal Calculator'
-];
-
-$ogDescriptions = [
-    'fr' => 'Calculatrice professionnelle avec fonctions avancées incluant calculs scientifiques, calculs économiques et conversions d\'unités.',
-    'en' => 'Professional calculator with advanced features including scientific functions, economic calculations, and unit conversions.'
-];
+// Get decimal separator from current language
+$decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $langAttribute; ?>" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitles[$lang]; ?></title>
-    <meta name="description" content="<?php echo $pageDescriptions[$lang]; ?>">
-    <meta name="keywords" content="<?php echo $pageKeywords[$lang]; ?>">
+    <title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="keywords" content="<?php echo htmlspecialchars($pageKeywords, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Calcuze">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo $url; ?>">
-    <meta property="og:title" content="<?php echo $ogTitles[$lang]; ?>">
-    <meta property="og:description" content="<?php echo $ogDescriptions[$lang]; ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($ogTitle, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($ogDescription, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:site_name" content="Calcuze">
     <meta property="og:locale" content="<?php echo $langAttribute; ?>">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="<?php echo $ogTitles[$lang]; ?>">
-    <meta property="twitter:description" content="<?php echo $ogDescriptions[$lang]; ?>">
+    <meta property="twitter:title" content="<?php echo htmlspecialchars($ogTitle, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="twitter:description" content="<?php echo htmlspecialchars($ogDescription, ENT_QUOTES, 'UTF-8'); ?>">
 
     <!-- Géolocalisation -->
     <meta name="geo.region" content="<?php echo $geoRegion; ?>">
@@ -198,23 +141,28 @@ $ogDescriptions = [
         {
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "<?php echo $content['name']; ?>",
-            "description": "<?php echo $content['description']; ?>",
+            "name": "Calcuze",
+            "description": "<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>",
             "url": "<?php echo $url; ?>",
             "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "<?php echo $content['operatingSystem']; ?>",
+            "operatingSystem": "Any",
             "inLanguage": "<?php echo $inLanguage; ?>",
-            "availableLanguage": ["<?php echo implode('", "', array_keys($jsonldContent)); ?>"],
+            "availableLanguage": ["en", "fr"],
             "offers": {
                 "@type": "Offer",
                 "price": "0",
                 "priceCurrency": "<?php echo $currency; ?>"
             },
             "featureList": [
-                <?php echo '"' . implode('",
-                "', $content['featureList']) . '"'; ?>
+                <?php
+                    if (!empty($features)) {
+                        echo '"' . implode('", "', array_map(function($f) {
+                            return htmlspecialchars($f, ENT_QUOTES, 'UTF-8');
+                        }, $features)) . '"';
+                    }
+                ?>
             ],
-            "browserRequirements": "<?php echo $content['browserRequirements']; ?>"
+            "browserRequirements": "Requires JavaScript"
         }
     </script>
 

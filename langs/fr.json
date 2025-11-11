@@ -4,6 +4,47 @@
     "description": "Calculatrice professionnelle en ligne avec fonctions scientifiques, économiques et de conversion d'unités. Gratuite et facile à utiliser.",
     "keywords": "calculatrice, calculatrice scientifique, calculatrice en ligne, conversion unités"
   },
+  "validCountries": ["FR", "BE", "CH", "CA", "LU", "MC"],
+  "countryMetadata": {
+    "FR": {
+      "name": "France",
+      "region": "FR",
+      "region_code": "FR"
+    },
+    "BE": {
+      "name": "Belgique",
+      "region": "BE",
+      "region_code": "BE"
+    },
+    "CH": {
+      "name": "Suisse",
+      "region": "CH",
+      "region_code": "CH"
+    },
+    "CA": {
+      "name": "Canada",
+      "region": "CA",
+      "region_code": "QC"
+    },
+    "LU": {
+      "name": "Luxembourg",
+      "region": "LU",
+      "region_code": "LU"
+    },
+    "MC": {
+      "name": "Monaco",
+      "region": "MC",
+      "region_code": "MC"
+    }
+  },
+  "currencyByCountry": {
+    "FR": "EUR",
+    "BE": "EUR",
+    "CH": "CHF",
+    "CA": "CAD",
+    "LU": "EUR",
+    "MC": "EUR"
+  },
   "logo": {
     "title": "Calcuze",
     "subtitle": "Calculatrice Professionnelle"
