@@ -6,19 +6,36 @@ User-agent: *
 Allow: /
 
 # Pages principales autorisées
-Allow: /index.html
-Allow: /contact.html
+Allow: /index.php
 Allow: /$
+Allow: /en/
+Allow: /fr/
+
+# Bloquer la version HTML de redirection
+Disallow: /index.html
+
+# Pages de contact autorisées
+Allow: /contact.html
 
 # Fichiers CSS et JavaScript autorisés pour le rendu
-Allow: /css/
-Allow: /scripts/calc.js
-Allow: /scripts/contact.js
+Disallow: /css/
+Disallow: /scripts/
 
-# Fichiers de configuration et traductions interdits
+# Fichiers de configuration interdits
 Disallow: /config/
-Disallow: /scripts/i18n-seo.js
-Disallow: /scripts/generate-seo-pages.js
+Disallow: /includes/
+Disallow: /templates/
+Disallow: /langs/
+Disallow: /docs/
+
+# Fichiers système interdits
+Disallow: /.git
+Disallow: /.htaccess
+Disallow: /composer.json
+Disallow: /package.json
+
+# Sitemap
+Sitemap: https://calcuze.com/sitemap.xml
 Disallow: *.json$
 
 # Paramètres de langue autorisés (pour les crawlers)
