@@ -1,39 +1,96 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
+# .htaccess pour Calcuze - Optimisation SEO
+# Redirections et gestion des URL canoniques
 
-    # Auto-detect base path (works both in /calcuze/ and at root)
-    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
-    RewriteRule ^(.*) - [E=BASE:%1]
+# Activer le module de réécriture
+RewriteEngine On
 
-    # If no base detected, use root
-    RewriteCond %{ENV:BASE} ^$
-    RewriteRule ^ - [E=BASE:/]
+# Rediriger index.html vers index.php (code 301 permanent)
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ /index.php [R=301,L]
 
-    # ============================================
-    # French language - all countries redirect to index.php
-    # ============================================
-    RewriteRule ^fr/(FR|BE|CH|CA|LU|MC|HT|MA|DZ|TN|MR|SN|ML|CI|BF|NE|TG|BJ|GN|TD|CF|CD|CG|GA|CM|RW|BI|KM|SC|MG|DJ|VU)/?$ index.php?lang=fr&country=$1 [QSA,L]
-    RewriteRule ^fr/?$ index.php?lang=fr&country=FR [QSA,L]
+# Rediriger contact.html vers contact.php (code 301 permanent)
+RewriteCond %{THE_REQUEST} /contact\.html [NC]
+RewriteRule ^contact\.html$ /contact.php [R=301,L]
 
-    # ============================================
-    # English language - all countries redirect to index.php
-    # ============================================
-    RewriteRule ^en/(US|GB|AU|CA|NZ|IE|ZA|KE|NG|GH|UG|ZM|ZW|BW|NA|SL|LR|GM|MW|IN|PK|BD|LK|SG|PH|JM|BS|BB|TT|BZ|GY)/?$ index.php?lang=en&country=$1 [QSA,L]
-    RewriteRule ^en/?$ index.php?lang=en&country=US [QSA,L]
+# Rediriger les anciennes URL avec paramètres vers la nouvelle structure
+# Par exemple: /?lang=fr&country=FR vers /fr/FR
+RewriteCond %{QUERY_STRING} ^lang=([a-z]{2})&country=([A-Z]{2})$ [NC]
+RewriteRule ^$ /%1/%2? [R=301,L]
 
-    # ============================================
-    # Root - detect language from browser or default to English
-    # ============================================
-    RewriteCond %{REQUEST_URI} ^/?$
-    RewriteRule ^/?$ index.php [QSA,L]
+RewriteCond %{QUERY_STRING} ^lang=([a-z]{2})$ [NC]
+RewriteRule ^$ /%1/US? [R=301,L]
 
-    # Redirect index.html to index.php
-    RewriteCond %{THE_REQUEST} index\.html
-    RewriteRule ^index\.html$ index.php [R=301,L]
+# Forcer HTTPS (décommenter en production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-    # Make index.php accessible without extension (optional)
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !\.php$
-    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+# Forcer www ou non-www (choisir l'un ou l'autre, ici non-www)
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Rediriger les URLs avec trailing slash vers sans trailing slash (sauf pour les dossiers)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Réécriture des URL propres vers index.php
+# /en/US devient index.php?lang=en&country=US
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z]{2})/([A-Z]{2})$ index.php?lang=$1&country=$2 [L,QSA]
+
+# /en devient index.php?lang=en
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z]{2})$ index.php?lang=$1 [L,QSA]
+
+# /contact devient contact.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^contact$ contact.php [L,QSA]
+
+# Page par défaut - rediriger vers /en/US
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /en/US [R=301,L]
+
+# Compression GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
+
+# Cache des fichiers statiques
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Sécurité - Cacher les fichiers sensibles (Syntaxe Apache 2.4)
+<FilesMatch "^(\.htaccess|\.git|composer\.json|composer\.lock|package\.json|package-lock\.json)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquer l'accès aux dossiers de configuration
+RedirectMatch 403 ^/config/
+RedirectMatch 403 ^/\.git/
+
+# Options de sécurité
+Options -Indexes
+ServerSignature Off
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+

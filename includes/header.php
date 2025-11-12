@@ -136,6 +136,26 @@ $decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo $url; ?>">
 
+    <!-- Hreflang Alternate URLs for SEO -->
+    <?php
+    // English variants
+    $englishCountries = ['US', 'GB', 'CA', 'AU', 'NZ', 'IE', 'ZA', 'KE', 'NG', 'GH', 'UG', 'ZM', 'ZW', 'BW', 'NA', 'SL', 'LR', 'GM', 'MW', 'IN', 'PK', 'BD', 'LK', 'SG', 'PH', 'JM', 'BS', 'BB', 'TT', 'BZ', 'GY'];
+    foreach ($englishCountries as $countryCode) {
+        $hreflangUrl = $baseUrl . '/en/' . $countryCode;
+        echo '<link rel="alternate" hreflang="en-' . $countryCode . '" href="' . $hreflangUrl . '" />' . "\n    ";
+    }
+
+    // French variants
+    $frenchCountries = ['FR', 'BE', 'CH', 'CA', 'LU', 'MC', 'HT', 'MA', 'DZ', 'TN'];
+    foreach ($frenchCountries as $countryCode) {
+        $hreflangUrl = $baseUrl . '/fr/' . $countryCode;
+        echo '<link rel="alternate" hreflang="fr-' . $countryCode . '" href="' . $hreflangUrl . '" />' . "\n    ";
+    }
+
+    // X-Default for default language
+    echo '<link rel="alternate" hreflang="x-default" href="' . $baseUrl . '/en/US" />' . "\n    ";
+    ?>
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
         {

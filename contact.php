@@ -1,15 +1,68 @@
+<?php
+// Include i18n helper
+require_once __DIR__ . '/includes/i18n.php';
+
+// Detect language from URL parameters or browser
+$lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : null;
+
+// If no lang parameter, try to detect from browser
+if (!$lang && isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    $lang = in_array($browserLang, ['fr', 'en']) ? $browserLang : 'en';
+} else {
+    $lang = $lang ?? 'en';
+}
+
+// Validate language
+$validLanguages = ['fr', 'en'];
+if (!in_array($lang, $validLanguages)) {
+    $lang = 'en';
+}
+
+// Detect base URL dynamically
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+$scriptName = $_SERVER['SCRIPT_NAME'];
+$scriptDir = dirname($scriptName);
+if ($scriptDir === '/' || $scriptDir === '\\') {
+    $scriptDir = '';
+}
+$baseUrl = $protocol . '://' . $host . $scriptDir;
+if (substr($baseUrl, -1) !== '/') {
+    $baseUrl .= '/';
+}
+
+// Configuration
+$cssPath = $baseUrl . 'css/styles.css';
+$includesPath = __DIR__ . '/includes/';
+$scriptsPath = $baseUrl . 'scripts/';
+
+// Initialize i18n
+i18n::init($lang, __DIR__ . '/langs/');
+
+// Build canonical URL
+$canonicalUrl = 'https://calcuze.com/contact';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $lang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="refresh" content="0;url=contact.php">
-    <link rel="canonical" href="https://calcuze.com/contact">
-    <title>Contact - Redirecting...</title>
+    <title>Contact Us - Calcuze Calculator</title>
+    <meta name="description" content="Contact Calcuze - Get in touch with our team for support, partnerships, or inquiries about our online calculator.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
+
+    <!-- Hreflang Alternate URLs -->
+    <link rel="alternate" hreflang="en" href="https://calcuze.com/contact?lang=en" />
+    <link rel="alternate" hreflang="fr" href="https://calcuze.com/contact?lang=fr" />
+    <link rel="alternate" hreflang="x-default" href="https://calcuze.com/contact" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="<?php echo $cssPath; ?>">
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
@@ -31,7 +84,7 @@
             <!-- Navigation Header -->
             <div class="bg-white rounded-xl p-6 flex items-center justify-between shadow-lg">
                 <div class="flex items-center space-x-4">
-                    <a href="index.html" class="flex items-center text-blue-600 hover:text-blue-800 transition">
+                    <a href="index.php" class="flex items-center text-blue-600 hover:text-blue-800 transition">
                         <i class="fas fa-arrow-left mr-2"></i>
                         Back to Calculator
                     </a>
@@ -157,83 +210,40 @@
                         </button>
                         <button
                             type="reset"
-                            class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center"
+                            class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-lg transition"
                         >
                             <i class="fas fa-redo mr-2"></i>
                             Reset Form
                         </button>
                     </div>
-                </form>
 
-                <!-- Status Messages -->
-                <div id="status-message" class="mt-4 hidden"></div>
+                    <!-- Status Messages -->
+                    <div id="form-status" class="hidden"></div>
+                </form>
             </div>
         </div>
 
-        <!-- Right Sidebar - FAQ -->
-        <div class="history-sidebar rounded-xl p-4">
-            <div class="flex items-center mb-4">
-                <h3 class="text-lg font-bold text-gray-800 flex items-center">
-                    <i class="fas fa-question-circle mr-2 text-blue-600"></i>
-                    FAQ
-                </h3>
-            </div>
-
-            <div class="space-y-4 text-sm">
-                <div class="bg-white p-3 rounded-lg border">
-                    <h4 class="font-semibold text-gray-800 mb-2">How fast do you respond?</h4>
-                    <p class="text-gray-600">We typically respond within 24 hours during business days.</p>
-                </div>
-
-                <div class="bg-white p-3 rounded-lg border">
-                    <h4 class="font-semibold text-gray-800 mb-2">Is the calculator free?</h4>
-                    <p class="text-gray-600">Yes, our calculator is completely free to use with no limitations.</p>
-                </div>
-
-                <div class="bg-white p-3 rounded-lg border">
-                    <h4 class="font-semibold text-gray-800 mb-2">Can I suggest features?</h4>
-                    <p class="text-gray-600">Absolutely! We welcome feature requests and feedback.</p>
-                </div>
-
-                <div class="bg-white p-3 rounded-lg border">
-                    <h4 class="font-semibold text-gray-800 mb-2">Found a bug?</h4>
-                    <p class="text-gray-600">Please report any bugs using the contact form above.</p>
+        <!-- Right Sidebar Ad -->
+        <div class="ad-banner rounded-xl p-4 flex flex-col items-center justify-center">
+            <div class="text-white text-center">
+                <i class="fas fa-question-circle text-3xl mb-3"></i>
+                <h3 class="text-lg font-bold mb-2">Need Help?</h3>
+                <p class="text-sm mb-4 opacity-90">Check out our FAQ section or send us a message</p>
+                <div class="space-y-2 text-xs opacity-75">
+                    <p>• Quick responses</p>
+                    <p>• Expert support</p>
+                    <p>• 24/7 availability</p>
                 </div>
             </div>
         </div>
 
         <!-- Bottom Footer -->
-        <div class="col-span-3 seo-footer rounded-xl p-6">
-            <div class="text-center">
-                <h2 class="text-xl font-bold text-gray-800 mb-2">Contact Information</h2>
-                <p class="text-gray-600 mb-4">Feel free to reach out to us anytime</p>
-
-                <div class="flex justify-center items-center space-x-8 text-sm text-gray-600">
-                    <div class="flex items-center">
-                        <i class="fas fa-envelope mr-2 text-blue-600"></i>
-                        <span>adil.ksjo@gmail.com</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-globe mr-2 text-blue-600"></i>
-                        <span>Calcuze-calculator.com</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-clock mr-2 text-blue-600"></i>
-                        <span>24/7 Support</span>
-                    </div>
-                </div>
-
-                <div class="mt-4 pt-4 border-t border-gray-300 text-center text-xs text-gray-500">
-                    <p>&copy; 2025 Calcuze - Universal Calculator. All rights reserved. |
-                       <a href="index.html" class="hover:text-gray-700">Calculator</a> |
-                       <a href="#" class="hover:text-gray-700">Privacy Policy</a> |
-                       <a href="#" class="hover:text-gray-700">Terms of Service</a>
-                    </p>
-                </div>
-            </div>
+        <div class="col-span-3 text-center text-gray-600 text-sm py-4">
+            <p>&copy; 2025 Calcuze - All rights reserved</p>
         </div>
     </div>
 
-    <script src="scripts/contact.js"></script>
+    <script src="<?php echo $scriptsPath; ?>contact.js"></script>
 </body>
 </html>
+
