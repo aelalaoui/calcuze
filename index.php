@@ -37,14 +37,14 @@ if (!isset($lang)) {
     // If no lang parameter, try to detect from browser
     if (!$lang && isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
         $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $lang = in_array($browserLang, ['fr', 'en', 'es']) ? $browserLang : 'en';
+        $lang = in_array($browserLang, ['fr', 'en', 'es', 'pt']) ? $browserLang : 'en';
     } else {
         $lang = $lang ?? 'en';
     }
 }
 
 // Validate language
-$validLanguages = ['fr', 'en', 'es'];
+$validLanguages = ['fr', 'en', 'es', 'pt'];
 if (!in_array($lang, $validLanguages)) {
     $lang = 'en';
 }

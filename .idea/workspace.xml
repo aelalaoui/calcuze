@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33484358-a07a-4cde-b89d-1d3409b181e1" name="Changes" comment="refacto redirection">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+    <list default="true" id="33484358-a07a-4cde-b89d-1d3409b181e1" name="Changes" comment="add Spanish language support and update redirection rules in .htaccess">
+      <change afterPath="$PROJECT_DIR$/langs/pt.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fr/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fr/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,23 +23,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN"
+      &quot;state&quot;: &quot;OPEN&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/aelalaoui/calcuze.git",
-    "accountId": "5028e9ce-8006-4e78-906e-bab1fec0e17a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/aelalaoui/calcuze.git&quot;,
+    &quot;accountId&quot;: &quot;5028e9ce-8006-4e78-906e-bab1fec0e17a&quot;
   }
-}]]></component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$PROJECT_DIR$/../../bin/php/php8.1.31/php.exe" />
+}</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -45,30 +48,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/wamp64/www/calcuze/fr",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/calcuze/en&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\calcuze\en" />
       <recent name="C:\wamp64\www\calcuze\fr" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\calcuze" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -89,7 +97,9 @@
       <workItem from="1753038772224" duration="10661000" />
       <workItem from="1753112189847" duration="793000" />
       <workItem from="1753364541328" duration="2007000" />
-      <workItem from="1762552478723" duration="8951000" />
+      <workItem from="1762552478723" duration="24996000" />
+      <workItem from="1762895296298" duration="3652000" />
+      <workItem from="1762947954443" duration="7520000" />
     </task>
     <task id="LOCAL-00001" summary="add selector in log">
       <option name="closed" value="true" />
@@ -107,7 +117,199 @@
       <option name="project" value="LOCAL" />
       <updated>1762626963671</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refacto redirection to php">
+      <option name="closed" value="true" />
+      <created>1762627959137</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762627959137</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix includes path">
+      <option name="closed" value="true" />
+      <created>1762628598987</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762628598987</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix lang=&quot;&quot;&#10;and english index.php">
+      <option name="closed" value="true" />
+      <created>1762629908641</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762629908641</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix COUCOUS">
+      <option name="closed" value="true" />
+      <created>1762630021192</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1762630021192</updated>
+    </task>
+    <task id="LOCAL-00007" summary="metadata internationalization">
+      <option name="closed" value="true" />
+      <created>1762630696568</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1762630696568</updated>
+    </task>
+    <task id="LOCAL-00008" summary="JSON-LD internationalization">
+      <option name="closed" value="true" />
+      <created>1762631147286</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1762631147286</updated>
+    </task>
+    <task id="LOCAL-00009" summary="small typo">
+      <option name="closed" value="true" />
+      <created>1762632024298</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1762632024298</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refacto header">
+      <option name="closed" value="true" />
+      <created>1762632674878</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1762632674878</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refacto header for index.php">
+      <option name="closed" value="true" />
+      <created>1762632851738</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1762632851738</updated>
+    </task>
+    <task id="LOCAL-00012" summary="redirect index.html to en/US">
+      <option name="closed" value="true" />
+      <created>1762633448076</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1762633448076</updated>
+    </task>
+    <task id="LOCAL-00013" summary="redirect index.html to en/US">
+      <option name="closed" value="true" />
+      <created>1762633668633</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1762633668633</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add favicon">
+      <option name="closed" value="true" />
+      <created>1762635049638</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1762635049638</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add README.md">
+      <option name="closed" value="true" />
+      <created>1762637974792</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1762637974792</updated>
+    </task>
+    <task id="LOCAL-00016" summary="show errors">
+      <option name="closed" value="true" />
+      <created>1762697220029</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1762697220029</updated>
+    </task>
+    <task id="LOCAL-00017" summary="change path to '/templates/index-template.php'">
+      <option name="closed" value="true" />
+      <created>1762697441678</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1762697441678</updated>
+    </task>
+    <task id="LOCAL-00018" summary="remove diagnose code">
+      <option name="closed" value="true" />
+      <created>1762697649286</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1762697649286</updated>
+    </task>
+    <task id="LOCAL-00019" summary="refactor the header">
+      <option name="closed" value="true" />
+      <created>1762897087374</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1762897087374</updated>
+    </task>
+    <task id="LOCAL-00020" summary="refactor the dropdown">
+      <option name="closed" value="true" />
+      <created>1762898215577</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1762898215577</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add lot of francophone countries">
+      <option name="closed" value="true" />
+      <created>1762898608901</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1762898608901</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add lot of anglophone countries">
+      <option name="closed" value="true" />
+      <created>1762899005520</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1762899005520</updated>
+    </task>
+    <task id="LOCAL-00023" summary="remove comment">
+      <option name="closed" value="true" />
+      <created>1762948090071</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1762948090071</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix sitemap and robots">
+      <option name="closed" value="true" />
+      <created>1762950571458</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1762950571458</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add SEO optimizations and redirection rules in .htaccess, create contact.php, and update contact.html">
+      <option name="closed" value="true" />
+      <created>1762974079960</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1762974079960</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add Spanish language support and update redirection rules in .htaccess">
+      <option name="closed" value="true" />
+      <created>1762982762333</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1762982762333</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +318,28 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add selector in log" />
     <MESSAGE value="refacto redirection" />
-    <option name="LAST_COMMIT_MESSAGE" value="refacto redirection" />
+    <MESSAGE value="refacto redirection to php" />
+    <MESSAGE value="fix includes path" />
+    <MESSAGE value="fix lang=&quot;&quot;&#10;and english index.php" />
+    <MESSAGE value="fix COUCOUS" />
+    <MESSAGE value="metadata internationalization" />
+    <MESSAGE value="JSON-LD internationalization" />
+    <MESSAGE value="small typo" />
+    <MESSAGE value="refacto header" />
+    <MESSAGE value="refacto header for index.php" />
+    <MESSAGE value="redirect index.html to en/US" />
+    <MESSAGE value="add favicon" />
+    <MESSAGE value="add README.md" />
+    <MESSAGE value="change path to '/templates/index-template.php'" />
+    <MESSAGE value="remove diagnose code" />
+    <MESSAGE value="refactor the header" />
+    <MESSAGE value="refactor the dropdown" />
+    <MESSAGE value="add lot of francophone countries" />
+    <MESSAGE value="add lot of anglophone countries" />
+    <MESSAGE value="remove comment" />
+    <MESSAGE value="fix sitemap and robots" />
+    <MESSAGE value="add SEO optimizations and redirection rules in .htaccess, create contact.php, and update contact.html" />
+    <MESSAGE value="add Spanish language support and update redirection rules in .htaccess" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Spanish language support and update redirection rules in .htaccess" />
   </component>
 </project>

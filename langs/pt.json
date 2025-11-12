@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Calcuze - Calculadora Profissional Gratuita Online",
+    "description": "Calculadora profissional online com funções científicas, econômicas e conversão de unidades. Gratuita e fácil de usar.",
+    "keywords": "calculadora, calculadora científica, calculadora online, conversão de unidades"
+  },
+  "validCountries": ["PT", "BR", "AO", "MZ", "GW", "CV", "ST", "TL", "GQ", "MO"],
+  "countryMetadata": {
+    "PT": {
+      "name": "Portugal",
+      "region": "PT",
+      "region_code": "PT-LIS"
+    },
+    "BR": {
+      "name": "Brasil",
+      "region": "BR",
+      "region_code": "BR-SP"
+    },
+    "AO": {
+      "name": "Angola",
+      "region": "AO",
+      "region_code": "AO-LUA"
+    },
+    "MZ": {
+      "name": "Moçambique",
+      "region": "MZ",
+      "region_code": "MZ-MPM"
+    },
+    "GW": {
+      "name": "Guiné-Bissau",
+      "region": "GW",
+      "region_code": "GW-BS"
+    },
+    "CV": {
+      "name": "Cabo Verde",
+      "region": "CV",
+      "region_code": "CV-SV"
+    },
+    "ST": {
+      "name": "São Tomé e Príncipe",
+      "region": "ST",
+      "region_code": "ST-S"
+    },
+    "TL": {
+      "name": "Timor-Leste",
+      "region": "TL",
+      "region_code": "TL-DI"
+    },
+    "GQ": {
+      "name": "Guiné Equatorial",
+      "region": "GQ",
+      "region_code": "GQ-C"
+    },
+    "MO": {
+      "name": "Macau",
+      "region": "MO",
+      "region_code": "MO-MAC"
+    }
+  },
+  "currencyByCountry": {
+    "PT": "EUR",
+    "BR": "BRL",
+    "AO": "AOA",
+    "MZ": "MZN",
+    "GW": "XOF",
+    "CV": "CVE",
+    "ST": "STN",
+    "TL": "USD",
+    "GQ": "XAF",
+    "MO": "MOP"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Calculadora Profissional"
+  },
+  "ads": {
+    "premium_title": "🎯 ESPAÇO PUBLICITÁRIO PREMIUM",
+    "premium_subtitle": "Seu anúncio poderia estar aqui!",
+    "premium_contact": "Entre em contato para visibilidade premium",
+    "sidebar_title": "ANÚNCIOS",
+    "sidebar_subtitle": "Espaço Publicitário Vertical",
+    "sidebar_features": [
+      "Posicionamento de alto CTR",
+      "Público profissional",
+      "Posicionamento premium"
+    ],
+    "learn_more": "Saiba mais"
+  },
+  "calculator": {
+    "title": "Calculadora Universal",
+    "modes": {
+      "normal": "Normal",
+      "scientific": "Científica",
+      "economic": "Econômica",
+      "conversion": "Conversão"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "VF",
+      "pv": "VA",
+      "pmt": "PMT",
+      "npv": "VPL",
+      "irr": "TIR",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Capital (P)",
+      "rate": "Taxa (r)",
+      "time": "Tempo (t)",
+      "periods": "Períodos (n)",
+      "payment": "Pagamento (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Comprimento",
+      "weight": "Peso",
+      "temperature": "Temperatura",
+      "area": "Área",
+      "volume": "Volume",
+      "speed": "Velocidade",
+      "time": "Tempo",
+      "currency": "Moeda"
+    },
+    "comment": "As opções serão preenchidas por JavaScript"
+  },
+  "history": {
+    "title": "Histórico de Cálculos",
+    "sidebar_title": "HISTÓRICO",
+    "no_calculations": "Nenhum cálculo no momento",
+    "start_calculating": "Comece a calcular para ver o histórico",
+    "quick_actions": "Ações Rápidas",
+    "export": "Exportar Histórico",
+    "import": "Importar Histórico",
+    "history_comment": "Os itens do histórico serão adicionados aqui"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Ferramentas de Calculadora Profissional e Soluções Matemáticas",
+    "features": {
+      "title": "Características da Calculadora",
+      "items": [
+        "Operações aritméticas básicas",
+        "Cálculos científicos",
+        "Fórmulas econômicas",
+        "Conversões de unidades",
+        "Rastreamento de histórico"
+      ]
+    },
+    "operations": {
+      "title": "Operações Suportadas",
+      "items": [
+        "Funções trigonométricas",
+        "Logaritmos e exponenciais",
+        "Cálculos financeiros",
+        "Conversão de temperatura",
+        "Unidades de comprimento e peso"
+      ]
+    },
+    "benefits": {
+      "title": "Benefícios",
+      "items": [
+        "Calculadora online gratuita",
+        "Sem instalação necessária",
+        "Design responsivo para dispositivos móveis",
+        "Suporte a teclado",
+        "Precisão profissional"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Calculadora Universal. Todos os direitos reservados.",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Uso",
+      "contact": "Contato"
+    }
+  },
+  "decimal_separator": ","
+}
+
