@@ -138,18 +138,16 @@ $decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
 
     <!-- Hreflang Alternate URLs for SEO -->
     <?php
-    // English variants
-    $englishCountries = ['US', 'GB', 'CA', 'AU', 'NZ', 'IE', 'ZA', 'KE', 'NG', 'GH', 'UG', 'ZM', 'ZW', 'BW', 'NA', 'SL', 'LR', 'GM', 'MW', 'IN', 'PK', 'BD', 'LK', 'SG', 'PH', 'JM', 'BS', 'BB', 'TT', 'BZ', 'GY'];
-    foreach ($englishCountries as $countryCode) {
-        $hreflangUrl = $baseUrl . '/en/' . $countryCode;
-        echo '<link rel="alternate" hreflang="en-' . $countryCode . '" href="' . $hreflangUrl . '" />' . "\n    ";
-    }
-
-    // French variants
-    $frenchCountries = ['FR', 'BE', 'CH', 'CA', 'LU', 'MC', 'HT', 'MA', 'DZ', 'TN'];
-    foreach ($frenchCountries as $countryCode) {
-        $hreflangUrl = $baseUrl . '/fr/' . $countryCode;
-        echo '<link rel="alternate" hreflang="fr-' . $countryCode . '" href="' . $hreflangUrl . '" />' . "\n    ";
+    // Generate hreflang links dynamically from all available language files
+    if (isset($translations) && is_array($translations)) {
+        foreach ($translations as $langCode => $langData) {
+            if (isset($langData['validCountries']) && is_array($langData['validCountries'])) {
+                foreach ($langData['validCountries'] as $countryCode) {
+                    $hreflangUrl = $baseUrl . '/' . $langCode . '/' . $countryCode;
+                    echo '<link rel="alternate" hreflang="' . $langCode . '-' . $countryCode . '" href="' . $hreflangUrl . '" />' . "\n    ";
+                }
+            }
+        }
     }
 
     // X-Default for default language
