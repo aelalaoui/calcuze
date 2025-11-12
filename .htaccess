@@ -13,7 +13,7 @@ RewriteCond %{THE_REQUEST} /contact\.html [NC]
 RewriteRule ^contact\.html$ /contact.php [R=301,L]
 
 # Rediriger les anciennes URL avec paramètres vers la nouvelle structure
-# Par exemple: /?lang=fr&country=FR vers /fr/FR
+# Par exemple: /?lang=es&country=ES vers /es/ES
 RewriteCond %{QUERY_STRING} ^lang=([a-z]{2})&country=([A-Z]{2})$ [NC]
 RewriteRule ^$ /%1/%2? [R=301,L]
 

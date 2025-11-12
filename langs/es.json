@@ -1,0 +1,246 @@
+{
+  "meta": {
+    "title": "Calcuze - Calculadora Profesional Gratuita en Línea",
+    "description": "Calculadora profesional en línea con funciones científicas, económicas y conversión de unidades. Gratuita y fácil de usar.",
+    "keywords": "calculadora, calculadora científica, calculadora en línea, conversión de unidades"
+  },
+  "validCountries": ["ES", "MX", "AR", "CL", "CO", "PE", "VE", "EC", "UY", "BO", "PY", "CR", "PA", "DO", "CU", "GT", "HN", "SV", "NI", "PR", "GQ"],
+  "countryMetadata": {
+    "ES": {
+      "name": "España",
+      "region": "ES",
+      "region_code": "ES-MD"
+    },
+    "MX": {
+      "name": "México",
+      "region": "MX",
+      "region_code": "MX-CMX"
+    },
+    "AR": {
+      "name": "Argentina",
+      "region": "AR",
+      "region_code": "AR-B"
+    },
+    "CL": {
+      "name": "Chile",
+      "region": "CL",
+      "region_code": "CL-RM"
+    },
+    "CO": {
+      "name": "Colombia",
+      "region": "CO",
+      "region_code": "CO-DC"
+    },
+    "PE": {
+      "name": "Perú",
+      "region": "PE",
+      "region_code": "PE-LIM"
+    },
+    "VE": {
+      "name": "Venezuela",
+      "region": "VE",
+      "region_code": "VE-A"
+    },
+    "EC": {
+      "name": "Ecuador",
+      "region": "EC",
+      "region_code": "EC-P"
+    },
+    "UY": {
+      "name": "Uruguay",
+      "region": "UY",
+      "region_code": "UY-MO"
+    },
+    "BO": {
+      "name": "Bolivia",
+      "region": "BO",
+      "region_code": "BO-L"
+    },
+    "PY": {
+      "name": "Paraguay",
+      "region": "PY",
+      "region_code": "PY-ASU"
+    },
+    "CR": {
+      "name": "Costa Rica",
+      "region": "CR",
+      "region_code": "CR-SJ"
+    },
+    "PA": {
+      "name": "Panamá",
+      "region": "PA",
+      "region_code": "PA-8"
+    },
+    "DO": {
+      "name": "República Dominicana",
+      "region": "DO",
+      "region_code": "DO-01"
+    },
+    "CU": {
+      "name": "Cuba",
+      "region": "CU",
+      "region_code": "CU-03"
+    },
+    "GT": {
+      "name": "Guatemala",
+      "region": "GT",
+      "region_code": "GT-GU"
+    },
+    "HN": {
+      "name": "Honduras",
+      "region": "HN",
+      "region_code": "HN-FM"
+    },
+    "SV": {
+      "name": "El Salvador",
+      "region": "SV",
+      "region_code": "SV-SS"
+    },
+    "NI": {
+      "name": "Nicaragua",
+      "region": "NI",
+      "region_code": "NI-MN"
+    },
+    "PR": {
+      "name": "Puerto Rico",
+      "region": "PR",
+      "region_code": "PR-SJ"
+    },
+    "GQ": {
+      "name": "Guinea Ecuatorial",
+      "region": "GQ",
+      "region_code": "GQ-C"
+    }
+  },
+  "currencyByCountry": {
+    "ES": "EUR",
+    "MX": "MXN",
+    "AR": "ARS",
+    "CL": "CLP",
+    "CO": "COP",
+    "PE": "PEN",
+    "VE": "VES",
+    "EC": "USD",
+    "UY": "UYU",
+    "BO": "BOB",
+    "PY": "PYG",
+    "CR": "CRC",
+    "PA": "PAB",
+    "DO": "DOP",
+    "CU": "CUP",
+    "GT": "GTQ",
+    "HN": "HNL",
+    "SV": "USD",
+    "NI": "NIO",
+    "PR": "USD",
+    "GQ": "XAF"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Calculadora Profesional"
+  },
+  "ads": {
+    "premium_title": "🎯 ESPACIO PUBLICITARIO PREMIUM",
+    "premium_subtitle": "¡Tu publicidad podría estar aquí!",
+    "premium_contact": "Contáctanos para visibilidad premium",
+    "sidebar_title": "ANUNCIOS",
+    "sidebar_subtitle": "Espacio Publicitario Vertical",
+    "sidebar_features": [
+      "Ubicación de alto CTR",
+      "Audiencia profesional",
+      "Posicionamiento premium"
+    ],
+    "learn_more": "Más información"
+  },
+  "calculator": {
+    "title": "Calculadora Universal",
+    "modes": {
+      "normal": "Normal",
+      "scientific": "Científica",
+      "economic": "Económica",
+      "conversion": "Conversión"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "VF",
+      "pv": "VA",
+      "pmt": "PMT",
+      "npv": "VAN",
+      "irr": "TIR",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Capital (P)",
+      "rate": "Tasa (r)",
+      "time": "Tiempo (t)",
+      "periods": "Períodos (n)",
+      "payment": "Pago (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Longitud",
+      "weight": "Peso",
+      "temperature": "Temperatura",
+      "area": "Área",
+      "volume": "Volumen",
+      "speed": "Velocidad",
+      "time": "Tiempo",
+      "currency": "Moneda"
+    },
+    "comment": "Las opciones serán completadas por JavaScript"
+  },
+  "history": {
+    "title": "Historial de Cálculos",
+    "sidebar_title": "HISTORIAL",
+    "no_calculations": "Sin cálculos en este momento",
+    "start_calculating": "Comienza a calcular para ver el historial",
+    "quick_actions": "Acciones Rápidas",
+    "export": "Exportar Historial",
+    "import": "Importar Historial",
+    "history_comment": "Los elementos del historial se agregarán aquí"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Herramientas de Calculadora Profesional y Soluciones Matemáticas",
+    "features": {
+      "title": "Características de la Calculadora",
+      "items": [
+        "Operaciones aritméticas básicas",
+        "Cálculos científicos",
+        "Fórmulas económicas",
+        "Conversiones de unidades",
+        "Seguimiento del historial"
+      ]
+    },
+    "operations": {
+      "title": "Operaciones Soportadas",
+      "items": [
+        "Funciones trigonométricas",
+        "Logaritmos y exponenciales",
+        "Cálculos financieros",
+        "Conversión de temperatura",
+        "Unidades de longitud y peso"
+      ]
+    },
+    "benefits": {
+      "title": "Ventajas",
+      "items": [
+        "Calculadora en línea gratuita",
+        "Sin instalación requerida",
+        "Diseño adaptable para móviles",
+        "Soporte de teclado",
+        "Precisión profesional"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Calculadora Universal. Todos los derechos reservados.",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso",
+      "contact": "Contacto"
+    }
+  },
+  "decimal_separator": ","
+}
+
