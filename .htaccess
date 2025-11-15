@@ -20,6 +20,13 @@ RewriteRule ^$ /%1/%2? [R=301,L]
 RewriteCond %{QUERY_STRING} ^lang=([a-z]{2})$ [NC]
 RewriteRule ^$ /%1/US? [R=301,L]
 
+# ============================================================================
+# IMPORTANT: Permettre à PHP (index.php) de gérer la redirection de la racine
+# La racine / doit accéder à index.php pour la détection de langue automatique
+# ============================================================================
+# Ne PAS rediriger la racine / - laisser PHP la gérer
+# Ceci permet la détection automatique via Accept-Language
+
 # Forcer HTTPS (décommenter en production)
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
@@ -49,9 +56,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^contact$ contact.php [L,QSA]
 
-# Page par défaut - rediriger vers /en/US
-RewriteCond %{REQUEST_URI} ^/$
-RewriteRule ^$ /en/US [R=301,L]
+# ============================================================================
+# DEFAULT REDIRECT REMOVED
+# La racine / est maintenant gérée par index.php avec détection automatique
+# via Accept-Language header du navigateur
+# ============================================================================
 
 # Compression GZIP
 <IfModule mod_deflate.c>
