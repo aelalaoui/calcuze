@@ -121,6 +121,8 @@
         <xhtml:link rel="alternate" hreflang="sv-FI" href="https://calcuze.com/sv/FI" />
         <xhtml:link rel="alternate" hreflang="no-NO" href="https://calcuze.com/no/NO" />
         <xhtml:link rel="alternate" hreflang="no-SJ" href="https://calcuze.com/no/SJ" />
+        <xhtml:link rel="alternate" hreflang="tr-TR" href="https://calcuze.com/tr/TR" />
+        <xhtml:link rel="alternate" hreflang="tr-CY" href="https://calcuze.com/tr/CY" />
         <!--<xhtml:link rel="alternate" hreflang="ar-SA" href="https://calcuze.com/ar/SA" />-->
         <xhtml:link rel="alternate" hreflang="x-default" href="https://calcuze.com/" />
     </url>
@@ -1038,6 +1040,22 @@
         <xhtml:link rel="alternate" hreflang="no-SJ" href="https://calcuze.com/no/SJ" />
     </url>
 
+    <!-- Turkish Variants -->
+    <url>
+        <loc>https://calcuze.com/tr/TR</loc>
+        <lastmod>2025-11-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="tr-TR" href="https://calcuze.com/tr/TR" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/tr/CY</loc>
+        <lastmod>2025-11-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="tr-CY" href="https://calcuze.com/tr/CY" />
+    </url>
 
     <!-- Arabic Variants
     <url>
@@ -1078,6 +1096,7 @@
         <xhtml:link rel="alternate" hreflang="de" href="https://calcuze.com/contact?lang=de" />
         <xhtml:link rel="alternate" hreflang="sv" href="https://calcuze.com/contact?lang=sv" />
         <xhtml:link rel="alternate" hreflang="no" href="https://calcuze.com/contact?lang=no" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://calcuze.com/contact?lang=tr" />
         <xhtml:link rel="alternate" hreflang="fr" href="https://calcuze.com/contact?lang=fr" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://calcuze.com/contact" />
     </url>

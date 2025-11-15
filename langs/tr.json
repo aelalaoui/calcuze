@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "title": "Calcuze - Ücretsiz Profesyonel Çevrimiçi Hesap Makinesi",
+    "description": "Bilimsel, ekonomik fonksiyonları ve birim dönüştürme ile profesyonel çevrimiçi hesap makinesi. Ücretsiz ve kullanımı kolay.",
+    "keywords": "hesap makinesi, bilimsel hesap makinesi, çevrimiçi hesap makinesi, birim dönüştürme"
+  },
+  "validCountries": ["TR", "CY"],
+  "countryMetadata": {
+    "TR": {
+      "name": "Türkiye",
+      "region": "TR",
+      "region_code": "TR-34"
+    },
+    "CY": {
+      "name": "Kıbrıs Kuzey",
+      "region": "CY",
+      "region_code": "CY-TRNC"
+    }
+  },
+  "currencyByCountry": {
+    "TR": "TRY",
+    "CY": "TRY"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Profesyonel Hesap Makinesi"
+  },
+  "ads": {
+    "premium_title": "🎯 PREMIUM REKLAM ALANI",
+    "premium_subtitle": "Reklamınız buraya koyulabilir!",
+    "premium_contact": "Premium görünürlük için bize ulaşın",
+    "sidebar_title": "REKLAMLAR",
+    "sidebar_subtitle": "Dikey Reklam Alanı",
+    "sidebar_features": [
+      "Yüksek CTR yerleştirmesi",
+      "Profesyonel izleyici",
+      "Premium konumlandırma"
+    ],
+    "learn_more": "Daha fazla bilgi"
+  },
+  "calculator": {
+    "title": "Evrensel Hesap Makinesi",
+    "modes": {
+      "normal": "Normal",
+      "scientific": "Bilimsel",
+      "economic": "Ekonomik",
+      "conversion": "Dönüştürme"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "GD",
+      "pv": "BD",
+      "pmt": "PMT",
+      "npv": "NBD",
+      "irr": "İDO",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Anapara (P)",
+      "rate": "Oran (r)",
+      "time": "Zaman (t)",
+      "periods": "Dönemler (n)",
+      "payment": "Ödeme (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Uzunluk",
+      "weight": "Ağırlık",
+      "temperature": "Sıcaklık",
+      "area": "Alan",
+      "volume": "Hacim",
+      "speed": "Hız",
+      "time": "Zaman",
+      "currency": "Para Birimi"
+    },
+    "comment": "Seçenekler JavaScript tarafından doldurulacaktır"
+  },
+  "history": {
+    "title": "Hesaplama Geçmişi",
+    "sidebar_title": "GEÇMİŞ",
+    "no_calculations": "Şu anda hesaplama yok",
+    "start_calculating": "Geçmişi görmek için hesaplamaya başlayın",
+    "quick_actions": "Hızlı İşlemler",
+    "export": "Geçmişi Dışa Aktar",
+    "import": "Geçmişi İçe Aktar",
+    "history_comment": "Geçmiş öğeleri buraya eklenecektir"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Profesyonel Hesap Makinesi Araçları ve Matematiksel Çözümler",
+    "features": {
+      "title": "Hesap Makinesi Özellikleri",
+      "items": [
+        "Temel aritmetik işlemler",
+        "Bilimsel hesaplamalar",
+        "Ekonomik formüller",
+        "Birim dönüştürmeleri",
+        "Geçmiş takibi"
+      ]
+    },
+    "operations": {
+      "title": "Desteklenen İşlemler",
+      "items": [
+        "Trigonometrik fonksiyonlar",
+        "Logaritmalar ve üstel sayılar",
+        "Finansal hesaplamalar",
+        "Sıcaklık dönüştürme",
+        "Uzunluk ve ağırlık birimleri"
+      ]
+    },
+    "benefits": {
+      "title": "Avantajlar",
+      "items": [
+        "Ücretsiz çevrimiçi hesap makinesi",
+        "Kurulum gerekli değil",
+        "Mobil cihazlar için duyarlı tasarım",
+        "Klavye desteği",
+        "Profesyonel doğruluk"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Evrensel Hesap Makinesi. Tüm hakları saklıdır.",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Koşulları",
+      "contact": "İletişim"
+    }
+  },
+  "decimal_separator": ","
+}
+
