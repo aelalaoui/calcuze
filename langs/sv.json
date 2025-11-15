@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "title": "Calcuze - Gratis Professionell Miniräknare Online",
+    "description": "Professionell miniräknare online med vetenskapliga, ekonomiska funktioner och enhetskonvertering. Gratis och lätt att använda.",
+    "keywords": "miniräknare, vetenskaplig miniräknare, onlineräknare, enhetskonvertering"
+  },
+  "validCountries": ["SE", "FI"],
+  "countryMetadata": {
+    "SE": {
+      "name": "Sverige",
+      "region": "SE",
+      "region_code": "SE-AB"
+    },
+    "FI": {
+      "name": "Finland",
+      "region": "FI",
+      "region_code": "FI-18"
+    }
+  },
+  "currencyByCountry": {
+    "SE": "SEK",
+    "FI": "EUR"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Professionell Miniräknare"
+  },
+  "ads": {
+    "premium_title": "🎯 PREMIUMANNONSERING",
+    "premium_subtitle": "Din annons kunde vara här!",
+    "premium_contact": "Kontakta oss för premiummöjligheter",
+    "sidebar_title": "ANNONSER",
+    "sidebar_subtitle": "Vertikal Annonsering",
+    "sidebar_features": [
+      "Högt CTR-placering",
+      "Professionell publik",
+      "Premiumpositionering"
+    ],
+    "learn_more": "Läs mer"
+  },
+  "calculator": {
+    "title": "Universal Miniräknare",
+    "modes": {
+      "normal": "Normal",
+      "scientific": "Vetenskaplig",
+      "economic": "Ekonomisk",
+      "conversion": "Konvertering"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "FV",
+      "pv": "PV",
+      "pmt": "PMT",
+      "npv": "NPV",
+      "irr": "IRR",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Kapital (P)",
+      "rate": "Räntesats (r)",
+      "time": "Tid (t)",
+      "periods": "Perioder (n)",
+      "payment": "Betalning (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Längd",
+      "weight": "Vikt",
+      "temperature": "Temperatur",
+      "area": "Area",
+      "volume": "Volym",
+      "speed": "Hastighet",
+      "time": "Tid",
+      "currency": "Valuta"
+    },
+    "comment": "Alternativen fylls i av JavaScript"
+  },
+  "history": {
+    "title": "Beräkningshistorik",
+    "sidebar_title": "HISTORIK",
+    "no_calculations": "Inga beräkningar för tillfället",
+    "start_calculating": "Börja beräkna för att se historiken",
+    "quick_actions": "Snabbåtgärder",
+    "export": "Exportera Historik",
+    "import": "Importera Historik",
+    "history_comment": "Historikelement läggs till här"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Professionella Miniräknarverktyg och Matematiska Lösningar",
+    "features": {
+      "title": "Miniräknarfunktioner",
+      "items": [
+        "Grundläggande aritmetiska operationer",
+        "Vetenskapliga beräkningar",
+        "Ekonomiska formler",
+        "Enhetskonverteringar",
+        "Spårning av historik"
+      ]
+    },
+    "operations": {
+      "title": "Stödda Operationer",
+      "items": [
+        "Trigonometriska funktioner",
+        "Logaritmer och exponentialer",
+        "Finansiella beräkningar",
+        "Temperaturkonvertering",
+        "Längd- och viktenheter"
+      ]
+    },
+    "benefits": {
+      "title": "Fördelar",
+      "items": [
+        "Gratis onlineräknare",
+        "Ingen installation krävs",
+        "Responsiv design för mobila enheter",
+        "Tangentbordsstöd",
+        "Professionell noggrannhet"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Universal Miniräknare. Alla rättigheter reserverade.",
+      "privacy": "Sekretesspolicy",
+      "terms": "Användarvillkor",
+      "contact": "Kontakt"
+    }
+  },
+  "decimal_separator": ","
+}
+

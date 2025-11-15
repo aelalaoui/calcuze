@@ -117,6 +117,8 @@
         <xhtml:link rel="alternate" hreflang="de-BE" href="https://calcuze.com/de/BE" />
         <xhtml:link rel="alternate" hreflang="de-IT" href="https://calcuze.com/de/IT" />
         <xhtml:link rel="alternate" hreflang="de-NA" href="https://calcuze.com/de/NA" />
+        <xhtml:link rel="alternate" hreflang="sv-SE" href="https://calcuze.com/sv/SE" />
+        <xhtml:link rel="alternate" hreflang="sv-FI" href="https://calcuze.com/sv/FI" />
         <!--<xhtml:link rel="alternate" hreflang="ar-SA" href="https://calcuze.com/ar/SA" />-->
         <xhtml:link rel="alternate" hreflang="x-default" href="https://calcuze.com/" />
     </url>
@@ -999,6 +1001,24 @@
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="de-NA" href="https://calcuze.com/de/NA" />
     </url>
+
+    <!-- Swedish Variants -->
+    <url>
+        <loc>https://calcuze.com/sv/SE</loc>
+        <lastmod>2025-11-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="sv-SE" href="https://calcuze.com/sv/SE" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/sv/FI</loc>
+        <lastmod>2025-11-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="sv-FI" href="https://calcuze.com/sv/FI" />
+    </url>
+
     <!-- Arabic Variants
     <url>
         <loc>https://calcuze.com/ar/SA</loc>
@@ -1036,6 +1056,7 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://calcuze.com/contact?lang=pt" />
         <xhtml:link rel="alternate" hreflang="it" href="https://calcuze.com/contact?lang=it" />
         <xhtml:link rel="alternate" hreflang="de" href="https://calcuze.com/contact?lang=de" />
+        <xhtml:link rel="alternate" hreflang="sv" href="https://calcuze.com/contact?lang=sv" />
         <xhtml:link rel="alternate" hreflang="fr" href="https://calcuze.com/contact?lang=fr" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://calcuze.com/contact" />
     </url>
