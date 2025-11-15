@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "title": "Calcuze - Kostenloser Professioneller Online-Rechner",
+    "description": "Professioneller Online-Rechner mit wissenschaftlichen, wirtschaftlichen Funktionen und Einheitenkonvertierung. Kostenlos und benutzerfreundlich.",
+    "keywords": "Rechner, wissenschaftlicher Rechner, Online-Rechner, Einheitenkonvertierung"
+  },
+  "validCountries": ["DE", "AT", "CH", "LI", "LU", "BE", "IT", "NA"],
+  "countryMetadata": {
+    "DE": {
+      "name": "Deutschland",
+      "region": "DE",
+      "region_code": "DE-BE"
+    },
+    "AT": {
+      "name": "Österreich",
+      "region": "AT",
+      "region_code": "AT-9"
+    },
+    "CH": {
+      "name": "Schweiz",
+      "region": "CH",
+      "region_code": "CH-ZH"
+    },
+    "LI": {
+      "name": "Liechtenstein",
+      "region": "LI",
+      "region_code": "LI-11"
+    },
+    "LU": {
+      "name": "Luxemburg",
+      "region": "LU",
+      "region_code": "LU-LU"
+    },
+    "BE": {
+      "name": "Belgien",
+      "region": "BE",
+      "region_code": "BE-WLG"
+    },
+    "IT": {
+      "name": "Italien",
+      "region": "IT",
+      "region_code": "IT-BZ"
+    },
+    "NA": {
+      "name": "Namibia",
+      "region": "NA",
+      "region_code": "NA-KH"
+    }
+  },
+  "currencyByCountry": {
+    "DE": "EUR",
+    "AT": "EUR",
+    "CH": "CHF",
+    "LI": "CHF",
+    "LU": "EUR",
+    "BE": "EUR",
+    "IT": "EUR",
+    "NA": "NAD"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Professioneller Rechner"
+  },
+  "ads": {
+    "premium_title": "🎯 PREMIUM-WERBEFLÄCHE",
+    "premium_subtitle": "Ihre Anzeige könnte hier sein!",
+    "premium_contact": "Kontaktieren Sie uns für Premium-Sichtbarkeit",
+    "sidebar_title": "ANZEIGEN",
+    "sidebar_subtitle": "Vertikale Werbefläche",
+    "sidebar_features": [
+      "Hohes CTR-Platzierung",
+      "Professionelles Publikum",
+      "Premium-Positionierung"
+    ],
+    "learn_more": "Mehr erfahren"
+  },
+  "calculator": {
+    "title": "Universeller Rechner",
+    "modes": {
+      "normal": "Normal",
+      "scientific": "Wissenschaftlich",
+      "economic": "Wirtschaftlich",
+      "conversion": "Umwandlung"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "ZW",
+      "pv": "GW",
+      "pmt": "PMT",
+      "npv": "NBW",
+      "irr": "IKV",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Kapital (P)",
+      "rate": "Satz (r)",
+      "time": "Zeit (t)",
+      "periods": "Perioden (n)",
+      "payment": "Zahlung (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Länge",
+      "weight": "Gewicht",
+      "temperature": "Temperatur",
+      "area": "Fläche",
+      "volume": "Volumen",
+      "speed": "Geschwindigkeit",
+      "time": "Zeit",
+      "currency": "Währung"
+    },
+    "comment": "Die Optionen werden von JavaScript gefüllt"
+  },
+  "history": {
+    "title": "Berechnungsverlauf",
+    "sidebar_title": "VERLAUF",
+    "no_calculations": "Momentan keine Berechnungen",
+    "start_calculating": "Beginnen Sie zu rechnen, um den Verlauf zu sehen",
+    "quick_actions": "Schnellaktionen",
+    "export": "Verlauf exportieren",
+    "import": "Verlauf importieren",
+    "history_comment": "Verlaufselemente werden hier hinzugefügt"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Professionelle Rechner-Tools und mathematische Lösungen",
+    "features": {
+      "title": "Rechner-Funktionen",
+      "items": [
+        "Grundlegende arithmetische Operationen",
+        "Wissenschaftliche Berechnungen",
+        "Wirtschaftliche Formeln",
+        "Einheitenkonvertierungen",
+        "Verlaufsverfolgung"
+      ]
+    },
+    "operations": {
+      "title": "Unterstützte Operationen",
+      "items": [
+        "Trigonometrische Funktionen",
+        "Logarithmen und Exponentiale",
+        "Finanzielle Berechnungen",
+        "Temperaturkonvertierung",
+        "Längen- und Gewichtseinheiten"
+      ]
+    },
+    "benefits": {
+      "title": "Vorteile",
+      "items": [
+        "Kostenloser Online-Rechner",
+        "Keine Installation erforderlich",
+        "Reaktives Design für Mobilgeräte",
+        "Tastaturunterstützung",
+        "Professionelle Genauigkeit"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Universeller Rechner. Alle Rechte vorbehalten.",
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "contact": "Kontakt"
+    }
+  },
+  "decimal_separator": ","
+}
+
