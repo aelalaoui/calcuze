@@ -211,36 +211,36 @@ class LanguageDetection {
      * Détecte automatiquement la langue et le pays de l'utilisateur
      *
      * Hiérarchie :
-     * 1. Cookie/Session utilisateur
-     * 2. Paramètres URL (?lang=xx&country=XX)
+     * 1. Paramètres URL (?lang=xx&country=XX) - PRIORITÉ ABSOLUE
+     * 2. Cookie/Session utilisateur (SAUF à la racine / - permet re-détection)
      * 3. Accept-Language header du navigateur
      * 4. Fallback: en/US
      *
+     * Note: À la racine (/), le cookie est ignoré pour permettre une redirection
+     *       automatique basée sur Accept-Language actuel du navigateur.
+     *
      * @param string $langsPath Chemin vers le dossier langs/
+     * @param bool $ignoreRootCookie Si true, ignore le cookie à la racine (défaut: true)
      * @return array Format: ['lang' => 'fr', 'country' => 'FR']
      */
-    public static function detect($langsPath) {
-        // 1. Vérifier cookie
-        $cookieName = 'calcuze_lang';
-        $countryCookieName = 'calcuze_country';
+    public static function detect($langsPath, $ignoreRootCookie = true) {
+        $requestUri = $_SERVER['REQUEST_URI'];
+        $requestPath = parse_url($requestUri, PHP_URL_PATH);
+        $scriptName = $_SERVER['SCRIPT_NAME'];
+        $scriptDir = dirname($scriptName);
 
-        if (isset($_COOKIE[$cookieName]) && isset($_COOKIE[$countryCookieName])) {
-            $lang = strtolower($_COOKIE[$cookieName]);
-            $country = strtoupper($_COOKIE[$countryCookieName]);
-
-            $translations = self::loadLanguageMetadata($langsPath);
-            $validCountries = self::getValidCountriesForLanguage($lang, $translations);
-
-            if (in_array($lang, array_keys($translations)) && in_array($country, $validCountries)) {
-                return [
-                    'lang' => $lang,
-                    'country' => $country,
-                    'source' => 'cookie'
-                ];
-            }
+        if ($scriptDir === '/' || $scriptDir === '\\') {
+            $scriptDir = '';
         }
 
-        // 2. Vérifier paramètres URL
+        if (!empty($scriptDir)) {
+            $requestPath = str_replace($scriptDir, '', $requestPath);
+        }
+
+        $requestPath = trim($requestPath, '/');
+        $isRootRequest = empty($requestPath) || $requestPath === 'index.php';
+
+        // 1. Vérifier paramètres URL (PRIORITÉ ABSOLUE)
         if (isset($_GET['lang']) && isset($_GET['country'])) {
             $lang = strtolower($_GET['lang']);
             $country = strtoupper($_GET['country']);
@@ -254,6 +254,33 @@ class LanguageDetection {
                     'country' => $country,
                     'source' => 'url'
                 ];
+            }
+        }
+
+        // 2. Vérifier cookie (SAUF à la racine si ignoreRootCookie = true)
+        // À la racine, on veut re-détecter la langue actuelle du navigateur
+        $cookieName = 'calcuze_lang';
+        $countryCookieName = 'calcuze_country';
+
+        if (isset($_COOKIE[$cookieName]) && isset($_COOKIE[$countryCookieName])) {
+            // Si on est à la racine ET ignoreRootCookie est true, sauter le cookie
+            if ($isRootRequest && $ignoreRootCookie) {
+                // Ignorer le cookie à la racine - re-détecter avec Accept-Language
+            } else {
+                // Utiliser le cookie (on est sur une page /[lang]/[country])
+                $lang = strtolower($_COOKIE[$cookieName]);
+                $country = strtoupper($_COOKIE[$countryCookieName]);
+
+                $translations = self::loadLanguageMetadata($langsPath);
+                $validCountries = self::getValidCountriesForLanguage($lang, $translations);
+
+                if (in_array($lang, array_keys($translations)) && in_array($country, $validCountries)) {
+                    return [
+                        'lang' => $lang,
+                        'country' => $country,
+                        'source' => 'cookie'
+                    ];
+                }
             }
         }
 
