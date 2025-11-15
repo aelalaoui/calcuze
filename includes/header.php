@@ -4,27 +4,14 @@ if (!class_exists('i18n')) {
     require_once __DIR__ . '/i18n.php';
 }
 
-// Detect language and country from URL parameters or browser
+// Language and country are detected and set by index.php
+// Fallback to defaults if not set (for pages included directly)
 if (!isset($lang)) {
-    $lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : null;
-
-    // If no lang parameter, try to detect from browser
-    if (!$lang && isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-        $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $lang = in_array($browserLang, ['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr']) ? $browserLang : 'en';
-    } else {
-        $lang = $lang ?? 'en';
-    }
+    $lang = 'en';
 }
 
 if (!isset($country)) {
-    $country = isset($_GET['country']) ? strtoupper($_GET['country']) : null;
-}
-
-// Validate language
-$validLanguages = ['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr'];
-if (!in_array($lang, $validLanguages)) {
-    $lang = 'en';
+    $country = 'US';
 }
 
 // Initialize i18n system only if not already initialized
