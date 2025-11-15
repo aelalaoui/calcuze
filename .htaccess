@@ -1,10 +1,20 @@
 # .htaccess pour Calcuze - Optimisation SEO
 # Redirections et gestion des URL canoniques
+# VERSION 2.1 - Fix index.html priority
 
 # Activer le module de réécriture
 RewriteEngine On
 
-# Rediriger index.html vers index.php (code 301 permanent)
+# ============================================================================
+# CRITIQUE: Préférer index.php à index.html pour la détection de langue
+# ============================================================================
+# Si la requête est pour la racine / (et index.html existe),
+# réécrire vers index.php SANS redirection
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.php -f
+RewriteRule ^$ index.php [L]
+
+# Rediriger les requêtes pour index.html vers index.php
 RewriteCond %{THE_REQUEST} /index\.html [NC]
 RewriteRule ^index\.html$ /index.php [R=301,L]
 
