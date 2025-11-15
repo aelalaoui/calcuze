@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "title": "Calcuze - Gratis Profesjonell Kalkulator Online",
+    "description": "Profesjonell kalkulator online med vitenskapelige, økonomiske funksjoner og enhetskonvertering. Gratis og lett å bruke.",
+    "keywords": "kalkulator, vitenskaplig kalkulator, online kalkulator, enhetskonvertering"
+  },
+  "validCountries": ["NO", "SJ"],
+  "countryMetadata": {
+    "NO": {
+      "name": "Norge",
+      "region": "NO",
+      "region_code": "NO-03"
+    },
+    "SJ": {
+      "name": "Svalbard",
+      "region": "SJ",
+      "region_code": "SJ-LY"
+    }
+  },
+  "currencyByCountry": {
+    "NO": "NOK",
+    "SJ": "NOK"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Profesjonell Kalkulator"
+  },
+  "ads": {
+    "premium_title": "🎯 PREMIUMANNONSER",
+    "premium_subtitle": "Din annonse kunne være her!",
+    "premium_contact": "Kontakt oss for premium muligheter",
+    "sidebar_title": "ANNONSER",
+    "sidebar_subtitle": "Vertikal Annonseringsrom",
+    "sidebar_features": [
+      "Høy CTR-plassering",
+      "Profesjonelt publikum",
+      "Premiumposisjonering"
+    ],
+    "learn_more": "Les mer"
+  },
+  "calculator": {
+    "title": "Universell Kalkulator",
+    "modes": {
+      "normal": "Normal",
+      "scientific": "Vitenskaplig",
+      "economic": "Økonomisk",
+      "conversion": "Konvertering"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "FV",
+      "pv": "PV",
+      "pmt": "PMT",
+      "npv": "NPV",
+      "irr": "IRR",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Kapital (P)",
+      "rate": "Rente (r)",
+      "time": "Tid (t)",
+      "periods": "Perioder (n)",
+      "payment": "Betaling (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Lengde",
+      "weight": "Vekt",
+      "temperature": "Temperatur",
+      "area": "Område",
+      "volume": "Volum",
+      "speed": "Hastighet",
+      "time": "Tid",
+      "currency": "Valuta"
+    },
+    "comment": "Alternativene fylles inn av JavaScript"
+  },
+  "history": {
+    "title": "Beregningshistorikk",
+    "sidebar_title": "HISTORIKK",
+    "no_calculations": "Ingen beregninger for øyeblikket",
+    "start_calculating": "Begynn å beregne for å se historikken",
+    "quick_actions": "Hurtigkjemper",
+    "export": "Eksporter Historikk",
+    "import": "Importer Historikk",
+    "history_comment": "Historikelementer legges til her"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Profesjonelle Kalkulator-verktøy og matematiske løsninger",
+    "features": {
+      "title": "Kalkulatorfunksjoner",
+      "items": [
+        "Grunnleggende aritmetiske operasjoner",
+        "Vitenskapelige beregninger",
+        "Økonomiske formler",
+        "Enhetskonverteringer",
+        "Sporingshistorikk"
+      ]
+    },
+    "operations": {
+      "title": "Støttede operasjoner",
+      "items": [
+        "Trigonometriske funksjoner",
+        "Logaritmer og eksponentialer",
+        "Finansielle beregninger",
+        "Temperaturkonvertering",
+        "Lengde- og vektenheter"
+      ]
+    },
+    "benefits": {
+      "title": "Fordeler",
+      "items": [
+        "Gratis online kalkulator",
+        "Ingen installasjon kreves",
+        "Responsivt design for mobiler",
+        "Tastaturstøtte",
+        "Profesjonell nøyaktighet"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Universell Kalkulator. Alle rettigheter forbeholdt.",
+      "privacy": "Personvernerklæring",
+      "terms": "Vilkår for bruk",
+      "contact": "Kontakt"
+    }
+  },
+  "decimal_separator": ","
+}
+
