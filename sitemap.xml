@@ -102,7 +102,13 @@
         <xhtml:link rel="alternate" hreflang="pt-TL" href="https://calcuze.com/pt/TL" />
         <xhtml:link rel="alternate" hreflang="pt-GQ" href="https://calcuze.com/pt/GQ" />
         <xhtml:link rel="alternate" hreflang="pt-MO" href="https://calcuze.com/pt/MO" />
-        <!--<xhtml:link rel="alternate" hreflang="it-IT" href="https://calcuze.com/it/IT" />-->
+        <xhtml:link rel="alternate" hreflang="it-IT" href="https://calcuze.com/it/IT" />
+        <xhtml:link rel="alternate" hreflang="it-CH" href="https://calcuze.com/it/CH" />
+        <xhtml:link rel="alternate" hreflang="it-SM" href="https://calcuze.com/it/SM" />
+        <xhtml:link rel="alternate" hreflang="it-VA" href="https://calcuze.com/it/VA" />
+        <xhtml:link rel="alternate" hreflang="it-SI" href="https://calcuze.com/it/SI" />
+        <xhtml:link rel="alternate" hreflang="it-HR" href="https://calcuze.com/it/HR" />
+        <xhtml:link rel="alternate" hreflang="it-MT" href="https://calcuze.com/it/MT" />
         <!--<xhtml:link rel="alternate" hreflang="ar-SA" href="https://calcuze.com/ar/SA" />-->
         <!--<xhtml:link rel="alternate" hreflang="ar-AE" href="https://calcuze.com/ar/AE" />-->
         <!--<xhtml:link rel="alternate" hreflang="ar-EG" href="https://calcuze.com/ar/EG" />-->
@@ -869,10 +875,62 @@
         <xhtml:link rel="alternate" hreflang="pt-MO" href="https://calcuze.com/pt/MO" />
     </url>
 
-    <!-- Italian Variant
+    <!-- Italian Variants -->
     <url>
         <loc>https://calcuze.com/it/IT</loc>
-        <lastmod>2025-01-20</lastmod>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it-IT" href="https://calcuze.com/it/IT" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/it/CH</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it-CH" href="https://calcuze.com/it/CH" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/it/SM</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it-SM" href="https://calcuze.com/it/SM" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/it/VA</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it-VA" href="https://calcuze.com/it/VA" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/it/SI</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it-SI" href="https://calcuze.com/it/SI" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/it/HR</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it-HR" href="https://calcuze.com/it/HR" />
+    </url>
+
+    <url>
+        <loc>https://calcuze.com/it/MT</loc>
+        <lastmod>2025-11-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it-MT" href="https://calcuze.com/it/MT" />
+    </url>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="it-IT" href="https://calcuze.com/it/IT" />
@@ -940,6 +998,7 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://calcuze.com/contact?lang=en" />
         <xhtml:link rel="alternate" hreflang="es" href="https://calcuze.com/contact?lang=es" />
         <xhtml:link rel="alternate" hreflang="pt" href="https://calcuze.com/contact?lang=pt" />
+        <xhtml:link rel="alternate" hreflang="it" href="https://calcuze.com/contact?lang=it" />
         <xhtml:link rel="alternate" hreflang="fr" href="https://calcuze.com/contact?lang=fr" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://calcuze.com/contact" />
     </url>

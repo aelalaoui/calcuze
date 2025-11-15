@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "title": "Calcuze - Calcolatrice Professionale Gratuita Online",
+    "description": "Calcolatrice professionale online con funzioni scientifiche, economiche e conversione di unità. Gratuita e facile da usare.",
+    "keywords": "calcolatrice, calcolatrice scientifica, calcolatrice online, conversione di unità"
+  },
+  "validCountries": ["IT", "CH", "SM", "VA", "SI", "HR", "MT"],
+  "countryMetadata": {
+    "IT": {
+      "name": "Italia",
+      "region": "IT",
+      "region_code": "IT-RM"
+    },
+    "CH": {
+      "name": "Svizzera",
+      "region": "CH",
+      "region_code": "CH-TI"
+    },
+    "SM": {
+      "name": "San Marino",
+      "region": "SM",
+      "region_code": "SM-SM"
+    },
+    "VA": {
+      "name": "Vaticano",
+      "region": "VA",
+      "region_code": "VA-VA"
+    },
+    "SI": {
+      "name": "Slovenia",
+      "region": "SI",
+      "region_code": "SI-KP"
+    },
+    "HR": {
+      "name": "Croazia",
+      "region": "HR",
+      "region_code": "HR-18"
+    },
+    "MT": {
+      "name": "Malta",
+      "region": "MT",
+      "region_code": "MT-VAL"
+    }
+  },
+  "currencyByCountry": {
+    "IT": "EUR",
+    "CH": "CHF",
+    "SM": "EUR",
+    "VA": "EUR",
+    "SI": "EUR",
+    "HR": "EUR",
+    "MT": "EUR"
+  },
+  "logo": {
+    "title": "Calcuze",
+    "subtitle": "Calcolatrice Professionale"
+  },
+  "ads": {
+    "premium_title": "🎯 SPAZIO PUBBLICITARIO PREMIUM",
+    "premium_subtitle": "Il tuo annuncio potrebbe essere qui!",
+    "premium_contact": "Contattaci per visibilità premium",
+    "sidebar_title": "ANNUNCI",
+    "sidebar_subtitle": "Spazio Pubblicitario Verticale",
+    "sidebar_features": [
+      "Posizionamento ad alto CTR",
+      "Pubblico professionale",
+      "Posizionamento premium"
+    ],
+    "learn_more": "Scopri di più"
+  },
+  "calculator": {
+    "title": "Calcolatrice Universale",
+    "modes": {
+      "normal": "Normale",
+      "scientific": "Scientifica",
+      "economic": "Economica",
+      "conversion": "Conversione"
+    }
+  },
+  "economic": {
+    "buttons": {
+      "fv": "VF",
+      "pv": "VA",
+      "pmt": "PMT",
+      "npv": "VAN",
+      "irr": "TIR",
+      "roi": "ROI"
+    },
+    "labels": {
+      "principal": "Capitale (P)",
+      "rate": "Tasso (r)",
+      "time": "Tempo (t)",
+      "periods": "Periodi (n)",
+      "payment": "Pagamento (PMT)"
+    }
+  },
+  "conversion": {
+    "types": {
+      "length": "Lunghezza",
+      "weight": "Peso",
+      "temperature": "Temperatura",
+      "area": "Area",
+      "volume": "Volume",
+      "speed": "Velocità",
+      "time": "Tempo",
+      "currency": "Valuta"
+    },
+    "comment": "Le opzioni verranno compilate da JavaScript"
+  },
+  "history": {
+    "title": "Storico dei Calcoli",
+    "sidebar_title": "STORICO",
+    "no_calculations": "Nessun calcolo al momento",
+    "start_calculating": "Inizia a calcolare per vedere lo storico",
+    "quick_actions": "Azioni Rapide",
+    "export": "Esporta Storico",
+    "import": "Importa Storico",
+    "history_comment": "Gli elementi dello storico verranno aggiunti qui"
+  },
+  "seo": {
+    "main_title": "Calcuze.com",
+    "main_subtitle": "Strumenti Calcolatrice Professionale e Soluzioni Matematiche",
+    "features": {
+      "title": "Caratteristiche della Calcolatrice",
+      "items": [
+        "Operazioni aritmetiche di base",
+        "Calcoli scientifici",
+        "Formule economiche",
+        "Conversioni di unità",
+        "Tracciamento della cronologia"
+      ]
+    },
+    "operations": {
+      "title": "Operazioni Supportate",
+      "items": [
+        "Funzioni trigonometriche",
+        "Logaritmi ed esponenziali",
+        "Calcoli finanziari",
+        "Conversione della temperatura",
+        "Unità di lunghezza e peso"
+      ]
+    },
+    "benefits": {
+      "title": "Vantaggi",
+      "items": [
+        "Calcolatrice online gratuita",
+        "Nessuna installazione necessaria",
+        "Design reattivo per dispositivi mobili",
+        "Supporto tastiera",
+        "Precisione professionale"
+      ]
+    },
+    "footer": {
+      "copyright": "Calcuze - Calcolatrice Universale. Tutti i diritti riservati.",
+      "privacy": "Politica sulla Privacy",
+      "terms": "Termini di Utilizzo",
+      "contact": "Contatti"
+    }
+  },
+  "decimal_separator": ","
+}
+

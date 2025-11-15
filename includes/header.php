@@ -11,7 +11,7 @@ if (!isset($lang)) {
     // If no lang parameter, try to detect from browser
     if (!$lang && isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
         $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $lang = in_array($browserLang, ['fr', 'en', 'es', 'pt']) ? $browserLang : 'en';
+        $lang = in_array($browserLang, ['fr', 'en', 'es', 'pt', 'it']) ? $browserLang : 'en';
     } else {
         $lang = $lang ?? 'en';
     }
@@ -22,7 +22,7 @@ if (!isset($country)) {
 }
 
 // Validate language
-$validLanguages = ['fr', 'en', 'es', 'pt'];
+$validLanguages = ['fr', 'en', 'es', 'pt', 'it'];
 if (!in_array($lang, $validLanguages)) {
     $lang = 'en';
 }
@@ -35,7 +35,7 @@ if (i18n::getCurrentLang() === null || i18n::getCurrentLang() !== $lang) {
 // Load translations for all languages to extract metadata
 $langsPath = __DIR__ . '/../langs/';
 $translations = [];
-foreach (['fr', 'en', 'es', 'pt'] as $langCode) {
+foreach (['fr', 'en', 'es', 'pt', 'it'] as $langCode) {
     $langFile = $langsPath . $langCode . '.json';
     if (file_exists($langFile)) {
         $translations[$langCode] = json_decode(file_get_contents($langFile), true);
