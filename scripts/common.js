@@ -389,6 +389,13 @@ function handleKeyboardInput(e) {
         if (isScientificMode) {
             scientificOperation('fact');
         }
+    } else if (isScientificMode && e.key.length === 1 && e.key.match(/[a-zA-Z]/)) {
+        // Only allow letters that are part of valid scientific functions
+        // Valid letters: s(in), c(os), t(an), a(sin/acos/atan), l(og/ln), e(xp), p(i), o(plog), g(log), n(ln), x, i
+        const validLetters = /[sctalogneπxipodvrftk]/i;
+        if (e.key.match(validLetters)) {
+            appendScientificChar(e.key);
+        }
     }
 }
 
