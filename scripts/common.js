@@ -341,7 +341,7 @@ function handleKeyboardInput(e) {
         } else {
             appendNumber(parseInt(e.key));
         }
-    } else if (e.key === '.') {
+    } else if (e.key === '.' || e.key === ',') {
         if (isScientificMode) {
             appendDecimalScientific();
         } else {
