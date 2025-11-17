@@ -387,6 +387,10 @@ function handleKeyboardInput(e) {
         if (isScientificMode) {
             scientificOperation(')');
         }
+    } else if (e.key === '^' || (e.shiftKey && e.key === '6') || e.key === 'Dead') {
+        if (isScientificMode) {
+            scientificOperation('pow');
+        }
     }
 }
 
