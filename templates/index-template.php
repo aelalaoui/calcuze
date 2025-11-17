@@ -119,30 +119,30 @@ include $includesPath . 'header.php';
             <button class="calculator-btn bg-red-300 hover:bg-red-600 rounded-lg p-3 text-sm font-medium" onclick="clearScientific()">AC</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="toggleSign()">+/-</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="percentage()">%</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('/')">÷</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('*')">×</button>
+            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operationScientific('/')">÷</button>
+            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operationScientific('*')">×</button>
 
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(7)">7</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(8)">8</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(9)">9</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('-')">-</button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('+')">+</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(7)">7</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(8)">8</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(9)">9</button>
+            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operationScientific('-')">-</button>
+            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operationScientific('+')">+</button>
 
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(4)">4</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(5)">5</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(6)">6</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(4)">4</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(5)">5</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(6)">6</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('(')">(</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation(')')">)</button>
 
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(1)">1</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(2)">2</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumber(3)">3</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(1)">1</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(2)">2</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(3)">3</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('deg')">DEG</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('rad')">RAD</button>
 
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumber(0)">0</button>
-            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendDecimal()"><?php _e('decimal_separator'); ?></button>
-            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium col-span-2" onclick="calculate()">=</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumberScientific(0)">0</button>
+            <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendDecimalScientific()"><?php _e('decimal_separator'); ?></button>
+            <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium col-span-2" onclick="calculateScientific()">=</button>
         </div>
 
         <!-- Economic Calculator (hidden by default) -->

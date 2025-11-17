@@ -30,10 +30,10 @@ function updateScientificDisplay() {
     const history = document.getElementById('history');
     
     if (scientificExpression === '') {
-        display.textContent = currentInput || '0';
+        display.textContent = '0';
         history.textContent = '';
     } else {
-        display.textContent = currentInput || '0';
+        display.textContent = '0';
         history.textContent = scientificExpression;
     }
 }
