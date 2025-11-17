@@ -389,10 +389,13 @@ function handleKeyboardInput(e) {
         if (isScientificMode) {
             scientificOperation('fact');
         }
+    } else if ((e.key === 'r' || e.key === 'R' || e.key === 'v' || e.key === 'V') && isScientificMode) {
+        // 'r' or 'v' as shortcuts for sqrt
+        scientificOperation('sqrt');
     } else if (isScientificMode && e.key.length === 1 && e.key.match(/[a-zA-Z]/)) {
-        // Only allow letters that are part of valid scientific functions
-        // Valid letters: s(in), c(os), t(an), a(sin/acos/atan), l(og/ln), e(xp), p(i), o(plog), g(log), n(ln), x, i
-        const validLetters = /[sctalogneπxipodvrftk]/i;
+        // Only allow letters that can start valid scientific functions
+        // Valid: s(in/sqrt), c(os), t(an), a(sin/cos/tan), l(og/ln), e(xp), p(i), n(ln)
+        const validLetters = /[sctalogneπxip]/i;
         if (e.key.match(validLetters)) {
             appendScientificChar(e.key);
         }
