@@ -359,7 +359,7 @@ function handleKeyboardInput(e) {
         } else {
             calculate();
         }
-    } else if (e.key === 'Escape') {
+    } else if ((e.key === 'Escape') || (e.key === 'Delete')) {
         if (isScientificMode) {
             clearScientific();
         } else {
@@ -373,12 +373,6 @@ function handleKeyboardInput(e) {
         } else {
             backspace();
         }
-    } else if (e.key === 'Delete') {
-        if (isScientificMode) {
-            clearScientific();
-        } else {
-            clearAll();
-        }
     } else if (e.key === '(') {
         if (isScientificMode) {
             scientificOperation('(');
@@ -390,6 +384,10 @@ function handleKeyboardInput(e) {
     } else if (e.key === '^' || (e.shiftKey && e.key === '6') || e.key === 'Dead') {
         if (isScientificMode) {
             scientificOperation('pow');
+        }
+    } else if (e.key === '!' || (e.shiftKey && e.key === '1')) {
+        if (isScientificMode) {
+            scientificOperation('fact');
         }
     }
 }
