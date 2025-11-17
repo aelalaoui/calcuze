@@ -379,6 +379,14 @@ function handleKeyboardInput(e) {
         } else {
             clearAll();
         }
+    } else if (e.key === '(') {
+        if (isScientificMode) {
+            scientificOperation('(');
+        }
+    } else if (e.key === ')') {
+        if (isScientificMode) {
+            scientificOperation(')');
+        }
     }
 }
 

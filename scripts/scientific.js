@@ -196,7 +196,12 @@ function scientificOperation(func) {
             appendScientificChar('(');
             break;
         case ')':
-            appendScientificChar(')');
+            // Only add closing parenthesis if there's at least one opening parenthesis
+            const openCount = (scientificExpression.match(/\(/g) || []).length;
+            const closeCount = (scientificExpression.match(/\)/g) || []).length;
+            if (openCount > closeCount) {
+                appendScientificChar(')');
+            }
             break;
         case 'deg':
             isDegreeMode = true;
