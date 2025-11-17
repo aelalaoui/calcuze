@@ -330,6 +330,11 @@ function backspace() {
 
 // Handle keyboard input
 function handleKeyboardInput(e) {
+    // Prevent default action for Enter key to avoid clicking focused buttons
+    if (e.key === 'Enter') {
+        e.preventDefault();
+    }
+    
     if (e.key >= '0' && e.key <= '9') {
         if (isScientificMode) {
             appendNumberScientific(parseInt(e.key));
@@ -367,6 +372,12 @@ function handleKeyboardInput(e) {
             scientificBackspace();
         } else {
             backspace();
+        }
+    } else if (e.key === 'Delete') {
+        if (isScientificMode) {
+            clearScientific();
+        } else {
+            clearAll();
         }
     }
 }

@@ -71,7 +71,7 @@ include $includesPath . 'header.php';
 
         <!-- Normal Calculator -->
         <div id="normal-calculator" class="calculator-section p-4 grid grid-cols-4 gap-3">
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-4 text-lg font-medium" onclick="clearAll()">AC</button>
+            <button class="calculator-btn bg-red-300 hover:bg-red-600 rounded-lg p-4 text-lg font-medium" onclick="clearAll()">AC</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-4 text-lg font-medium" onclick="toggleSign()">+/-</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-4 text-lg font-medium" onclick="percentage()">%</button>
             <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-4 text-lg font-medium" onclick="operation('/')">÷</button>
@@ -116,7 +116,7 @@ include $includesPath . 'header.php';
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('exp')">EXP</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('mod')">mod</button>
 
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="clearAll()">AC</button>
+            <button class="calculator-btn bg-red-300 hover:bg-red-600 rounded-lg p-3 text-sm font-medium" onclick="clearScientific()">AC</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="toggleSign()">+/-</button>
             <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="percentage()">%</button>
             <button class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="operation('/')">÷</button>
