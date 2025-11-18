@@ -11,6 +11,33 @@ function initScientificMode() {
     isScientificMode = true;
     scientificExpression = '';
     updateScientificDisplay();
+    
+    // Initialize degree/radian button colors based on current mode
+    updateDegRadButtonColors();
+}
+
+// Update degree/radian button colors
+function updateDegRadButtonColors() {
+    const degBtn = document.getElementById('deg-btn');
+    const radBtn = document.getElementById('rad-btn');
+    
+    if (isDegreeMode) {
+        // DEG is selected
+        if (degBtn) {
+            degBtn.className = 'calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium';
+        }
+        if (radBtn) {
+            radBtn.className = 'calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium';
+        }
+    } else {
+        // RAD is selected
+        if (radBtn) {
+            radBtn.className = 'calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium';
+        }
+        if (degBtn) {
+            degBtn.className = 'calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium';
+        }
+    }
 }
 
 // Exit scientific mode
@@ -206,13 +233,11 @@ function scientificOperation(func) {
             break;
         case 'deg':
             isDegreeMode = true;
-            document.querySelector('[onclick="scientificOperation(\'deg\')"]').style.backgroundColor = '#3b82f6';
-            document.querySelector('[onclick="scientificOperation(\'rad\')"]').style.backgroundColor = '';
+            updateDegRadButtonColors();
             break;
         case 'rad':
             isDegreeMode = false;
-            document.querySelector('[onclick="scientificOperation(\'rad\')"]').style.backgroundColor = '#3b82f6';
-            document.querySelector('[onclick="scientificOperation(\'deg\')"]').style.backgroundColor = '';
+            updateDegRadButtonColors();
             break;
         default:
             break;

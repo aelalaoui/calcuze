@@ -137,8 +137,8 @@ include $includesPath . 'header.php';
             <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(1)">1</button>
             <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(2)">2</button>
             <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendNumberScientific(3)">3</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('deg')">DEG</button>
-            <button class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('rad')">RAD</button>
+            <button id="deg-btn" class="calculator-btn bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('deg')">DEG</button>
+            <button id="rad-btn" class="calculator-btn bg-gray-200 hover:bg-gray-300 rounded-lg p-3 text-sm font-medium" onclick="scientificOperation('rad')">RAD</button>
 
             <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium col-span-2" onclick="appendNumberScientific(0)">0</button>
             <button class="calculator-btn bg-gray-100 hover:bg-gray-200 rounded-lg p-3 text-sm font-medium" onclick="appendDecimalScientific()"><?php _e('decimal_separator'); ?></button>
