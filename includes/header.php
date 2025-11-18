@@ -22,7 +22,7 @@ if (i18n::getCurrentLang() === null || i18n::getCurrentLang() !== $lang) {
 // Load translations for all languages to extract metadata
 $langsPath = __DIR__ . '/../langs/';
 $translations = [];
-foreach (['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr'] as $langCode) {
+foreach (['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr', 'ar'] as $langCode) {
     $langFile = $langsPath . $langCode . '.json';
     if (file_exists($langFile)) {
         $translations[$langCode] = json_decode(file_get_contents($langFile), true);
@@ -64,6 +64,10 @@ $metaData = $currentTranslations['meta'] ?? [];
 $seoData = $currentTranslations['seo'] ?? [];
 $features = $seoData['features']['items'] ?? [];
 
+// Detect RTL languages
+$isRTL = in_array($lang, ['ar', 'he']) || ($currentTranslations['textDirection'] ?? null) === 'rtl';
+$textDir = $isRTL ? 'rtl' : 'ltr';
+
 // Extract page title from meta
 $pageTitle = $metaData['title'] ?? 'Calcuze';
 
@@ -91,7 +95,7 @@ $currency = $currencyByCountry[$country] ?? 'USD';
 $decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $langAttribute; ?>" id="html-root">
+<html lang="<?php echo $langAttribute; ?>" dir="<?php echo $textDir; ?>" id="html-root" class="<?php echo $isRTL ? 'rtl' : 'ltr'; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -119,6 +123,7 @@ $decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
     <meta name="geo.country" content="<?php echo $geoCountry; ?>">
     <meta name="geo.placename" content="<?php echo $geoPlacename; ?>">
     <meta name="language" content="<?php echo $langAttribute; ?>">
+    <meta name="text-direction" content="<?php echo $textDir; ?>">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo $url; ?>">
@@ -197,4 +202,3 @@ $decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
     include $selectorStylesPath;
     ?>
 </head>
-

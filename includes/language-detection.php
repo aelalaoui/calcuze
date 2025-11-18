@@ -25,7 +25,8 @@ class LanguageDetection {
         'de' => 'DE',
         'sv' => 'SE',
         'no' => 'NO',
-        'tr' => 'TR'
+        'tr' => 'TR',
+        'ar' => 'SA'
     ];
 
     // Cache des langues supportées et leurs pays
@@ -104,7 +105,7 @@ class LanguageDetection {
         }
 
         $translations = [];
-        $languages = ['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr'];
+        $languages = ['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr', 'ar'];
 
         foreach ($languages as $langCode) {
             $langFile = rtrim($langsPath, '/\\') . '/' . $langCode . '.json';

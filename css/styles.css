@@ -1,3 +1,52 @@
+/* RTL/LTR Support */
+html.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+html.ltr {
+    direction: ltr;
+    text-align: left;
+}
+
+/* RTL-specific adjustments */
+html.rtl .display {
+    text-align: left;
+}
+
+html.rtl .history {
+    text-align: left;
+}
+
+html.rtl .conversion-select {
+    background-position: left 0.5rem center;
+}
+
+html.rtl .calculator-btn {
+    text-align: center;
+}
+
+html.rtl .scientific-expression {
+    direction: ltr;
+    text-align: left;
+}
+
+html.rtl .logo-section,
+html.rtl .ad-banner,
+html.rtl .history-sidebar,
+html.rtl .seo-footer {
+    text-align: right;
+}
+
+/* Font family for Arabic support */
+html.rtl body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', 'Droid Arabic Noto', 'Noto Kufi Arabic', sans-serif;
+}
+
+html.ltr body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 /* Calculator Button Styles */
 .calculator-btn {
     transition: all 0.2s ease;
