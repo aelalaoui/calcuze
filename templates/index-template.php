@@ -9,10 +9,10 @@ include $includesPath . 'header.php';
 ?>
 <body class="bg-gray-100 min-h-screen">
 <!-- Main Container with Grid Layout -->
-<div class="min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 md:grid-cols-[250px_1fr_250px] lg:grid-cols-[300px_1fr_300px] gap-4 p-4">
+<div class="min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 md:grid-cols-[250px_1fr_250px] lg:grid-cols-[300px_1fr_300px] gap-4 p-4 auto-rows-max md:auto-rows-auto">
 
     <!-- Top Header with Logo and Top Ad -->
-    <div class="col-span-full grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[300px_1fr] gap-4">
+    <div class="order-2 md:order-1 col-span-full grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[300px_1fr] gap-4">
         <!-- Logo Section -->
         <div class="logo-section rounded-xl p-4 flex items-center justify-center">
             <div class="text-white text-center">
@@ -34,7 +34,7 @@ include $includesPath . 'header.php';
     </div>
 
     <!-- Left Sidebar Ad -->
-    <div class="ad-banner rounded-xl p-4 flex-col items-center justify-center hidden md:flex">
+    <div class="order-4 md:order-2 ad-banner rounded-xl p-4 flex-col items-center justify-center hidden md:flex">
         <div class="text-white text-center">
             <i class="fas fa-bullhorn text-3xl mb-3"></i>
             <h3 class="text-lg font-bold mb-2"><?php _e('ads.sidebar_title'); ?></h3>
@@ -51,7 +51,7 @@ include $includesPath . 'header.php';
     </div>
 
     <!-- Calculator Section (Main Content) -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden col-span-1">
+    <div class="order-1 md:order-3 bg-white rounded-2xl shadow-xl overflow-hidden col-span-1">
         <!-- Header with mode selection -->
         <div class="bg-blue-600 p-4 text-white">
             <h1 class="text-xl font-bold text-center"><?php _e('calculator.title'); ?></h1>
@@ -282,7 +282,7 @@ include $includesPath . 'header.php';
     </div>
 
     <!-- Right Sidebar - History -->
-    <div class="history-sidebar rounded-xl p-4 hidden md:block">
+    <div class="order-5 md:order-4 history-sidebar rounded-xl p-4 hidden md:block">
         <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-bold text-gray-800 flex items-center">
                 <i class="fas fa-history mr-2 text-blue-600"></i>
@@ -318,7 +318,7 @@ include $includesPath . 'header.php';
     </div>
 
     <!-- Bottom SEO Section -->
-    <div class="col-span-full seo-footer rounded-xl p-6">
+    <div class="order-3 md:order-5 col-span-full seo-footer rounded-xl p-6">
         <div class="text-center mb-6">
             <h2 class="text-2xl font-bold text-gray-800 mb-2"><?php _e('seo.main_title'); ?></h2>
             <p class="text-gray-600"><?php _e('seo.main_subtitle'); ?></p>
