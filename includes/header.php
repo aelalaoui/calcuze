@@ -201,4 +201,15 @@ $decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
     $selectorStylesPath = isset($includesPath) ? $includesPath . 'country-selector-styles.php' : '../includes/country-selector-styles.php';
     include $selectorStylesPath;
     ?>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Calcuze">
+    <link rel="apple-touch-icon" href="/images/icon-192x192.png">
+    <link rel="icon" type="image/png" href="/images/icon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/images/icon-512x512.png" sizes="512x512">
 </head>

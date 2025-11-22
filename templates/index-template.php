@@ -377,5 +377,24 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8S3ZX8V"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+<!-- PWA Service Worker Registration -->
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(registration => {
+                console.log('Service Worker registered successfully:', registration);
+                // Check for updates periodically
+                setInterval(() => {
+                    registration.update();
+                }, 60000); // Check every minute
+            })
+            .catch(error => {
+                console.warn('Service Worker registration failed:', error);
+            });
+    });
+}
+</script>
 </body>
 </html>
