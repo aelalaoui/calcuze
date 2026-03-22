@@ -37,7 +37,13 @@ $validCountries = $currentTranslations['validCountries'] ?? [];
 
 // Validate country based on language
 if (!$country || !in_array($country, $validCountries)) {
-    $country = $lang === 'en' ? 'US' : 'FR';
+    // Default country per language
+    $langDefaults = [
+        'en' => 'US', 'fr' => 'FR', 'es' => 'ES', 'pt' => 'BR',
+        'it' => 'IT', 'de' => 'DE', 'sv' => 'SE', 'no' => 'NO',
+        'tr' => 'TR', 'ar' => 'SA',
+    ];
+    $country = $langDefaults[$lang] ?? 'US';
 }
 
 // Set the lang attribute
@@ -68,14 +74,37 @@ $features = $seoData['features']['items'] ?? [];
 $isRTL = in_array($lang, ['ar', 'he']) || ($currentTranslations['textDirection'] ?? null) === 'rtl';
 $textDir = $isRTL ? 'rtl' : 'ltr';
 
-// Extract page title from meta
-$pageTitle = $metaData['title'] ?? 'Calcuze';
+// Nom du pays et devise pour personnalisation par page (titre/desc uniques)
+$geoCountryName  = $countryMetadata[$country]['name'] ?? $country;
+$countryCurrency = $currencyByCountry[$country] ?? '';
 
-// Extract page description from meta
-$pageDescription = $metaData['description'] ?? '';
+// Extract page title from meta — enrichi avec le nom du pays pour unicité SEO
+$baseTitleTemplate = $metaData['title'] ?? 'Calcuze';
+$baseDescription   = $metaData['description'] ?? '';
+
+// Titre unique : "Calcuze - Calculatrice Gratuite | France (EUR)"
+if (!empty($geoCountryName) && $geoCountryName !== $country) {
+    $currencySuffix = !empty($countryCurrency) ? ' (' . $countryCurrency . ')' : '';
+    $pageTitle = $baseTitleTemplate . ' | ' . $geoCountryName . $currencySuffix;
+} else {
+    $pageTitle = $baseTitleTemplate;
+}
+
+// Description unique : description de base + mention du pays et de la devise
+if (!empty($geoCountryName) && $geoCountryName !== $country) {
+    $currencyNote = !empty($countryCurrency)
+        ? ' ' . $countryCurrency . ' - '
+        : ' - ';
+    $pageDescription = $baseDescription . $currencyNote . $geoCountryName . '.';
+} else {
+    $pageDescription = $baseDescription;
+}
 
 // Extract keywords from meta
 $pageKeywords = $metaData['keywords'] ?? '';
+if (!empty($geoCountryName) && $geoCountryName !== $country) {
+    $pageKeywords .= ', ' . strtolower($geoCountryName);
+}
 
 // OG Title and Description from SEO data
 $ogTitle = $seoData['main_title'] ?? 'Calcuze';
@@ -125,25 +154,25 @@ $decimalSeparator = $currentTranslations['decimal_separator'] ?? '.';
     <meta name="language" content="<?php echo $langAttribute; ?>">
     <meta name="text-direction" content="<?php echo $textDir; ?>">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="<?php echo $url; ?>">
+    <!-- Canonical URL — SELF-REFERENCING unique par page -->
+    <link rel="canonical" href="https://calcuze.com/<?php echo $lang; ?>/<?php echo $country; ?>">
 
-    <!-- Hreflang Alternate URLs for SEO -->
+    <!-- Hreflang Alternate URLs for SEO — toutes variantes générées dynamiquement -->
     <?php
-    // Generate hreflang links dynamically from all available language files
+    // Génère les hreflang pour toutes les langues et tous leurs pays
     if (isset($translations) && is_array($translations)) {
         foreach ($translations as $langCode => $langData) {
             if (isset($langData['validCountries']) && is_array($langData['validCountries'])) {
                 foreach ($langData['validCountries'] as $countryCode) {
-                    $hreflangUrl = $baseUrl . '/' . $langCode . '/' . $countryCode;
-                    echo '<link rel="alternate" hreflang="' . $langCode . '-' . $countryCode . '" href="' . $hreflangUrl . '" />' . "\n    ";
+                    $hreflangUrl  = $baseUrl . '/' . $langCode . '/' . $countryCode;
+                    $hreflangTag  = $langCode . '-' . $countryCode;
+                    echo '    <link rel="alternate" hreflang="' . $hreflangTag . '" href="' . $hreflangUrl . '" />' . "\n";
                 }
             }
         }
     }
-
-    // X-Default for default language
-    echo '<link rel="alternate" hreflang="x-default" href="' . $baseUrl . '/en/US" />' . "\n    ";
+    // x-default pointe vers la page principale anglophone
+    echo '    <link rel="alternate" hreflang="x-default" href="' . $baseUrl . '/en/US" />' . "\n";
     ?>
 
     <!-- JSON-LD Structured Data -->

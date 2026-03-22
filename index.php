@@ -1,7 +1,7 @@
 <?php
-// Enable error reporting for debugging (REMOVE IN PRODUCTION AFTER FIXING)
+// Production: désactiver l'affichage des erreurs (garder le log serveur uniquement)
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
 /**
@@ -127,12 +127,14 @@ $debugLog[] = 'Detection Source: ' . $detectionSource;
 $debugLog[] = 'Should Redirect: ' . (($isRootRequest && $detectionSource !== 'url') ? 'YES' : 'NO');
 
 if ($isRootRequest && $detectionSource !== 'url') {
-    // Redirect to detected language/country
-    $redirectUrl = $baseUrl . $lang . '/' . $country;
+    // Redirection vers la langue/pays détectés
+    // IMPORTANT: 302 (temporaire) car la destination VARIE selon l'utilisateur
+    // Une 301 causerait que Google mette en cache une destination fixe
+    $redirectUrl = 'https://calcuze.com/' . $lang . '/' . $country;
 
     $debugLog[] = '--- STEP 6: PERFORMING REDIRECT ---';
     $debugLog[] = 'Redirect Target URL: ' . $redirectUrl;
-    $debugLog[] = 'HTTP Status: 301 Moved Permanently';
+    $debugLog[] = 'HTTP Status: 302 Found (temporaire - varie par langue)';
 
     // Set cookie to remember the choice
     LanguageDetection::setCookie($lang, $country, 365,
@@ -143,8 +145,9 @@ if ($isRootRequest && $detectionSource !== 'url') {
     // Log the debug information before redirect
     @file_put_contents($debugLogFile, implode("\n", $debugLog) . "\n\nREDIRECT EXECUTED\n" . str_repeat("=", 50) . "\n\n", FILE_APPEND);
 
-    // Permanent redirect (301) for SEO
-    header('HTTP/1.1 301 Moved Permanently');
+    // Redirection TEMPORAIRE (302) : la destination varie selon le navigateur de l'utilisateur
+    // Ne PAS utiliser 301 ici (Google mettrait en cache la destination pour tous les utilisateurs)
+    header('HTTP/1.1 302 Found');
     header('Location: ' . $redirectUrl);
     exit;
 } else {

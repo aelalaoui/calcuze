@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33484358-a07a-4cde-b89d-1d3409b181e1" name="Changes" comment="add Portuguese language support and update related files">
+    <list default="true" id="33484358-a07a-4cde-b89d-1d3409b181e1" name="Changes" comment="update .htaccess to prioritize index.php for language detection and modify index.html canonical link handling">
+      <change afterPath="$PROJECT_DIR$/sitemap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index-template.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-template.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +19,21 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/wamp64/www/calcuze" value="309TQEI0WGhtwg6yJolzVzr15qE" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="Claude Sonnet 4.6" />
+      <entry key="agent-panel" value="Claude Sonnet 4.6" />
+    </selectedModels>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="673" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,6 +54,10 @@
     &quot;accountId&quot;: &quot;5028e9ce-8006-4e78-906e-bab1fec0e17a&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -46,13 +70,16 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/-google-play&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/calcuze/en&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -77,8 +104,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PS-252.27397.112" />
-        <option value="bundled-php-predefined-a98d8de5180a-b35feea871ed-com.jetbrains.php.sharedIndexes-PS-252.27397.112" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.31033.138" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.31033.138" />
       </set>
     </attachedChunks>
   </component>
@@ -94,7 +121,11 @@
       <workItem from="1753364541328" duration="2007000" />
       <workItem from="1762552478723" duration="24996000" />
       <workItem from="1762895296298" duration="3652000" />
-      <workItem from="1762947954443" duration="7887000" />
+      <workItem from="1762947954443" duration="24900000" />
+      <workItem from="1763321394138" duration="744000" />
+      <workItem from="1763322588887" duration="363000" />
+      <workItem from="1774185835093" duration="451000" />
+      <workItem from="1774186613811" duration="908000" />
     </task>
     <task id="LOCAL-00001" summary="add selector in log">
       <option name="closed" value="true" />
@@ -312,25 +343,109 @@
       <option name="project" value="LOCAL" />
       <updated>1762983310305</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="add dynamic hreflang generation for language support in header.php">
+      <option name="closed" value="true" />
+      <created>1762983578274</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1762983578274</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add Italian language support and update related files">
+      <option name="closed" value="true" />
+      <created>1763240118517</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1763240118517</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix sitemap">
+      <option name="closed" value="true" />
+      <created>1763240309613</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1763240309613</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add German language support and update related files">
+      <option name="closed" value="true" />
+      <created>1763240765411</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1763240765411</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add Swedish language support and update related files">
+      <option name="closed" value="true" />
+      <created>1763241221993</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1763241221993</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add Norwegian language support and update related files">
+      <option name="closed" value="true" />
+      <created>1763241369469</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1763241369469</updated>
+    </task>
+    <task id="LOCAL-00034" summary="add Turkish language support and update related files">
+      <option name="closed" value="true" />
+      <created>1763241852973</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1763241852973</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add intelligent language detection and redirection system">
+      <option name="closed" value="true" />
+      <created>1763246959967</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1763246959967</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add debug log viewer for language detection">
+      <option name="closed" value="true" />
+      <created>1763247341176</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1763247341176</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update language detection logic to prioritize URL parameters and allow cookie re-detection at root">
+      <option name="closed" value="true" />
+      <created>1763247667026</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1763247667026</updated>
+    </task>
+    <task id="LOCAL-00038" summary="remove default redirect for root and allow PHP to handle language detection">
+      <option name="closed" value="true" />
+      <created>1763249409131</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1763249409131</updated>
+    </task>
+    <task id="LOCAL-00039" summary="update .htaccess to prioritize index.php for language detection and modify index.html canonical link handling">
+      <option name="closed" value="true" />
+      <created>1763250547885</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1763250547885</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add selector in log" />
-    <MESSAGE value="refacto redirection" />
-    <MESSAGE value="refacto redirection to php" />
-    <MESSAGE value="fix includes path" />
-    <MESSAGE value="fix lang=&quot;&quot;&#10;and english index.php" />
-    <MESSAGE value="fix COUCOUS" />
-    <MESSAGE value="metadata internationalization" />
-    <MESSAGE value="JSON-LD internationalization" />
-    <MESSAGE value="small typo" />
-    <MESSAGE value="refacto header" />
-    <MESSAGE value="refacto header for index.php" />
-    <MESSAGE value="redirect index.html to en/US" />
     <MESSAGE value="add favicon" />
     <MESSAGE value="add README.md" />
     <MESSAGE value="change path to '/templates/index-template.php'" />
@@ -344,6 +459,26 @@
     <MESSAGE value="add SEO optimizations and redirection rules in .htaccess, create contact.php, and update contact.html" />
     <MESSAGE value="add Spanish language support and update redirection rules in .htaccess" />
     <MESSAGE value="add Portuguese language support and update related files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Portuguese language support and update related files" />
+    <MESSAGE value="add dynamic hreflang generation for language support in header.php" />
+    <MESSAGE value="add Italian language support and update related files" />
+    <MESSAGE value="fix sitemap" />
+    <MESSAGE value="add German language support and update related files" />
+    <MESSAGE value="add Swedish language support and update related files" />
+    <MESSAGE value="add Norwegian language support and update related files" />
+    <MESSAGE value="add Turkish language support and update related files" />
+    <MESSAGE value="add intelligent language detection and redirection system" />
+    <MESSAGE value="add debug log viewer for language detection" />
+    <MESSAGE value="update language detection logic to prioritize URL parameters and allow cookie re-detection at root" />
+    <MESSAGE value="remove default redirect for root and allow PHP to handle language detection" />
+    <MESSAGE value="update .htaccess to prioritize index.php for language detection and modify index.html canonical link handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="update .htaccess to prioritize index.php for language detection and modify index.html canonical link handling" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

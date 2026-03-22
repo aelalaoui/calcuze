@@ -1,83 +1,109 @@
 # .htaccess pour Calcuze - Optimisation SEO
-# Redirections et gestion des URL canoniques
-# VERSION 2.1 - Fix index.html priority
+# VERSION 3.0 - Corrections complètes d'indexation Google
+# Redirections : HTTP→HTTPS, www→non-www, trailing slash, params lang/country
 
 # Activer le module de réécriture
 RewriteEngine On
 
 # ============================================================================
-# CRITIQUE: Préférer index.php à index.html pour la détection de langue
+# BLOC 1 : HTTPS + non-www EN UNE SEULE RÈGLE (évite les chaînes de redirections)
+# Couvre tous les cas : http/https + www/non-www → https://calcuze.com
 # ============================================================================
-# Si la requête est pour la racine / (et index.html existe),
-# réécrire vers index.php SANS redirection
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteCond %{REQUEST_FILENAME}/index.php -f
-RewriteRule ^$ index.php [L]
 
-# Rediriger les requêtes pour index.html vers index.php
-RewriteCond %{THE_REQUEST} /index\.html [NC]
-RewriteRule ^index\.html$ /index.php [R=301,L]
+# Cas 1 : HTTP avec www → HTTPS sans www (une seule redirection)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Rediriger contact.html vers contact.php (code 301 permanent)
-RewriteCond %{THE_REQUEST} /contact\.html [NC]
-RewriteRule ^contact\.html$ /contact.php [R=301,L]
+# Cas 2 : HTTP sans www → HTTPS sans www
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-# Rediriger les anciennes URL avec paramètres vers la nouvelle structure
-# Par exemple: /?lang=es&country=ES vers /es/ES
+# Cas 3 : HTTPS avec www → HTTPS sans www
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# ============================================================================
+# BLOC 2 : REDIRECTIONS DES ANCIENNES URLs avec paramètres (AVANT les autres règles)
+# /?lang=es&country=MX → /es/MX (301)
+# ============================================================================
+
+# Paramètres lang + country → nouvelle structure /lang/COUNTRY
 RewriteCond %{QUERY_STRING} ^lang=([a-z]{2})&country=([A-Z]{2})$ [NC]
 RewriteRule ^$ /%1/%2? [R=301,L]
 
+# Paramètre lang seul → /lang/XX (fallback US)
 RewriteCond %{QUERY_STRING} ^lang=([a-z]{2})$ [NC]
 RewriteRule ^$ /%1/US? [R=301,L]
 
 # ============================================================================
-# IMPORTANT: Permettre à PHP (index.php) de gérer la redirection de la racine
-# La racine / doit accéder à index.php pour la détection de langue automatique
+# BLOC 3 : REDIRECTIONS DES PAGES SPÉCIFIQUES
 # ============================================================================
-# Ne PAS rediriger la racine / - laisser PHP la gérer
-# Ceci permet la détection automatique via Accept-Language
 
-# Forcer HTTPS (décommenter en production)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# index.html → / (racine, 301 permanent)
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
 
-# Forcer www ou non-www (choisir l'un ou l'autre, ici non-www)
-# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+# index.php (requête directe) → / (racine, 301 permanent)
+RewriteCond %{THE_REQUEST} \s/index\.php[\s?] [NC]
+RewriteRule ^index\.php$ / [R=301,L]
 
-# Rediriger les URLs avec trailing slash vers sans trailing slash (sauf pour les dossiers)
+# contact.html → /contact (301 permanent)
+RewriteCond %{THE_REQUEST} \s/contact\.html[\s?] [NC]
+RewriteRule ^contact\.html$ /contact [R=301,L]
+
+# contact?lang=* → /contact (301 permanent, suppression du paramètre lang)
+RewriteCond %{QUERY_STRING} ^lang= [NC]
+RewriteCond %{REQUEST_URI} ^/contact [NC]
+RewriteRule ^contact$ /contact? [R=301,L]
+
+# ============================================================================
+# BLOC 4 : SUPPRESSION DU TRAILING SLASH (sauf dossiers physiques)
+# /fr/FR/ → /fr/FR (301)
+# ============================================================================
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} (.+)/$
+RewriteCond %{REQUEST_URI} ^(.+)/$ [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# Réécriture des URL propres vers index.php
-# /en/US devient index.php?lang=en&country=US
+# ============================================================================
+# BLOC 5 : RÉÉCRITURE DES URLs PROPRES → index.php (sans redirection)
+# /en/US → index.php?lang=en&country=US
+# ============================================================================
+
+# CRITIQUE: Forcer index.php (et non index.html) pour la racine
+DirectoryIndex index.php index.html
+
+# Sitemap dynamique : sitemap.xml → sitemap.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# Réécriture /lang/COUNTRY → index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-z]{2})/([A-Z]{2})$ index.php?lang=$1&country=$2 [L,QSA]
 
-# /en devient index.php?lang=en
+# Réécriture /lang → index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-z]{2})$ index.php?lang=$1 [L,QSA]
 
-# /contact devient contact.php
+# Réécriture /contact → contact.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^contact$ contact.php [L,QSA]
 
 # ============================================================================
-# DEFAULT REDIRECT REMOVED
-# La racine / est maintenant gérée par index.php avec détection automatique
-# via Accept-Language header du navigateur
+# COMPRESSION GZIP
 # ============================================================================
-
-# Compression GZIP
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
 
-# Cache des fichiers statiques
+# ============================================================================
+# CACHE DES FICHIERS STATIQUES
+# ============================================================================
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpg "access plus 1 year"
@@ -92,20 +118,20 @@ RewriteRule ^contact$ contact.php [L,QSA]
     ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
-# Sécurité - Cacher les fichiers sensibles (Syntaxe Apache 2.4)
-<FilesMatch "^(\.htaccess|\.git|composer\.json|composer\.lock|package\.json|package-lock\.json)$">
+# ============================================================================
+# SÉCURITÉ
+# ============================================================================
+<FilesMatch "^(\.htaccess|\.git|composer\.json|composer\.lock|package\.json|package-lock\.json|twa-manifest\.json|android\.keystore|gradle\.properties)$">
     Require all denied
 </FilesMatch>
 
-# Bloquer l'accès aux dossiers de configuration
 RedirectMatch 403 ^/config/
 RedirectMatch 403 ^/\.git/
+RedirectMatch 403 ^/logs/
 
-# Options de sécurité
 Options -Indexes
 ServerSignature Off
 
-# Headers de sécurité
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
