@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    CALCUZE SITEMAP
+    Ce fichier est généré statiquement. La version dynamique avec hreflang
+    complets est disponible via sitemap.php.
+    Dernière mise à jour : 2026-03-22
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-    <!-- Default/Main Pages -->
+    <!-- Page principale canonique -->
     <url>
-        <loc>https://calcuze.com/</loc>
-        <lastmod>2025-11-12</lastmod>
+        <loc>https://calcuze.com/en/US</loc>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en-US" href="https://calcuze.com/en/US" />

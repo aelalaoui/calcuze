@@ -6,8 +6,19 @@ if (!isset($scriptsPath)) $scriptsPath = 'scripts/';
 
 // Include common header with absolute path
 include $includesPath . 'header.php';
+
+// Variables pays/devise injectées par header.php
+// $geoCountryName, $countryCurrency, $lang, $country sont disponibles
+$countryDisplayName = isset($geoCountryName) ? htmlspecialchars($geoCountryName, ENT_QUOTES, 'UTF-8') : '';
+$currencyDisplay    = isset($countryCurrency) && $countryCurrency ? htmlspecialchars($countryCurrency, ENT_QUOTES, 'UTF-8') : '';
 ?>
 <body class="bg-gray-100 min-h-screen">
+
+<!-- H1 SEO caché mais indexable : unique par page lang/country -->
+<?php if ($countryDisplayName): ?>
+<h1 class="sr-only"><?php echo $countryDisplayName; ?> — <?php _e('calculator.title'); ?><?php echo $currencyDisplay ? ' (' . $currencyDisplay . ')' : ''; ?></h1>
+<?php endif; ?>
+
 <!-- Main Container with Grid Layout -->
 <div class="min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 md:grid-cols-[250px_1fr_250px] lg:grid-cols-[300px_1fr_300px] gap-4 p-4 auto-rows-max md:auto-rows-auto">
 
@@ -358,7 +369,7 @@ include $includesPath . 'header.php';
             <p>
                 <a href="#" class="hover:text-gray-700"><?php _e('seo.footer.privacy'); ?></a> |
                 <a href="#" class="hover:text-gray-700"><?php _e('seo.footer.terms'); ?></a> |
-                <a href="contact.html" class="hover:text-gray-700"><?php _e('seo.footer.contact'); ?></a>
+                <a href="/contact" class="hover:text-gray-700"><?php _e('seo.footer.contact'); ?></a>
             </p>
         </div>
     </div>

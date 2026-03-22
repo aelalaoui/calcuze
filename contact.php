@@ -2,16 +2,31 @@
 // Include i18n helper
 require_once __DIR__ . '/includes/i18n.php';
 
-// Detect language from URL parameters or browser
-$lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : null;
+// ============================================================================
+// REDIRECTION 301 : contact?lang=* → /contact (sans paramètre)
+// Évite les pages en double que Google crawlerait séparément
+// ============================================================================
+if (!empty($_GET['lang'])) {
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: https://calcuze.com/contact');
+    exit;
+}
 
-// If no lang parameter, try to detect from browser
+// Detect language from cookie or browser (sans paramètre URL désormais)
+$lang = null;
+
+// 1. Cookie
+if (isset($_COOKIE['calcuze_lang'])) {
+    $lang = strtolower($_COOKIE['calcuze_lang']);
+}
+
+// 2. Browser Accept-Language
 if (!$lang && isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
     $lang = in_array($browserLang, ['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr', 'ar']) ? $browserLang : 'en';
-} else {
-    $lang = $lang ?? 'en';
 }
+
+$lang = $lang ?? 'en';
 
 // Validate language
 $validLanguages = ['fr', 'en', 'es', 'pt', 'it', 'de', 'sv', 'no', 'tr', 'ar'];
@@ -52,13 +67,21 @@ $canonicalUrl = 'https://calcuze.com/contact';
     <meta name="description" content="Contact Calcuze - Get in touch with our team for support, partnerships, or inquiries about our online calculator.">
     <meta name="robots" content="index, follow">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="<?php echo $canonicalUrl; ?>">
+    <!-- Canonical URL — pointe toujours vers /contact sans paramètres -->
+    <link rel="canonical" href="https://calcuze.com/contact">
 
-    <!-- Hreflang Alternate URLs -->
-    <link rel="alternate" hreflang="en" href="https://calcuze.com/contact?lang=en" />
-    <link rel="alternate" hreflang="fr" href="https://calcuze.com/contact?lang=fr" />
+    <!-- Hreflang : une seule page contact, toutes langues pointent vers /contact -->
     <link rel="alternate" hreflang="x-default" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="en" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="fr" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="es" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="pt" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="de" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="it" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="ar" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="tr" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="sv" href="https://calcuze.com/contact" />
+    <link rel="alternate" hreflang="no" href="https://calcuze.com/contact" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
