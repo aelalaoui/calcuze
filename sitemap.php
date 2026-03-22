@@ -6,7 +6,6 @@
  * avec les balises xhtml:link hreflang correctes (format sitemap hreflang).
  *
  * Accès : https://calcuze.com/sitemap.xml (via règle .htaccess) ou directement.
- * Pour régénérer le sitemap.xml statique, appeler ce script et sauvegarder la sortie.
  */
 
 header('Content-Type: application/xml; charset=UTF-8');
@@ -26,8 +25,8 @@ foreach ($langFiles as $file) {
     $data = json_decode(file_get_contents($file), true);
     if ($data && isset($data['validCountries'])) {
         $allLanguages[$langCode] = [
-            'countries'       => $data['validCountries'],
-            'countryMetadata' => $data['countryMetadata'] ?? [],
+            'countries'         => $data['validCountries'],
+            'countryMetadata'   => $data['countryMetadata'] ?? [],
             'currencyByCountry' => $data['currencyByCountry'] ?? [],
         ];
     }
@@ -39,7 +38,6 @@ $orderedLangs = [];
 foreach ($langOrder as $l) {
     if (isset($allLanguages[$l])) $orderedLangs[$l] = $allLanguages[$l];
 }
-// Ajouter les langues non listées dans l'ordre
 foreach ($allLanguages as $l => $d) {
     if (!isset($orderedLangs[$l])) $orderedLangs[$l] = $d;
 }
@@ -47,17 +45,11 @@ foreach ($allLanguages as $l => $d) {
 // ============================================================================
 // CONSTRUCTION DE LA LISTE COMPLÈTE DES PAGES lang/country
 // ============================================================================
-$allPages = []; // [ ['lang'=>'en','country'=>'US'], ... ]
+$allPages = [];
 foreach ($orderedLangs as $langCode => $langData) {
     foreach ($langData['countries'] as $countryCode) {
         $allPages[] = ['lang' => $langCode, 'country' => $countryCode];
     }
-}
-
-// Construction d'un index des pages par langue pour les hreflang croisés
-$pagesByLang = [];
-foreach ($orderedLangs as $langCode => $langData) {
-    $pagesByLang[$langCode] = $langData['countries'];
 }
 
 // ============================================================================
@@ -77,9 +69,11 @@ $highPriorityCountries = [
 ];
 
 function getPagePriority(string $lang, string $country, array $high): string {
-    if (isset($high[$lang]) && in_array($country, $high[$lang])) {
-        return '0.9';
-    }
+    // Page principale — priorité maximale
+    if ($lang === 'en' && $country === 'US') return '1.0';
+    // Pays majeurs par langue
+    if (isset($high[$lang]) && in_array($country, $high[$lang])) return '0.9';
+    // Tous les autres pays
     return '0.7';
 }
 
@@ -94,34 +88,16 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     <!--
         SITEMAP DYNAMIQUE CALCUZE
         Généré le : <?php echo $today; ?>
-        Pages : <?php echo count($allPages) + 2; ?> (<?php echo count($allPages); ?> lang/country + contact + racine)
-    -->
 
-    <!-- ================================================================ -->
-    <!-- PAGE RACINE — redirige vers la langue détectée (ne pas indexer)  -->
-    <!-- ================================================================ -->
-    <url>
-        <loc><?php echo $baseUrl; ?>/en/US</loc>
-        <lastmod><?php echo $today; ?></lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <!-- Toutes les variantes hreflang -->
-<?php
-foreach ($orderedLangs as $langCode => $langData) {
-    foreach ($langData['countries'] as $countryCode) {
-        echo '        <xhtml:link rel="alternate" hreflang="' . $langCode . '-' . $countryCode . '" href="' . $baseUrl . '/' . $langCode . '/' . $countryCode . '" />' . "\n";
-    }
-}
-echo '        <xhtml:link rel="alternate" hreflang="x-default" href="' . $baseUrl . '/en/US" />' . "\n";
-?>
-    </url>
+        Pages : <?php echo count($allPages) + 1; ?> (<?php echo count($allPages); ?> lang/country + contact)
+    -->
 
     <!-- ================================================================ -->
     <!-- PAGE CONTACT                                                       -->
     <!-- ================================================================ -->
     <url>
         <loc><?php echo $baseUrl; ?>/contact</loc>
-        <lastmod><?php echo $today; ?></lastmod>
+        <lastmod>2025-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
         <xhtml:link rel="alternate" hreflang="x-default" href="<?php echo $baseUrl; ?>/contact" />
@@ -132,39 +108,37 @@ echo '        <xhtml:link rel="alternate" hreflang="x-default" href="' . $baseUr
     <!-- ================================================================ -->
     <!-- PAGES LANG/COUNTRY — avec hreflang croisés entre pays de la même langue -->
     <!-- ================================================================ -->
-<?php
-foreach ($orderedLangs as $langCode => $langData) {
-    $countries = $langData['countries'];
+    <?php
+    foreach ($orderedLangs as $langCode => $langData) {
+        $countries = $langData['countries'];
 
-    // Commentaire de section par langue
-    echo "\n    <!-- Langue : " . strtoupper($langCode) . " (" . count($countries) . " pays) -->\n";
+        echo "\n    <!-- Langue : " . strtoupper($langCode) . " (" . count($countries) . " pays) -->\n";
 
-    foreach ($countries as $countryCode) {
-        $loc      = $baseUrl . '/' . $langCode . '/' . $countryCode;
-        $priority = getPagePriority($langCode, $countryCode, $highPriorityCountries);
+        foreach ($countries as $countryCode) {
+            $loc      = $baseUrl . '/' . $langCode . '/' . $countryCode;
+            $priority = getPagePriority($langCode, $countryCode, $highPriorityCountries);
 
-        echo '    <url>' . "\n";
-        echo '        <loc>' . $loc . '</loc>' . "\n";
-        echo '        <lastmod>' . $today . '</lastmod>' . "\n";
-        echo '        <changefreq>weekly</changefreq>' . "\n";
-        echo '        <priority>' . $priority . '</priority>' . "\n";
+            echo '    <url>' . "\n";
+            echo '        <loc>' . $loc . '</loc>' . "\n";
+            echo '        <lastmod>' . $today . '</lastmod>' . "\n";
+            echo '        <changefreq>weekly</changefreq>' . "\n";
+            echo '        <priority>' . $priority . '</priority>' . "\n";
 
-        // Hreflang self-referencing (obligatoire)
-        echo '        <xhtml:link rel="alternate" hreflang="' . $langCode . '-' . $countryCode . '" href="' . $loc . '" />' . "\n";
+            // Hreflang self-referencing (obligatoire)
+            echo '        <xhtml:link rel="alternate" hreflang="' . $langCode . '-' . $countryCode . '" href="' . $loc . '" />' . "\n";
 
-        // Hreflang croisés : tous les autres pays de la MÊME langue
-        foreach ($countries as $otherCountry) {
-            if ($otherCountry !== $countryCode) {
-                echo '        <xhtml:link rel="alternate" hreflang="' . $langCode . '-' . $otherCountry . '" href="' . $baseUrl . '/' . $langCode . '/' . $otherCountry . '" />' . "\n";
+            // Hreflang croisés : tous les autres pays de la MÊME langue
+            foreach ($countries as $otherCountry) {
+                if ($otherCountry !== $countryCode) {
+                    echo '        <xhtml:link rel="alternate" hreflang="' . $langCode . '-' . $otherCountry . '" href="' . $baseUrl . '/' . $langCode . '/' . $otherCountry . '" />' . "\n";
+                }
             }
-        }
 
-        // x-default → en/US
-        echo '        <xhtml:link rel="alternate" hreflang="x-default" href="' . $baseUrl . '/en/US" />' . "\n";
-        echo '    </url>' . "\n";
+            // x-default → en/US
+            echo '        <xhtml:link rel="alternate" hreflang="x-default" href="' . $baseUrl . '/en/US" />' . "\n";
+            echo '    </url>' . "\n";
+        }
     }
-}
-?>
+    ?>
 
 </urlset>
-
